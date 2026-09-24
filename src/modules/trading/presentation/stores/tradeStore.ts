@@ -14,6 +14,8 @@ export interface TradeState {
   /** First price seen this session, the base for the change figure until candles exist. */
   openPrices: Record<string, number>;
   lastPriceAt: string | null;
+  /** Live funding per option id. */
+  funding: MarketListing["funding"];
   account: AccountView | null;
   positions: PositionView[];
   orders: OrderView[];
@@ -47,6 +49,7 @@ export const createTradeStore = (container: TradingContainer) =>
     previousPrices: {},
     openPrices: {},
     lastPriceAt: null,
+    funding: {},
     account: null,
     positions: [],
     orders: [],
@@ -69,6 +72,7 @@ export const createTradeStore = (container: TradingContainer) =>
           listings,
           prices,
           openPrices: prices,
+          funding: Object.assign({}, ...listings.map((listing) => listing.funding)),
           account,
           positions,
           orders,
@@ -80,8 +84,9 @@ export const createTradeStore = (container: TradingContainer) =>
     },
 
     applyPrice(update) {
-      const { prices, previousPrices, openPrices } = get();
+      const { prices, previousPrices, openPrices, funding } = get();
       set({
+        funding: { ...funding, [update.optionId]: update.funding },
         prices: { ...prices, [update.optionId]: update.price },
         previousPrices: { ...previousPrices, [update.optionId]: update.previousPrice ?? prices[update.optionId] },
         openPrices: update.optionId in openPrices ? openPrices : { ...openPrices, [update.optionId]: update.price },

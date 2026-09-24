@@ -29,6 +29,22 @@ export const resolveEvent = ({
   return listing ? { kind: "selected", listing } : { kind: "empty" };
 };
 
+/**
+ * Events shown in the header dropdown: favourites first if asked, then a
+ * case-insensitive name match.
+ */
+export const filterEvents = (
+  listings: readonly MarketListing[],
+  { query, favoritesOnly, favorites }: { query: string; favoritesOnly: boolean; favorites: readonly string[] },
+) => {
+  const needle = query.trim().toLowerCase();
+  return listings.filter(
+    (listing) =>
+      (!favoritesOnly || favorites.includes(listing.market.id)) &&
+      (!needle || listing.market.name.toLowerCase().includes(needle)),
+  );
+};
+
 /** The remembered option for this event if it still exists, otherwise its first option. */
 export const resolveOptionId = (listing: MarketListing, remembered: string | undefined) => {
   const { options } = listing.market;

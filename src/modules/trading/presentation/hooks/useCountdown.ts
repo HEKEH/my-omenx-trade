@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 const pad = (value: number) => String(value).padStart(2, "0");
 
 /**
- * "2d 04:05:06" until `endTime`, ticking every second, as the reference's
- * header countdown. The timer is cleared on unmount.
+ * "2d 04:05:06" until `endTime`, as the reference's header countdown
+ * (empty when there is no end time, "00:00:00" once it has passed).
  */
 export const formatCountdown = (endTime: Date | null, now: number) => {
   if (!endTime) return "";
@@ -19,11 +19,16 @@ export const formatCountdown = (endTime: Date | null, now: number) => {
   return days > 0 ? `${days}d ${clock}` : clock;
 };
 
-export function useCountdown(endTime: Date | null) {
+/** Current time, refreshed every `intervalMs`; the timer is cleared on unmount. */
+export function useNow(intervalMs = 1000) {
   const [now, setNow] = useState(() => Date.now());
   useEffect(() => {
-    const timer = setInterval(() => setNow(Date.now()), 1000);
+    const timer = setInterval(() => setNow(Date.now()), intervalMs);
     return () => clearInterval(timer);
-  }, []);
-  return formatCountdown(endTime, now);
+  }, [intervalMs]);
+  return now;
+}
+
+export function useCountdown(endTime: Date | null) {
+  return formatCountdown(endTime, useNow());
 }

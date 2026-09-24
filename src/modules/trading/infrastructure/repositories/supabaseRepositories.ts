@@ -36,6 +36,7 @@ const toTpSl = (value: number | null, mode: string | null): TpSlSetting | null =
 
 const toListing = (event: EventRow, options: EventOptionRow[]): MarketListing => ({
   market: toMarket({ ...event, options }),
+  startDate: event.start_date ? new Date(event.start_date) : null,
   icon: event.icon,
   category: event.category,
   volume: event.volume,

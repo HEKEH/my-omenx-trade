@@ -20,6 +20,7 @@ export class SupabaseRealtimeFeed implements RealtimeFeed {
           eventId: row.event_id,
           price: Number(row.price),
           previousPrice: payload.old.price === undefined ? null : Number(payload.old.price),
+          funding: { ratePerHour: Number(row.funding_rate), nextFundingAt: row.next_funding_at },
           at: payload.commit_timestamp,
         });
       })

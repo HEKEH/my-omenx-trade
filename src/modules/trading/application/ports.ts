@@ -17,6 +17,7 @@ import type {
 /** An event as the trade page shows it: the domain market plus display metadata. */
 export interface MarketListing {
   market: Market;
+  startDate: Date | null;
   icon: string;
   category: string;
   volume: string | null;
@@ -141,6 +142,8 @@ export interface PriceUpdate {
   eventId: string;
   price: number;
   previousPrice: number | null;
+  /** Funding carried on the same row; refreshed hourly by the backend. */
+  funding: { ratePerHour: number; nextFundingAt: string | null };
   at: string;
 }
 
