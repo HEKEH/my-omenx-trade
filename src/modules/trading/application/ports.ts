@@ -159,12 +159,19 @@ export interface RecentTrade {
   side: OrderSide;
 }
 
+/** The underlying quantity an event tracks (tweet count, asset price), shown in the header. */
+export interface ReferenceIndicator {
+  kind: "tweets" | "price";
+  value: string;
+  /** e.g. "+1.56%" */
+  change24h?: string;
+}
+
 export interface MarketStats {
   volume24h: string;
   openInterest: string;
-  high24h: number;
-  low24h: number;
-  marketCap: string;
+  /** Absent for events without a tracked quantity; the header then hides the indicator. */
+  indicator: ReferenceIndicator | null;
 }
 
 export interface MarketDataSnapshot {

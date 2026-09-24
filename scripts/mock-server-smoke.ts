@@ -9,7 +9,9 @@ import assert from "node:assert/strict";
 import { createControls } from "@/modules/trading/infrastructure/mock-server/devtools";
 import { createMockBackend, MOCK_USER_ID, noLatency } from "@/modules/trading/infrastructure/mock-server";
 import type { PostgresChangesPayload, PositionRow, TradeRow } from "@/modules/trading/infrastructure/supabase-shape/rows";
-import { orderCost, round2 } from "@/modules/trading/domain";
+import { DomainError, mirrorPrice, orderCost, round2 } from "@/modules/trading/domain";
+import { cancelOrder, closePosition, getPositionDetail, placeOrder } from "@/modules/trading/application";
+import { createTradingContainer } from "@/modules/trading/infrastructure/container";
 
 // Field sets of the reference project's Supabase rows (src/integrations/supabase/types.ts).
 const REFERENCE_KEYS = {
@@ -168,6 +170,107 @@ async function main() {
   console.log(`  ${payloads.length} payloads across ${[...tables].join(", ")} ✓`);
 
   console.log("\nmock backend smoke: all checks passed");
+  await runUseCaseChecks();
+}
+
+/** The same backend, driven through the application use cases (M3). */
+async function runUseCaseChecks() {
+  console.log("\n=== through the application layer ===");
+  const container = createTradingContainer({ latency: noLatency, autoStart: false });
+  const { deps, markets, realtime, backend } = container;
+  const balance = async () => (await deps.account.getAccount()).balance;
+  const livePrices = () => Object.fromEntries(backend.db.rows("event_options").map((row) => [row.id, row.price]));
+  let positionPushes = 0;
+  let orderPushes = 0;
+  const offPositions = realtime.onPositionsChanged(() => positionPushes++);
+  const offOrders = realtime.onOrdersChanged(() => orderPushes++);
+
+  step("market listings");
+  const listings = await markets.listActiveMarkets();
+  assert.equal(listings.length, 7);
+  const listing = (id: string) => listings.find((row) => row.market.id === id)!;
+  assert.equal(listing("7").market.sideLabels?.yes, "Lakers");
+  assert.equal(typeof listing("2").funding["2-3"].ratePerHour, "number");
+  console.log("  7 listings with funding and side labels ✓");
+
+  step("multi-outcome: add to the long position");
+  let before = await balance();
+  const added = await placeOrder(deps, { listing: listing("2"), optionId: "2-3", side: "buy", orderType: "Market", amount: 100, leverage: 10 });
+  assert.equal(added.outcome.intent, "add");
+  assert.equal(await balance(), round2(before - added.quote.cost.total));
+  const pos1 = (await deps.positions.listOpen()).find((row) => row.id === "pos-1")!;
+  assert.equal(pos1.size, 3459 + added.quote.preview.quantity);
+  console.log(`  +${added.quote.preview.quantity} contracts, cost ${added.quote.cost.total} ✓`);
+
+  step("multi-outcome: a Yes buy reduces the No (short) position at 1 - p");
+  before = await balance();
+  const pos2 = (await deps.positions.listOpen()).find((row) => row.id === "pos-2")!;
+  const reduced = await placeOrder(deps, { listing: listing("4"), optionId: "4-1", side: "buy", orderType: "Market", amount: 10, leverage: 5 });
+  assert.equal(reduced.outcome.intent, "reduce");
+  assert.equal(reduced.quote.cost.margin, 0);
+  const qty = reduced.quote.preview.quantity;
+  const closePrice = mirrorPrice(reduced.quote.price);
+  const expectedPnl = (closePrice - pos2.entryPrice) * qty - pos2.fundingAccrued * (qty / pos2.size);
+  const expectedDelta = round2(pos2.margin * (qty / pos2.size) + expectedPnl - reduced.quote.cost.fee);
+  assert.equal(reduced.outcome.balanceDelta, expectedDelta);
+  assert.equal(await balance(), round2(before + expectedDelta));
+  console.log(`  closed ${qty} at ${closePrice}, delta ${expectedDelta} ✓`);
+
+  step("multi-outcome limit: reserve, then cancel refunds (E-30)");
+  before = await balance();
+  const limit = await placeOrder(deps, { listing: listing("3"), optionId: "3-1", side: "buy", orderType: "Limit", amount: 10, leverage: 2, limitPrice: 0.1 });
+  assert.equal(limit.outcome.status, "Pending");
+  assert.equal(await balance(), round2(before - limit.quote.cost.total));
+  const pending = (await deps.orders.listPending()).find((row) => row.optionLabel === "0.030 - 0.035")!;
+  await cancelOrder(deps, pending.id);
+  assert.equal(await balance(), before);
+  console.log(`  reserved ${limit.quote.cost.total}, refunded ✓`);
+
+  step("multi-outcome limit fills when the price reaches it");
+  await placeOrder(deps, { listing: listing("3"), optionId: "3-1", side: "buy", orderType: "Limit", amount: 10, leverage: 2, limitPrice: 0.12 });
+  before = await balance();
+  backend.db.update("event_options", (row) => row.id === "3-1", { price: 0.11 });
+  backend.simulator.checkLimitOrders();
+  await new Promise((resolve) => setTimeout(resolve, 20));
+  const filledPosition = (await deps.positions.listOpen()).find((row) => row.optionLabel === "0.030 - 0.035");
+  assert.ok(filledPosition, "limit order opened a position");
+  assert.equal(filledPosition!.entryPrice, 0.12);
+  assert.equal(await balance(), before, "fill charges nothing: funds were reserved");
+  console.log(`  filled at 0.12, size ${filledPosition!.size} ✓`);
+
+  step("partial close credits margin and P&L back (FIX-5)");
+  before = await balance();
+  const closed = await closePosition(deps, { positionId: "pos-1", quantity: 1000, livePrices: livePrices() });
+  assert.equal(closed.closedQuantity, 1000);
+  assert.equal(closed.fullyClosed, false);
+  assert.equal(await balance(), round2(before + closed.balanceDelta));
+  console.log(`  closed 1000, delta ${closed.balanceDelta} ✓`);
+
+  step("blocked and unaffordable orders are refused");
+  await assert.rejects(
+    placeOrder(deps, { listing: listing("6"), optionId: "6-2", side: "buy", orderType: "Market", amount: 1000, leverage: 10 }),
+    (error: unknown) => error instanceof DomainError && error.code === "blocked-cross-zero",
+  );
+  await assert.rejects(
+    placeOrder(deps, { listing: listing("2"), optionId: "2-5", side: "buy", orderType: "Market", amount: 1_000_000, leverage: 1 }),
+    (error: unknown) => error instanceof DomainError && error.code === "insufficient-balance",
+  );
+  console.log("  cross-zero and insufficient balance rejected ✓");
+
+  step("position detail");
+  const position = (await deps.positions.listOpen()).find((row) => row.id === "pos-1")!;
+  const detail = await getPositionDetail(deps, { position, livePrices: livePrices(), funding: listing("2").funding["2-3"] });
+  assert.equal(detail.markPrice, livePrices()["2-3"]);
+  assert.ok(Array.isArray(detail.history));
+  console.log(`  mark ${detail.markPrice}, net P&L ${detail.netPnl.toFixed(2)}, ${detail.history.length} funding entries ✓`);
+
+  step("realtime pushes reach the application feed");
+  assert.ok(positionPushes > 0 && orderPushes > 0);
+  offPositions();
+  offOrders();
+  console.log(`  ${positionPushes} position pushes, ${orderPushes} order pushes ✓`);
+
+  console.log("\nuse-case smoke: all checks passed");
 }
 
 main().catch((error) => {
