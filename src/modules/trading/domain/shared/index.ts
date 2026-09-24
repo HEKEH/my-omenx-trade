@@ -20,15 +20,22 @@ export const UI_LEVERAGE: Bounds = { min: 1, max: 10 };
 /** Leverage the server accepts. */
 export const SERVER_LEVERAGE: Bounds = { min: 1, max: 100 };
 
+/** Moves the decimal point by adjusting the exponent of the number's string form. */
+const shiftExponent = (value: number, by: number) => {
+  const [mantissa, exponent = "0"] = String(value).split("e");
+  return Number(`${mantissa}e${Number(exponent) + by}`);
+};
+
 /**
- * Rounds half away from zero. Shifting the exponent through the string form
- * avoids binary drift such as `1.005 * 100 === 100.49999…`.
+ * Rounds half away from zero. Shifting through the string form avoids binary
+ * drift such as `1.005 * 100 === 100.49999…`; the exponent is adjusted rather
+ * than appended so values already printed as `5e-10` stay parseable.
  */
 export function roundTo(value: number, digits: number): number {
   if (!Number.isFinite(value)) return value;
   const sign = value < 0 ? -1 : 1;
-  const shifted = Math.round(Number(`${Math.abs(value)}e${digits}`));
-  return sign * Number(`${shifted}e-${digits}`);
+  const shifted = Math.round(shiftExponent(Math.abs(value), digits));
+  return sign * shiftExponent(shifted, -digits);
 }
 
 export const round2 = (value: number) => roundTo(value, 2);

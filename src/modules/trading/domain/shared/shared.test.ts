@@ -24,6 +24,13 @@ describe("rounding", () => {
     expect(round6(0.0000125)).toBe(0.000013);
   });
 
+  it("handles values whose string form is in exponent notation", () => {
+    expect(round6(5e-10)).toBe(0);
+    expect(round6(-5e-10)).toBe(-0);
+    expect(round6(1.25e-7)).toBe(0);
+    expect(round2(1e21)).toBe(1e21);
+  });
+
   it("does not drift on already-rounded values", () => {
     expect(round2(0.1 + 0.2)).toBe(0.3);
     expect(round4(1 - 0.2891)).toBe(0.7109);
