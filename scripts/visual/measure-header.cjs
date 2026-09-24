@@ -29,7 +29,7 @@ const probe = () => {
     };
   };
   const header = document.querySelector("header");
-  const [left, strip, star] = [...header.children].filter((el) => el.tagName !== "BUTTON" || el.querySelector("svg.lucide-star"));
+  const [left, strip] = [...header.children].filter((el) => el.tagName !== "BUTTON" || el.querySelector("svg.lucide-star"));
   const trigger = left?.children[0];
   const name = trigger?.querySelector("span.font-semibold");
   const endsRow = trigger?.querySelector(".text-xs");
@@ -51,8 +51,8 @@ const probe = () => {
     indicatorValue: box(indicator?.querySelector(".font-mono")),
     strip: box(strip),
     ...Object.fromEntries(stats.map((el, i) => [`stat${i}`, { ...box(el), label: box(el.children[0]), value: box(el.children[1]) }])),
-    star: box(header.querySelector("button:last-child")),
-    starIcon: box(header.querySelector("button:last-child svg")),
+    star: box(header.lastElementChild),
+    starIcon: box(header.lastElementChild?.querySelector("svg")),
     chipsRow: box(chips),
     chipLabel: box(chips?.querySelector("span")),
     selectedChip: box(selectedChip),

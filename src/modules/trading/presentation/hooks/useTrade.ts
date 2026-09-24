@@ -3,6 +3,7 @@
 import { useStore } from "zustand";
 import { useShallow } from "zustand/react/shallow";
 import { useTradeContext } from "../components/TradeMockProvider";
+import type { TradeFormActions, TradeFormState } from "../stores/tradeFormStore";
 import type { TradeActions, TradeState } from "../stores/tradeStore";
 
 type Store = TradeState & TradeActions;
@@ -20,3 +21,13 @@ export function useTradeShallow<T>(selector: (state: Store) => T): T {
 }
 
 export const useTradeActions = () => useTradeContext().store.getState();
+
+type Form = TradeFormState & TradeFormActions;
+
+/** Reads order form state. */
+export function useTradeForm<T>(selector: (state: Form) => T): T {
+  const { form } = useTradeContext();
+  return useStore(form, selector);
+}
+
+export const useTradeFormActions = () => useTradeContext().form.getState();

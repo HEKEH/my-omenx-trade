@@ -2,11 +2,13 @@
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { createTradingContainer, type TradingContainer } from "../../infrastructure/container";
+import { createTradeFormStore, type TradeFormStore } from "../stores/tradeFormStore";
 import { createTradeStore, type TradeStore } from "../stores/tradeStore";
 
 interface TradeContextValue {
   container: TradingContainer;
   store: TradeStore;
+  form: TradeFormStore;
 }
 
 const TradeContext = createContext<TradeContextValue | null>(null);
@@ -50,7 +52,7 @@ export function TradeMockProvider({ children, fallback }: { children: ReactNode;
       };
     }
     // eslint-disable-next-line react-hooks/set-state-in-effect -- the container must be created on the client only
-    setValue({ container, store });
+    setValue({ container, store, form: createTradeFormStore() });
     return () => {
       unsubscribe.forEach((off) => off());
       container.stop();
