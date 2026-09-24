@@ -16,6 +16,7 @@ export function TradeScreen() {
   const binary = isBinaryMarket(market.options);
   return (
     <TradeLayout
+      eventId={market.id}
       // Sections are filled in by milestones M5–M9; placeholders keep the layout measurable.
       header={<header className="flex items-center gap-4 px-4 py-2 bg-background border-b border-border/30" />}
       optionChips={binary ? undefined : <div className="flex items-center gap-2 px-4 py-2 border-b border-border/30" />}

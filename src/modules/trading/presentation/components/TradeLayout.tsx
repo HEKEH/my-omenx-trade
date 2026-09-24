@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 
 interface TradeLayoutProps {
+  /** Exposed as `data-event-id` so tooling can tell which event is on screen. */
+  eventId: string;
   header: ReactNode;
   /** Only multi-outcome events show the option chips row. */
   optionChips?: ReactNode;
@@ -17,9 +19,9 @@ interface TradeLayoutProps {
  * chart and order book above the positions panel, and a fixed 280px right
  * column with the trade form and account risk card.
  */
-export function TradeLayout({ header, optionChips, chart, orderBook, bottomPanel, tradeForm, riskCard }: TradeLayoutProps) {
+export function TradeLayout({ eventId, header, optionChips, chart, orderBook, bottomPanel, tradeForm, riskCard }: TradeLayoutProps) {
   return (
-    <div className="h-screen flex flex-col bg-background overflow-hidden">
+    <div data-event-id={eventId} className="h-screen flex flex-col bg-background overflow-hidden">
       {header}
       {optionChips}
 

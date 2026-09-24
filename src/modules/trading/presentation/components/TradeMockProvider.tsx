@@ -40,6 +40,15 @@ export function TradeMockProvider({ children, fallback }: { children: ReactNode;
     ];
     container.start();
     void store.getState().load();
+    // After a devtools reset the page reloads its data, so states like "no events" can be reproduced.
+    const controls = typeof window === "undefined" ? undefined : window.__tradeMock;
+    if (controls) {
+      const reset = controls.reset;
+      controls.reset = (overrides) => {
+        reset(overrides);
+        void store.getState().load();
+      };
+    }
     // eslint-disable-next-line react-hooks/set-state-in-effect -- the container must be created on the client only
     setValue({ container, store });
     return () => {
