@@ -38,6 +38,32 @@ export function roundTo(value: number, digits: number): number {
   return sign * shiftExponent(shifted, -digits);
 }
 
+/** A decimal as an integer count of `10^-digits` units, e.g. 0.2891 → 2891. */
+export const toUnits = (value: number, digits: number) => Math.round(shiftExponent(value, digits));
+
+/**
+ * `numerator / denominator` rounded half away from zero, for integers. Money
+ * math goes through integer units so halves round like the server's exact
+ * decimals (floating point puts 0.35 / 0.1 at 3.4999…).
+ */
+export const divRoundHalfUp = (numerator: number, denominator: number): number => {
+  if (numerator < 0) return -divRoundHalfUp(-numerator, denominator);
+  return Math.floor((2 * numerator + denominator) / (2 * denominator));
+};
+
+/** `price × quantity` in 1e-4 USDC units (prices carry four decimals). */
+export const notionalUnits = (price: number, quantity: number) => toUnits(price, 4) * quantity;
+
+/** Fee rate in basis points (1e-4), as an integer. */
+const FEE_BPS = toUnits(FEE_RATE, 4);
+
+/**
+ * Fee on `price × quantity`, rounded to cents exactly as the server does:
+ * cents = notional units × bps / 1e6.
+ */
+export const feeFor = (price: number, quantity: number) =>
+  divRoundHalfUp(notionalUnits(price, quantity) * FEE_BPS, 1e6) / 100;
+
 export const round2 = (value: number) => roundTo(value, 2);
 export const round4 = (value: number) => roundTo(value, 4);
 export const round6 = (value: number) => roundTo(value, 6);

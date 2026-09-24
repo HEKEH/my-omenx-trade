@@ -50,7 +50,10 @@ describe("close quantity", () => {
     expect(clampCloseQuantity(0, 100)).toBe(1);
     expect(clampCloseQuantity(40.7, 100)).toBe(40);
     expect(clampCloseQuantity(500, 100)).toBe(100);
-    expect(clampCloseQuantity(1, 0.5)).toBe(1);
+  });
+
+  it("never closes more than the position holds", () => {
+    expect(clampCloseQuantity(1, 0.5)).toBe(0);
   });
 
   it("maps quick ratios to contract counts", () => {
@@ -73,6 +76,12 @@ describe("close", () => {
     expect(partial.balanceDelta).toBe(24.99);
     expect(partial.remaining).toEqual({ size: 50, margin: 20, fundingAccrued: 2.5 });
     expect(partial.fullyClosed).toBe(false);
+  });
+
+  it("charges the close fee on the close price, not the entry", () => {
+    const wide = { size: 1000, entryPrice: 0.1, margin: 10, fundingAccrued: 0 };
+    // 0.9 * 1000 * 0.0005 = 0.45 (the entry price would give 0.05)
+    expect(computeClose({ position: wide, quantity: 1000, closePrice: 0.9 }).fee).toBe(0.45);
   });
 
   it("fully closes when the whole size is taken", () => {
@@ -111,7 +120,8 @@ describe("position detail", () => {
     expect(detail.netPnl).toBeCloseTo(8, 9);
     expect(detail.pnlPercent).toBeCloseTo(20, 9);
     expect(detail.notional).toBeCloseTo(50, 9);
-    expect(detail.openFee).toBeCloseTo(0.02, 9);
-    expect(detail.estCloseFee).toBeCloseTo(0.025, 9);
+    expect(detail.openFee).toBe(0.02);
+    // 50 * 0.0005 = 0.025 -> 0.03, the same fee a close would charge
+    expect(detail.estCloseFee).toBe(0.03);
   });
 });

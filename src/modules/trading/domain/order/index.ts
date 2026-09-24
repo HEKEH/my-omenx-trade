@@ -1,20 +1,32 @@
 import {
-  FEE_RATE,
   UI_LEVERAGE,
   clamp01,
+  divRoundHalfUp,
+  feeFor,
   isContractQuantity,
   isValidLeverage,
   isValidPrice,
+  notionalUnits,
   round2,
   round4,
+  toUnits,
   type Bounds,
+  type OrderSide,
 } from "../shared";
 
 export type OrderType = "Market" | "Limit";
 
-/** Contracts bought by `amount` of margin at `leverage` (whole contracts). */
-export const quantityForAmount = (amount: number, leverage: number, price: number) =>
-  price > 0 && amount > 0 ? Math.round((amount * leverage) / price) : 0;
+/**
+ * Contracts bought by `amount` of margin at `leverage`, rounded half up to
+ * whole contracts. Computed in cents and 1e-4 price units so an exact half
+ * (0.35 / 0.1 = 3.5) is not lost to floating point.
+ */
+export const quantityForAmount = (amount: number, leverage: number, price: number) => {
+  const priceUnits = toUnits(price, 4);
+  const amountCents = toUnits(amount, 2);
+  if (priceUnits <= 0 || amountCents <= 0) return 0;
+  return divRoundHalfUp(amountCents * leverage * 100, priceUnits);
+};
 
 /** Margin-sized amount that buys `quantity` contracts. */
 export const amountForQuantity = (quantity: number, leverage: number, price: number) =>
@@ -42,10 +54,11 @@ export const orderCost = ({
   leverage: number;
   reducing: boolean;
 }): OrderCost => {
-  const notional = price * quantity;
-  const margin = reducing || leverage <= 0 ? 0 : round2(notional / leverage);
-  const fee = round2(notional * FEE_RATE);
-  return { notional: round2(notional), margin, fee, total: round2(margin + fee) };
+  // Exact decimal math, like the server: notional in 1e-4 units, money in cents.
+  const units = notionalUnits(price, quantity);
+  const margin = reducing || leverage <= 0 ? 0 : divRoundHalfUp(units, leverage * 100) / 100;
+  const fee = feeFor(price, quantity);
+  return { notional: divRoundHalfUp(units, 100) / 100, margin, fee, total: round2(margin + fee) };
 };
 
 export interface OrderPreview {
@@ -72,7 +85,7 @@ export const computeOrderPreview = ({
   return {
     quantity,
     cost: orderCost({ price, quantity, leverage, reducing: false }),
-    potentialWin: Math.round((1 - price) * quantity),
+    potentialWin: divRoundHalfUp((10_000 - toUnits(price, 4)) * quantity, 10_000),
   };
 };
 
@@ -114,10 +127,15 @@ export type OrderRuleViolation =
   | "invalid-amount"
   | "invalid-quantity"
   | "invalid-leverage"
+  | "invalid-order-type"
+  | "invalid-side"
+  | "margin-too-small"
   | "insufficient-balance";
 
 const MAX_AMOUNT = 10_000_000;
 const MAX_QUANTITY = 100_000_000;
+
+const ORDER_TYPES: readonly string[] = ["Market", "Limit"];
 
 /** Every rule the order breaks; empty when it can be submitted. */
 export const validateOrder = ({
@@ -125,8 +143,13 @@ export const validateOrder = ({
   amount,
   quantity,
   leverage,
+  orderType,
   total,
   availableBalance,
+  side = "buy",
+  binary = false,
+  margin,
+  reducing = false,
   leverageBounds = UI_LEVERAGE,
 }: {
   price: number;
@@ -136,10 +159,19 @@ export const validateOrder = ({
   orderType: OrderType;
   total: number;
   availableBalance: number;
+  side?: OrderSide;
+  /** Binary markets only take buy orders (No is bought, not sold). */
+  binary?: boolean;
+  /** Margin the order posts; an opening order must post more than 0. */
+  margin?: number;
+  reducing?: boolean;
   leverageBounds?: Bounds;
 }): OrderRuleViolation[] => {
   const violations: OrderRuleViolation[] = [];
-  if (!isValidPrice(price)) violations.push("invalid-price");
+  if (!isValidPrice(price) || round4(price) !== price) violations.push("invalid-price");
+  if (!ORDER_TYPES.includes(orderType)) violations.push("invalid-order-type");
+  if (binary && side !== "buy") violations.push("invalid-side");
+  if (margin !== undefined && !reducing && !(margin > 0)) violations.push("margin-too-small");
   if (!(amount > 0 && amount <= MAX_AMOUNT)) violations.push("invalid-amount");
   if (!isContractQuantity(quantity) || quantity > MAX_QUANTITY) violations.push("invalid-quantity");
   if (!isValidLeverage(leverage, leverageBounds)) violations.push("invalid-leverage");

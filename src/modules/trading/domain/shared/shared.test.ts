@@ -6,6 +6,8 @@ import {
   UI_LEVERAGE,
   clamp,
   clamp01,
+  divRoundHalfUp,
+  toUnits,
   isContractQuantity,
   isValidLeverage,
   isValidPrice,
@@ -34,6 +36,20 @@ describe("rounding", () => {
   it("does not drift on already-rounded values", () => {
     expect(round2(0.1 + 0.2)).toBe(0.3);
     expect(round4(1 - 0.2891)).toBe(0.7109);
+  });
+});
+
+describe("exact decimal arithmetic", () => {
+  it("converts decimals to integer units without drift", () => {
+    expect(toUnits(0.2891, 4)).toBe(2891);
+    expect(toUnits(0.35, 2)).toBe(35);
+  });
+
+  it("divides integers rounding half up", () => {
+    expect(divRoundHalfUp(7, 2)).toBe(4);
+    expect(divRoundHalfUp(5, 2)).toBe(3);
+    expect(divRoundHalfUp(4, 3)).toBe(1);
+    expect(divRoundHalfUp(0, 3)).toBe(0);
   });
 });
 

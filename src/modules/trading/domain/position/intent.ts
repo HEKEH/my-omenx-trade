@@ -49,8 +49,9 @@ const OPEN_ORDER_STATUSES = new Set(["Pending", "Partial Filled"]);
 
 const sameLabel = (a: string, b: string) => a.trim().toLowerCase() === b.trim().toLowerCase();
 
-const byCreatedAt = (a: PositionSnapshot, b: PositionSnapshot) =>
-  (a.createdAt ?? "").localeCompare(b.createdAt ?? "");
+/** Oldest first, ties broken by id: the order the server nets positions in. */
+const oldestFirst = (a: PositionSnapshot, b: PositionSnapshot) =>
+  (a.createdAt ?? "").localeCompare(b.createdAt ?? "") || a.id.localeCompare(b.id);
 
 /**
  * Decides what an order does to the user's exposure on one option.
@@ -87,11 +88,13 @@ export const classifyOrderIntent = ({
   const orderPrice = round4(price);
   const binaryBuy = binary && side === "buy";
   const inMarket = positions.filter((position) => position.eventName === eventName);
-  const relevant = inMarket.filter(
-    (position) =>
-      !position.isAirdrop &&
-      (binaryBuy ? binaryOutcome(position.optionLabel) !== null : sameLabel(position.optionLabel, optionLabel)),
-  );
+  const relevant = inMarket
+    .filter(
+      (position) =>
+        !position.isAirdrop &&
+        (binaryBuy ? binaryOutcome(position.optionLabel) !== null : sameLabel(position.optionLabel, optionLabel)),
+    )
+    .sort(oldestFirst);
 
   const isSame = (position: PositionSnapshot) =>
     binaryBuy ? sameLabel(position.optionLabel, optionLabel) : position.side === orderSide;
@@ -100,7 +103,7 @@ export const classifyOrderIntent = ({
   const existingPosition = oppositeSide ?? sameSide;
   const matching = existingPosition
     ? binaryBuy
-      ? relevant.filter((position) => sameLabel(position.optionLabel, existingPosition.optionLabel)).sort(byCreatedAt)
+      ? relevant.filter((position) => sameLabel(position.optionLabel, existingPosition.optionLabel))
       : [existingPosition]
     : [];
 

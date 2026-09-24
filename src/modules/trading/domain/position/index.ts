@@ -1,4 +1,4 @@
-import { FEE_RATE, clamp01, round2, round4 } from "../shared";
+import { clamp01, feeFor, round2, round4 } from "../shared";
 import type { TpSlKind, TpSlMode } from "../order";
 
 export * from "./intent";
@@ -38,11 +38,9 @@ export const averageEntry = (
   return size > 0 ? (position.size * position.entryPrice + fill.quantity * fill.price) / size : fill.price;
 };
 
-/** Close size in whole contracts, between 1 and the (floored) position size. */
-export const clampCloseQuantity = (requested: number, size: number) => {
-  const max = Math.max(1, Math.floor(size));
-  return Math.min(max, Math.max(1, Math.floor(requested || 0)));
-};
+/** Close size in whole contracts: at least 1, never more than the position holds. */
+export const clampCloseQuantity = (requested: number, size: number) =>
+  Math.min(Math.max(1, Math.floor(requested || 0)), Math.floor(size));
 
 /** Contracts for a quick-close ratio such as 25%. */
 export const quickCloseQuantity = (size: number, percent: number) =>
@@ -83,7 +81,7 @@ export const computeClose = ({
   const releasedMargin = position.margin * share;
   const fundingSlice = position.fundingAccrued * share;
   const realizedPnl = (closePrice - position.entryPrice) * closed - fundingSlice;
-  const fee = round2(closePrice * closed * FEE_RATE);
+  const fee = feeFor(closePrice, closed);
   const fullyClosed = closed >= position.size;
   return {
     quantity: closed,
@@ -143,7 +141,7 @@ export const positionDetail = ({
     netPnl,
     pnlPercent: returnOnMargin(netPnl, position.margin),
     notional,
-    openFee: position.size * position.entryPrice * FEE_RATE,
-    estCloseFee: notional * FEE_RATE,
+    openFee: feeFor(position.entryPrice, position.size),
+    estCloseFee: feeFor(markPrice, position.size),
   };
 };

@@ -70,6 +70,41 @@ describe("binary netting", () => {
     expect(binaryIntent([yes, { ...yes, id: "p2", isAirdrop: true }], "No", 50).kind).toBe("blocked-market");
   });
 
+  it("treats a short Yes/No position as a legacy conflict", () => {
+    expect(binaryIntent([{ ...yes, side: "short" }], "Yes", 10).kind).toBe("blocked-market");
+  });
+
+  it("only counts open buy orders on the same market as pending", () => {
+    const base = { eventName: "market-1", optionLabel: "No", side: "buy" as const, quantity: 60, status: "Pending" };
+    expect(binaryIntent([yes], "No", 50, [{ ...base, side: "sell" }]).kind).toBe("reduce");
+    expect(binaryIntent([yes], "No", 50, [{ ...base, eventName: "other" }]).kind).toBe("reduce");
+    expect(binaryIntent([yes], "No", 50, [{ ...base, status: "Partial Filled" }]).kind).toBe("blocked-cross-zero");
+  });
+
+  it("tolerates rounding noise at the close boundary but not a real excess", () => {
+    expect(binaryIntent([yes], "No", 100.0000005).kind).toBe("close");
+    expect(binaryIntent([yes], "No", 100.00001).kind).toBe("blocked-cross-zero");
+  });
+
+  it("adds to the oldest same-outcome position", () => {
+    const older = { ...yes, id: "old", createdAt: "2026-01-01T00:00:00Z" };
+    const newer = { ...yes, id: "new", createdAt: "2026-02-01T00:00:00Z" };
+    expect(binaryIntent([newer, older], "Yes", 10).existingPosition?.id).toBe("old");
+  });
+
+  it("breaks created-at ties by id, like the server", () => {
+    const a = { ...yes, id: "a", size: 30, margin: 12, fundingAccrued: 0, entryPrice: 0.4, createdAt: "2026-01-01T00:00:00Z" };
+    const b = { ...yes, id: "b", size: 70, margin: 28, fundingAccrued: 0, entryPrice: 0.5, createdAt: "2026-01-01T00:00:00Z" };
+    // `a` sorts first by id, so 30 close at entry 0.40 and 10 at entry 0.50
+    expect(binaryIntent([b, a], "No", 40).realizedPnl).toBeCloseTo(0.15 * 30 + 0.05 * 10, 9);
+  });
+
+  it("reports signed exposure for an open", () => {
+    const open = binaryIntent([], "No", 30);
+    expect(open.qBefore).toBe(0);
+    expect(open.qAfter).toBe(-30);
+  });
+
   it("adds to a same-outcome position and charges margin on the increase", () => {
     const add = binaryIntent([yes], "Yes", 20);
     expect(add.kind).toBe("add");
@@ -130,6 +165,24 @@ describe("multi-outcome options", () => {
     expect(reduce.releasedMargin).toBeCloseTo(3.5, 9);
     expect(reduce.realizedPnl).toBeCloseTo((0.75 - 0.7) * 50, 9);
     expect(intent("buy", 100, 0.25).kind).toBe("close");
+  });
+
+  it("tolerates rounding noise at the close boundary but not a real excess", () => {
+    expect(intent("buy", 100.0000005, 0.25).kind).toBe("close");
+    expect(intent("buy", 100.00001, 0.25).kind).toBe("blocked-cross-zero");
+  });
+
+  it("tracks signed exposure: a short is negative", () => {
+    const reduce = intent("buy", 50, 0.25);
+    expect(reduce.qBefore).toBe(-100);
+    expect(reduce.qAfter).toBe(-50);
+    expect(intent("buy", 10, 0.3, []).qAfter).toBe(10);
+  });
+
+  it("deducts the funding share from realized P&L on multi-outcome closes too", () => {
+    const withFunding = { ...short, fundingAccrued: 4 };
+    const reduce = intent("buy", 50, 0.25, [withFunding]);
+    expect(reduce.realizedPnl).toBeCloseTo((0.75 - 0.7) * 50 - 2, 9);
   });
 
   it("rejects an order that would cross zero", () => {

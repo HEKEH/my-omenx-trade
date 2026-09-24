@@ -15,9 +15,17 @@ describe("quantity", () => {
     expect(quantityForAmount(100, 10, 0.2891)).toBe(3459);
     // 10 * 1 / 0.4 = 25 exactly
     expect(quantityForAmount(10, 1, 0.4)).toBe(25);
-    // 1.25 rounds half up
+    // 1.25 rounds down
     expect(quantityForAmount(0.5, 1, 0.4)).toBe(1);
     expect(quantityForAmount(100, 10, 0)).toBe(0);
+  });
+
+  it("rounds an exact half up even when floating point lands just below it", () => {
+    // 0.35 / 0.1 is 3.4999999999999996 in floating point; the exact value is 3.5
+    expect(quantityForAmount(0.35, 1, 0.1)).toBe(4);
+    expect(quantityForAmount(0.15, 1, 0.1)).toBe(2);
+    // 0.5 * 5 / 1 = 2.5 -> 3, not 2
+    expect(quantityForAmount(0.5, 5, 1)).toBe(3);
   });
 
   it("converts back to the margin-sized amount", () => {
@@ -34,6 +42,20 @@ describe("order cost (server rules)", () => {
       fee: 0.5,
       total: 100.5,
     });
+  });
+
+  it("rounds margin like exact decimal arithmetic", () => {
+    // 0.005 * 2913 / 3 = 4.855 exactly -> 4.86 (floating point gives 4.8549…)
+    expect(orderCost({ price: 0.005, quantity: 2913, leverage: 3, reducing: false }).margin).toBe(4.86);
+    // 0.0225 * 66 / 3 = 0.495 -> 0.50
+    expect(orderCost({ price: 0.0225, quantity: 66, leverage: 3, reducing: false }).margin).toBe(0.5);
+  });
+
+  it("rounds the fee like exact decimal arithmetic", () => {
+    // 0.5 * 20 * 0.0005 = 0.005 exactly -> 0.01
+    expect(orderCost({ price: 0.5, quantity: 20, leverage: 1, reducing: false }).fee).toBe(0.01);
+    // 0.5 * 30 * 0.0005 = 0.0075 -> 0.01
+    expect(orderCost({ price: 0.5, quantity: 30, leverage: 1, reducing: false }).fee).toBe(0.01);
   });
 
   it("needs no margin when the order reduces a position", () => {
@@ -68,6 +90,11 @@ describe("order preview", () => {
     const limit = computeOrderPreview({ amount: 100, leverage: 10, price: 0.25 });
     expect(limit.quantity).toBe(4000);
     expect(limit.quantity).not.toBe(market.quantity);
+  });
+
+  it("rounds the potential win half up", () => {
+    // (1 - 0.7) * 5 = 1.5 -> 2 (floating point gives 1.4999…)
+    expect(computeOrderPreview({ amount: 0.7, leverage: 5, price: 0.7 }).potentialWin).toBe(2);
   });
 
   it("is empty for a zero amount", () => {
@@ -116,5 +143,26 @@ describe("order validation", () => {
     expect(validateOrder({ ...valid, quantity: 1.5 })).toContain("invalid-quantity");
     expect(validateOrder({ ...valid, leverage: 11 })).toContain("invalid-leverage");
     expect(validateOrder({ ...valid, availableBalance: 50 })).toContain("insufficient-balance");
+  });
+
+  it("accepts a balance that exactly covers the total", () => {
+    expect(validateOrder({ ...valid, availableBalance: 100.5 })).toEqual([]);
+  });
+
+  it("rejects prices with more than four decimals", () => {
+    expect(validateOrder({ ...valid, price: 0.30001 })).toContain("invalid-price");
+  });
+
+  it("applies the server's binary-order rules", () => {
+    expect(validateOrder({ ...valid, orderType: "Stop" as never })).toContain("invalid-order-type");
+    expect(validateOrder({ ...valid, binary: true, side: "sell" })).toContain("invalid-side");
+    expect(validateOrder({ ...valid, binary: true, side: "buy" })).toEqual([]);
+  });
+
+  it("rejects an opening order whose margin rounds to zero", () => {
+    // 0.01 * 1 / 10 = 0.001 -> 0.00
+    const tiny = { ...valid, price: 0.01, quantity: 1, amount: 0.001, total: 0 };
+    expect(validateOrder({ ...tiny, margin: 0, reducing: false })).toContain("margin-too-small");
+    expect(validateOrder({ ...tiny, margin: 0, reducing: true })).not.toContain("margin-too-small");
   });
 });

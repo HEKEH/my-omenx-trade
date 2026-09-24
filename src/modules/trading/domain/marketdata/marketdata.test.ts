@@ -55,6 +55,8 @@ describe("order book aggregation", () => {
     // 0.3 / 0.0001 is 2999.9999999999995 in floating point
     expect(aggregateOrderBook([{ price: 0.3, amount: 1 }], 0.0001, "bid")[0].price).toBe(0.3);
     expect(aggregateOrderBook([{ price: 0.3, amount: 1 }], 0.0001, "ask")[0].price).toBe(0.3);
+    // 0.07 / 0.01 is 7.000000000000001 in floating point
+    expect(aggregateOrderBook([{ price: 0.07, amount: 1 }], 0.01, "ask")[0].price).toBe(0.07);
   });
 });
 

@@ -45,6 +45,8 @@ describe("account risk", () => {
     const risk = computeAccountRisk({ balance: 100, positions: [{ margin: 400, unrealizedPnl: 0 }] });
     expect(risk.level).toBe("LIQUIDATION");
     expect(risk.riskRatio).toBe(150);
+    // maintenance 200 / equity 100 = 200% -> shown as 150
+    expect(risk.maintenanceRate).toBe(150);
     expect(risk.availableMargin).toBe(0);
   });
 
