@@ -8,6 +8,7 @@ import { OptionChips } from "./OptionChips";
 import { ChartCard } from "./chart/ChartCard";
 import { TradeHeader } from "./header/TradeHeader";
 import { OrderBookCard } from "./orderbook/OrderBookCard";
+import { TradeFormCard } from "./trade-form/TradeFormCard";
 import { TradeLayout } from "./TradeLayout";
 import { EventEndedState, LoadingState, NoEventsState } from "./TradePageStates";
 
@@ -31,9 +32,9 @@ export function TradeScreen() {
         }
         chart={<ChartCard market={market} option={option} side={side} />}
         orderBook={<OrderBookCard optionId={option?.id} side={side} />}
-        // Remaining sections are filled in by milestones M7–M9.
+        tradeForm={<TradeFormCard listing={listing} market={market} option={option} />}
+        // Remaining sections are filled in by milestones M8–M9.
         bottomPanel={null}
-        tradeForm={null}
       />
     </TooltipProvider>
   );
