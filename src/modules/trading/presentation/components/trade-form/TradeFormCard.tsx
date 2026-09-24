@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { toast } from "sonner";
 import type { MarketListing } from "../../../application";
 import {
   binaryOutcome,
@@ -12,6 +14,7 @@ import {
 } from "../../../domain";
 import { formatInteger } from "../../format";
 import { useOrderPreview } from "../../hooks/useOrderPreview";
+import { usePlaceOrder } from "../../hooks/usePlaceOrder";
 import { useTrade, useTradeActions, useTradeForm, useTradeFormActions } from "../../hooks/useTrade";
 import { intentLabel } from "../../intentLabel";
 import {
@@ -25,6 +28,7 @@ import {
   SizeInput,
   TpSlSection,
 } from "./FormSections";
+import { OrderPreviewDialog } from "../dialogs/OrderPreviewDialog";
 import { SideToggle } from "./SideToggle";
 import { TradeSubmitButton } from "./TradeSubmitButton";
 
@@ -32,18 +36,18 @@ interface TradeFormCardProps {
   listing: MarketListing;
   market: Market;
   option: OutcomeOption | undefined;
-  /** Opens the order preview (M8). */
-  onPreview?: () => void;
 }
 
 /** Right-column trade card (reference DesktopTrading.tsx:1464-1845). */
-export function TradeFormCard({ listing, market, option, onPreview }: TradeFormCardProps) {
+export function TradeFormCard({ listing, market, option }: TradeFormCardProps) {
   const side = useTrade((state) => state.side);
   const balance = useTrade((state) => state.account?.balance ?? 0);
   const actions = useTradeActions();
   const form = useTradeForm((state) => state);
   const formActions = useTradeFormActions();
   const preview = useOrderPreview(listing, market, option, side);
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const { submit, submitting } = usePlaceOrder();
 
   const binary = isBinaryMarket(market.options);
   const labels = binary && market.sideLabels ? market.sideLabels : { yes: "Yes", no: "No" };
@@ -69,6 +73,17 @@ export function TradeFormCard({ listing, market, option, onPreview }: TradeFormC
   const intent = preview?.quote.intent;
   const blocked = intent ? isBlocked(intent.kind) : false;
   const label = intent && option ? intentLabel(intent, side, option.label, binary ? market.sideLabels : undefined) : "";
+  const openPreview = () => {
+    if (intent && isBlocked(intent.kind)) {
+      toast.error(intent.blockReason);
+      return;
+    }
+    setPreviewOpen(true);
+  };
+  const confirm = async () => {
+    if (!preview) return;
+    if (await submit(preview.ticket)) setPreviewOpen(false);
+  };
   const closeAndContinue = () => {
     if (!intent || !preview) return;
     // Size the order to exactly the opposite position.
@@ -146,10 +161,24 @@ export function TradeFormCard({ listing, market, option, onPreview }: TradeFormC
           side={side}
           label={label}
           potentialWin={preview?.hasSize ? formatInteger(preview.quote.preview.potentialWin) : "0"}
-          onClick={() => onPreview?.()}
+          onClick={openPreview}
           disabled={blocked}
         />
       </div>
+
+      {preview && option && (
+        <OrderPreviewDialog
+          open={previewOpen}
+          onOpenChange={setPreviewOpen}
+          market={market}
+          option={option}
+          side={side}
+          preview={preview}
+          marginMode={form.marginMode}
+          onConfirm={confirm}
+          submitting={submitting}
+        />
+      )}
     </>
   );
 }

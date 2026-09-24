@@ -72,5 +72,5 @@ export const createTradeFormStore = () =>
     setTpValue: (tpValue) => set({ tpValue }),
     setSlValue: (slValue) => set({ slValue }),
     applyBookPrice: (price) => set({ orderType: "Limit", limitPrice: price }),
-    resetAfterSubmit: () => set({ size: "0.00", percent: 0, tpValue: "", slValue: "" }),
+    resetAfterSubmit: () => set({ size: "0.00", percent: 0, tpValue: "", slValue: "", tpSlEnabled: false }),
   }));
