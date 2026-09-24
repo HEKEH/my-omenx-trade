@@ -1,7 +1,14 @@
 import { createStore } from "zustand/vanilla";
-import type { AccountView, MarketListing, OrderView, PositionView, PriceUpdate } from "../../application";
+import {
+  loadPortfolio,
+  type AccountView,
+  type MarketListing,
+  type OrderView,
+  type PositionView,
+  type PriceUpdate,
+  type TradingRuntime,
+} from "../../application";
 import type { Market, OrderSide } from "../../domain";
-import type { TradingContainer } from "../../infrastructure/container";
 import { loadFavorites, saveFavorites, saveLastEvent, saveLastOption } from "../storage";
 
 export interface TradeState {
@@ -40,7 +47,7 @@ export type TradeStore = ReturnType<typeof createTradeStore>;
 const pricesOf = (listings: readonly MarketListing[]) =>
   Object.fromEntries(listings.flatMap((listing) => listing.market.options.map((option) => [option.id, option.price])));
 
-export const createTradeStore = (container: TradingContainer) =>
+export const createTradeStore = (runtime: TradingRuntime) =>
   createStore<TradeState & TradeActions>()((set, get) => ({
     status: "loading",
     error: null,
@@ -60,11 +67,9 @@ export const createTradeStore = (container: TradingContainer) =>
 
     async load() {
       try {
-        const [listings, account, positions, orders] = await Promise.all([
-          container.markets.listActiveMarkets(),
-          container.deps.account.getAccount(),
-          container.deps.positions.listOpen(),
-          container.deps.orders.listPending(),
+        const [listings, { account, positions, orders }] = await Promise.all([
+          runtime.markets.listActiveMarkets(),
+          loadPortfolio(runtime.deps),
         ]);
         const prices = pricesOf(listings);
         set({
@@ -95,12 +100,7 @@ export const createTradeStore = (container: TradingContainer) =>
     },
 
     async refreshPortfolio() {
-      const [account, positions, orders] = await Promise.all([
-        container.deps.account.getAccount(),
-        container.deps.positions.listOpen(),
-        container.deps.orders.listPending(),
-      ]);
-      set({ account, positions, orders });
+      set(await loadPortfolio(runtime.deps));
     },
 
     selectEvent(eventId, optionId) {

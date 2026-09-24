@@ -1,5 +1,5 @@
 import { createStore } from "zustand/vanilla";
-import type { OrderType, TpSlMode } from "../../domain";
+import { amountForBalancePercent, type OrderType, type TpSlMode } from "../../domain";
 
 export type InputMode = "amount" | "qty";
 
@@ -65,7 +65,7 @@ export const createTradeFormStore = () =>
     setLimitPrice: (limitPrice) => set({ limitPrice }),
     setSize: (size) => set({ size }),
     toggleInputMode: () => set((state) => ({ inputMode: state.inputMode === "amount" ? "qty" : "amount" })),
-    setPercent: (percent, available) => set({ percent, inputMode: "amount", size: ((available * percent) / 100).toFixed(2) }),
+    setPercent: (percent, available) => set({ percent, inputMode: "amount", size: amountForBalancePercent(available, percent).toFixed(2) }),
     toggleTpSl: () => set((state) => ({ tpSlEnabled: !state.tpSlEnabled })),
     setTpMode: (tpMode) => set({ tpMode }),
     setSlMode: (slMode) => set({ slMode }),

@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { accrueFunding, fundingPerHour, hoursBetween, randomFundingRate } from "./index";
+import {
+  accrueFunding,
+  FUNDING_INTERVAL_MS,
+  fundingPerHour,
+  hoursBetween,
+  nextAccrualAt,
+  randomFundingRate,
+} from "./index";
 
 describe("funding accrual", () => {
   it("charges longs a positive rate on size x mark over the elapsed hours", () => {
@@ -35,5 +42,20 @@ describe("funding rate generation", () => {
     expect(randomFundingRate(() => 0)).toBe(-0.0002);
     expect(randomFundingRate(() => 1)).toBe(0.0002);
     expect(randomFundingRate(() => 0.5)).toBe(0);
+  });
+});
+
+describe("next accrual", () => {
+  it("uses the scheduled time when the server gives one", () => {
+    expect(nextAccrualAt("2026-09-24T10:00:00Z", "2026-09-24T09:00:00Z")).toBe(Date.parse("2026-09-24T10:00:00Z"));
+  });
+
+  it("otherwise expects the next refresh one interval after the last", () => {
+    expect(FUNDING_INTERVAL_MS).toBe(5 * 60_000);
+    expect(nextAccrualAt(null, "2026-09-24T09:00:00Z")).toBe(Date.parse("2026-09-24T09:05:00Z"));
+  });
+
+  it("is unknown when neither time exists", () => {
+    expect(nextAccrualAt(null, null)).toBeNull();
   });
 });

@@ -1,4 +1,4 @@
-import type { MarketDataFeed, MarketRepository, RealtimeFeed, TradingDeps } from "../application";
+import type { TradingRuntime } from "../application";
 import { MockMarketDataFeed } from "./marketdata/feed";
 import {
   MOCK_USER_ID,
@@ -19,15 +19,9 @@ import {
 } from "./repositories/supabaseRepositories";
 import { SupabaseTradingGateway } from "./repositories/tradingGateway";
 
-export interface TradingContainer {
-  deps: TradingDeps;
-  markets: MarketRepository;
-  realtime: RealtimeFeed;
-  marketData: MarketDataFeed;
+/** The runtime plus the mock backend (for tests and dev controls). `start` honours the frozen start and installs the dev controls. */
+export interface TradingContainer extends TradingRuntime {
   backend: MockBackend;
-  /** Starts the background jobs (unless the page should start frozen) and dev controls. */
-  start(): void;
-  stop(): void;
 }
 
 export interface ContainerOptions {

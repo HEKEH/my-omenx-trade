@@ -1,8 +1,7 @@
 "use client";
 
-import { priceChangePercent, type Market, type OrderSide, type OutcomeOption } from "../../../domain";
+import { priceChangePercent, quotePrice, type Market, type OrderSide, type OutcomeOption } from "../../../domain";
 import { useTrade } from "../../hooks/useTrade";
-import { quotePrice } from "../../selectors";
 import { MarkPriceBadge } from "../MarkPriceBadge";
 
 interface ChartCardProps {

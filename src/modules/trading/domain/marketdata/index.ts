@@ -59,8 +59,18 @@ export const mirrorOrderBook = <T extends BookLevel>(book: OrderBook<T>): OrderB
   bids: book.asks.map((level) => ({ ...level, price: mirrorPrice(level.price) })),
 });
 
+/** The book as the order side sees it: as is for Yes (buy), mirrored for No (sell). */
+export const bookForSide = <T extends BookLevel>(book: OrderBook<T>, side: "buy" | "sell"): OrderBook<T> =>
+  side === "sell" ? mirrorOrderBook(book) : book;
+
 /** Width of a depth bar, in percent of the deepest level. */
 export const depthPercent = (total: number, maxTotal: number) => (maxTotal > 0 ? (total / maxTotal) * 100 : 0);
+
+/** Adds each row's depth bar width, scaled to the largest total in the list. */
+export const withDepth = <T extends { total: number }>(rows: readonly T[]): (T & { depth: number })[] => {
+  const max = Math.max(0, ...rows.map((row) => row.total));
+  return rows.map((row) => ({ ...row, depth: depthPercent(row.total, max) }));
+};
 
 export const priceChangePercent = (current: number, base: number) =>
   base > 0 ? round2(((current - base) / base) * 100) : 0;

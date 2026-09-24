@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { getPositionDetail } from "../../../application";
+import { nextAccrualAt } from "../../../domain";
 import { formatInteger, formatPrice } from "../../format";
 import { useNow } from "../../hooks/useCountdown";
 import type { PositionRowView } from "../../hooks/usePositionRows";
@@ -18,11 +19,7 @@ const signed = (value: number, digits = 2) => `${value >= 0 ? "+" : "−"}$${Mat
 
 /** "12m 05s" until the next funding refresh, as the reference. */
 const accrualLabel = (nextFundingAt: string | null, lastFundingAt: string | null, now: number) => {
-  const anchor = nextFundingAt
-    ? new Date(nextFundingAt).getTime()
-    : lastFundingAt
-      ? new Date(lastFundingAt).getTime() + 5 * 60_000
-      : null;
+  const anchor = nextAccrualAt(nextFundingAt, lastFundingAt);
   if (anchor === null) return "Within 5 min";
   const diff = anchor - now;
   if (diff <= 0) return "Any moment";

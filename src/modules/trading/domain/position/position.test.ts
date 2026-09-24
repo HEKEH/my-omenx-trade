@@ -5,6 +5,7 @@ import {
   computeClose,
   estimateTpSlEditPnl,
   liquidationPrice,
+  maxCloseQuantity,
   positionDetail,
   quickCloseQuantity,
   returnOnMargin,
@@ -123,5 +124,13 @@ describe("position detail", () => {
     expect(detail.openFee).toBe(0.02);
     // 50 * 0.0005 = 0.025 -> 0.03, the same fee a close would charge
     expect(detail.estCloseFee).toBe(0.03);
+  });
+});
+
+describe("close bounds", () => {
+  it("closes at most the whole contracts held", () => {
+    expect(maxCloseQuantity(3459)).toBe(3459);
+    expect(maxCloseQuantity(40.7)).toBe(40);
+    expect(maxCloseQuantity(0.5)).toBe(0);
   });
 });

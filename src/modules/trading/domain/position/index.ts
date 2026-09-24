@@ -38,9 +38,12 @@ export const averageEntry = (
   return size > 0 ? (position.size * position.entryPrice + fill.quantity * fill.price) / size : fill.price;
 };
 
+/** Most contracts a close can take: the whole contracts held. */
+export const maxCloseQuantity = (size: number) => Math.floor(size);
+
 /** Close size in whole contracts: at least 1, never more than the position holds. */
 export const clampCloseQuantity = (requested: number, size: number) =>
-  Math.min(Math.max(1, Math.floor(requested || 0)), Math.floor(size));
+  Math.min(Math.max(1, Math.floor(requested || 0)), maxCloseQuantity(size));
 
 /** Contracts for a quick-close ratio such as 25%. */
 export const quickCloseQuantity = (size: number, percent: number) =>

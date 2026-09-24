@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { stepDecimals, type OrderSide } from "../../../domain";
+import { stepDecimals, withDepth, type OrderSide } from "../../../domain";
 import { formatInteger } from "../../format";
 import { useOrderBook, type BookRow } from "../../hooks/useOrderBook";
 import { useTradeFormActions } from "../../hooks/useTrade";
@@ -59,12 +59,6 @@ function LevelRow({
     </div>
   );
 }
-
-/** Recomputes depth bars across a list that repeats levels (the single-side views). */
-const rescale = (rows: BookRow[]) => {
-  const max = Math.max(0, ...rows.map((row) => row.total));
-  return rows.map((row) => ({ ...row, depth: max > 0 ? (row.total / max) * 100 : 0 }));
-};
 
 function CurrentPrice({ price, rising, bordered }: { price: number; rising: boolean; bordered: "y" | "t" }) {
   return (
@@ -185,8 +179,8 @@ export function OrderBookCard({ optionId, side }: { optionId: string | undefined
           {book && viewMode !== "both" && (
             <>
               <div className="flex-1 overflow-y-auto scrollbar-hide">
-                {/* Single-side views repeat the first 8 levels to fill the card, like the reference. */}
-                {rescale(viewMode === "bids" ? [...book.bids, ...book.bids.slice(0, 8)] : [...book.asks, ...book.asks.slice(0, 8)]).map(
+                {/* Single-side views repeat the first 8 levels to fill the card, like the reference; depth bars are rescaled across the repeated list. */}
+                {withDepth(viewMode === "bids" ? [...book.bids, ...book.bids.slice(0, 8)] : [...book.asks, ...book.asks.slice(0, 8)]).map(
                   (row, index) => (
                     <LevelRow
                       key={`${viewMode}-${index}`}

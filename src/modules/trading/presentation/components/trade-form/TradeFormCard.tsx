@@ -4,6 +4,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import type { MarketListing } from "../../../application";
 import {
+  amountForQuantity,
   binaryOutcome,
   isBinaryMarket,
   isBlocked,
@@ -87,8 +88,7 @@ export function TradeFormCard({ listing, market, option }: TradeFormCardProps) {
   const closeAndContinue = () => {
     if (!intent || !preview) return;
     // Size the order to exactly the opposite position.
-    const price = preview.quote.price;
-    formActions.setSize(((intent.existingQty * price) / form.leverage).toFixed(2));
+    formActions.setSize(amountForQuantity(intent.existingQty, form.leverage, preview.quote.price).toFixed(2));
   };
 
   return (

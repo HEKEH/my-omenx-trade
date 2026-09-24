@@ -5,9 +5,10 @@ import {
   displayOptionLabel,
   isBinaryMarket,
   parseSideLabels,
+  quotePrice,
   tradePrices,
-  yesNoOptions,
   type Market,
+  yesNoOptions,
 } from "./index";
 
 const binary: Market = {
@@ -85,5 +86,20 @@ describe("trade prices", () => {
 
   it("falls back to the first option when the selection is unknown", () => {
     expect(tradePrices(multi, "missing")).toEqual({ yes: 0.0823, no: 0.9177 });
+  });
+});
+
+describe("quote price", () => {
+  const multi = { id: "1", name: "m", options: [{ id: "a", label: "A", price: 0.3 }, { id: "b", label: "B", price: 0.7 }] };
+  const binary = { id: "2", name: "b", options: [{ id: "y", label: "Yes", price: 0.62 }, { id: "n", label: "No", price: 0.38 }] };
+
+  it("quotes a multi-outcome option at p for Yes and 1 - p for No", () => {
+    expect(quotePrice(multi, 0.3, "buy")).toBe(0.3);
+    expect(quotePrice(multi, 0.3, "sell")).toBe(0.7);
+  });
+
+  it("quotes a binary market's selected option at its own price on either side", () => {
+    expect(quotePrice(binary, 0.38, "buy")).toBe(0.38);
+    expect(quotePrice(binary, 0.38, "sell")).toBe(0.38);
   });
 });

@@ -1,12 +1,14 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import { createTradingContainer, type TradingContainer } from "../../infrastructure/container";
+import type { TradingRuntime } from "../../application";
+// Composition root: the only presentation file that knows which backend runs.
+import { createTradingContainer } from "../../infrastructure/container";
 import { createTradeFormStore, type TradeFormStore } from "../stores/tradeFormStore";
 import { createTradeStore, type TradeStore } from "../stores/tradeStore";
 
 interface TradeContextValue {
-  container: TradingContainer;
+  container: TradingRuntime;
   store: TradeStore;
   form: TradeFormStore;
 }

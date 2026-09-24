@@ -5,13 +5,13 @@ import { quoteOrder, type MarketListing, type OrderQuote, type OrderTicket, type
 import {
   amountForQuantity,
   estimateTpSlPnl,
+  quotePrice,
   resolveTpSlPrice,
   type Market,
   type OrderSide,
   type OutcomeOption,
   type TpSlKind,
 } from "../../domain";
-import { quotePrice } from "../selectors";
 import type { TradeFormState } from "../stores/tradeFormStore";
 import { useTrade, useTradeForm } from "./useTrade";
 
@@ -66,7 +66,7 @@ export function useOrderPreview(
     const price = form.orderType === "Limit" ? (form.limitPrice ? parse(form.limitPrice) : marketPrice) : marketPrice;
     // In qty mode the input is contracts; convert to the margin-sized amount the domain prices from.
     const amount =
-      form.inputMode === "qty" ? amountForQuantity(Math.round(parse(form.size)), form.leverage, price) : parse(form.size);
+      form.inputMode === "qty" ? amountForQuantity(parse(form.size), form.leverage, price) : parse(form.size);
     const draft: OrderTicket = {
       listing: { ...listing, market },
       optionId: option.id,

@@ -32,7 +32,17 @@ const run = (page, body) => page.evaluate(new Function(`${helpers}; ${body}`));
   const waitText = (text) => page.waitForFunction((t) => document.body.innerText.includes(t), { timeout: 5000 }, text);
   const check = async (name, fn) => {
     console.log(`… ${name}`);
-    await fn();
+    try {
+      await fn();
+    } catch (err) {
+      // Show what was on screen when a step failed.
+      const state = await page.evaluate(() => ({
+        dialog: document.querySelector("[role=dialog], [role=alertdialog]")?.innerText.slice(0, 400) ?? null,
+        toasts: [...document.querySelectorAll("[data-sonner-toast]")].map((t) => t.innerText),
+      }));
+      console.log(JSON.stringify(state, null, 1));
+      throw err;
+    }
     console.log(`✓ ${name}`);
   };
 
@@ -63,6 +73,7 @@ const run = (page, body) => page.evaluate(new Function(`${helpers}; ${body}`));
     await page.waitForSelector("[role=dialog]");
     assert.match(await run(page, "return dialog().innerText;"), /Close position/);
     await run(page, "[...dialog().querySelectorAll('button')].find((b) => b.textContent === '25%').click();");
+    await page.waitForFunction(new Function(`${helpers}; return [...dialog().querySelectorAll('button')].some((b) => /^Close [0-9,]+ contracts$/.test(b.textContent) && !b.disabled);`), { timeout: 5000 });
     await run(page, "[...dialog().querySelectorAll('button')].find((b) => b.textContent.startsWith('Close ') && b.textContent.includes('contracts')).click();");
     await waitText("Closed");
     await page.waitForFunction(

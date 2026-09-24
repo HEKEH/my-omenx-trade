@@ -3,6 +3,19 @@ import { round6, type Side } from "../shared";
 const MAX_HOURLY_RATE = 0.0002;
 const HOUR_MS = 3_600_000;
 
+/** How often funding is refreshed and accrued. */
+export const FUNDING_INTERVAL_MS = 5 * 60_000;
+
+/**
+ * When funding next accrues, in epoch ms: the server's schedule if it has one,
+ * otherwise one interval after the last accrual; `null` when neither is known.
+ */
+export const nextAccrualAt = (nextFundingAt: string | null, lastFundingAt: string | null): number | null => {
+  if (nextFundingAt) return new Date(nextFundingAt).getTime();
+  if (lastFundingAt) return new Date(lastFundingAt).getTime() + FUNDING_INTERVAL_MS;
+  return null;
+};
+
 export const hoursBetween = (from: string | Date, to: Date) =>
   (to.getTime() - new Date(from).getTime()) / HOUR_MS;
 

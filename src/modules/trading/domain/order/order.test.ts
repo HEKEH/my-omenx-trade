@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  amountForBalancePercent,
   amountForQuantity,
   computeOrderPreview,
   estimateTpSlPnl,
@@ -164,5 +165,20 @@ describe("order validation", () => {
     const tiny = { ...valid, price: 0.01, quantity: 1, amount: 0.001, total: 0 };
     expect(validateOrder({ ...tiny, margin: 0, reducing: false })).toContain("margin-too-small");
     expect(validateOrder({ ...tiny, margin: 0, reducing: true })).not.toContain("margin-too-small");
+  });
+});
+
+describe("amount from inputs", () => {
+  it("prices a quantity input as whole contracts", () => {
+    // 3459.4 contracts rounds to 3459, which costs exactly 100.00 at 10x and 0.2891.
+    expect(amountForQuantity(3459.4, 10, 0.2891)).toBe(100);
+    expect(amountForQuantity(3459.4, 10, 0.2891)).toBe(amountForQuantity(3459, 10, 0.2891));
+  });
+
+  it("sizes an order from a share of the available balance, in cents", () => {
+    expect(amountForBalancePercent(1234.56, 25)).toBe(308.64);
+    expect(amountForBalancePercent(0.3, 50)).toBe(0.15);
+    expect(amountForBalancePercent(1000, 0)).toBe(0);
+    expect(amountForBalancePercent(-5, 50)).toBe(0);
   });
 });

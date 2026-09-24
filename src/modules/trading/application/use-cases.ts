@@ -9,9 +9,9 @@ import {
   isReducing,
   orderCost,
   positionDetail,
+  quotePrice,
   round4,
   sidePrice,
-  toSide,
   validateOrder,
   type OrderIntent,
   type OrderPreview,
@@ -21,12 +21,15 @@ import {
 import type {
   AccountRepository,
   ClosePositionOutcome,
+  MarketDataFeed,
   MarketListing,
+  MarketRepository,
   OrderRepository,
   PlaceOrderOutcome,
   PositionRepository,
   PositionView,
   TpSlSetting,
+  RealtimeFeed,
   TradingGateway,
 } from "./ports";
 
@@ -36,6 +39,27 @@ export interface TradingDeps {
   orders: OrderRepository;
   gateway: TradingGateway;
 }
+
+/** What the page runs on: the ports only, whatever backend implements them. */
+export interface TradingRuntime {
+  deps: TradingDeps;
+  markets: MarketRepository;
+  realtime: RealtimeFeed;
+  marketData: MarketDataFeed;
+  /** Starts the background jobs. */
+  start(): void;
+  stop(): void;
+}
+
+/** The signed-in user's balance, open positions and pending orders. */
+export const loadPortfolio = async (deps: TradingDeps) => {
+  const [account, positions, orders] = await Promise.all([
+    deps.account.getAccount(),
+    deps.positions.listOpen(),
+    deps.orders.listPending(),
+  ]);
+  return { account, positions, orders };
+};
 
 export interface OrderTicket {
   listing: MarketListing;
@@ -61,7 +85,7 @@ export const orderPrice = (ticket: Pick<OrderTicket, "listing" | "optionId" | "s
   const { market } = ticket.listing;
   const option = findOption(market, ticket.optionId);
   if (!option) return Number.NaN;
-  return isBinaryMarket(market.options) ? round4(option.price) : sidePrice(option.price, toSide(ticket.side));
+  return quotePrice(market, option.price, ticket.side);
 };
 
 export interface OrderQuote {

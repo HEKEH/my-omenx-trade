@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Slider } from "@/components/ui/slider";
-import { clampCloseQuantity, computeClose, quickCloseQuantity, returnOnMargin } from "../../../domain";
+import { clampCloseQuantity, computeClose, maxCloseQuantity, quickCloseQuantity, returnOnMargin } from "../../../domain";
 import { formatInteger } from "../../format";
 import type { PositionRowView } from "../../hooks/usePositionRows";
 
@@ -28,7 +28,8 @@ interface ClosePositionDialogProps {
 export function ClosePositionDialog({ row, busy, onConfirm, children }: ClosePositionDialogProps) {
   const [open, setOpen] = useState(false);
   const { position, markPrice } = row;
-  const max = Math.max(1, Math.floor(position.size));
+  // At least 1 so the slider range stays valid.
+  const max = Math.max(1, maxCloseQuantity(position.size));
   const [quantity, setQuantity] = useState(max);
   const qty = clampCloseQuantity(quantity, position.size);
   const estimate = computeClose({ position, quantity: qty, closePrice: markPrice });

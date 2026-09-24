@@ -99,13 +99,21 @@ async function geometry(page) {
   await check("favorites filter: empty state, then a starred event", async () => {
     await page.$eval(`${DROPDOWN} input`, (el) => el.select());
     await page.keyboard.press("Backspace");
+    // Clearing the search grows the list and Radix repositions the popover a frame
+    // later; let it settle so clicks land on the final coordinates.
+    const settle = async (predicate) => {
+      await page.waitForFunction((sel, fn) => new Function("n", `return ${fn};`)(document.querySelectorAll(`${sel} [role=button]`).length), { timeout: 5000 }, DROPDOWN, predicate);
+      await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    };
+    await settle("n > 1");
     await page.click(`${DROPDOWN} button[title="Show favorites only"]`);
-    assert.match(await bodyText(page), /No favorites yet/);
+    await page.waitForFunction(() => document.body.innerText.includes("No favorites yet"), { timeout: 5000 });
     await clickText(page, `${DROPDOWN} button`, "View all events");
+    await settle("n > 1");
     await page.click(`${DROPDOWN} [role=button]:nth-child(2) button`);
     await page.waitForFunction(() => document.body.innerText.includes("Added to favorites"));
     await page.click(`${DROPDOWN} button[title="Show favorites only"]`);
-    assert.equal(await page.$$eval(`${DROPDOWN} [role=button]`, (rows) => rows.length), 1);
+    await settle("n === 1");
     assert.equal(await page.evaluate(() => localStorage.getItem("trading_favorites")), '["2"]');
     await page.click(`${DROPDOWN} button[title="Show all events"]`);
   });

@@ -1,4 +1,4 @@
-import { mirrorPrice, round4, type Side } from "../shared";
+import { mirrorPrice, round4, sidePrice, toSide, type OrderSide, type Side } from "../shared";
 
 /** One tradable outcome of an event. `price` is the Yes price, a probability. */
 export interface OutcomeOption {
@@ -76,3 +76,10 @@ export const tradePrices = (market: Market, selectedOptionId: string | null | un
   const price = findOption(market, selectedOptionId)?.price ?? 0;
   return { yes: round4(price), no: mirrorPrice(price) };
 };
+
+/**
+ * Price quoted for the chosen side: a binary market's selected option trades
+ * at its own price; a multi-outcome option trades Yes at `p` and No at `1 − p`.
+ */
+export const quotePrice = (market: Pick<Market, "options">, optionPrice: number, side: OrderSide) =>
+  isBinaryMarket(market.options) ? round4(optionPrice) : sidePrice(optionPrice, toSide(side));

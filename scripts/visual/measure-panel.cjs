@@ -1,6 +1,7 @@
 // Compares the positions / orders panel. The reference is logged out, so its
 // panel sits under a blurred auth gate; the blur is removed before measuring (R-1).
 const puppeteer = require(process.env.PUPPETEER_CORE || "puppeteer-core");
+const { emulateReferenceFonts } = require("./ref-fonts.cjs");
 
 const CHROME = "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const [width, height] = (process.argv[2] || "1440x900").split("x").map(Number);
@@ -64,6 +65,7 @@ const probe = () => {
     const page = await browser.newPage();
     await page.setViewport({ width, height });
     await page.goto(base, { waitUntil: "networkidle2" });
+    await emulateReferenceFonts(page, base);
     await page.waitForFunction(() => document.body.innerText.includes("Current Orders"), { timeout: 30000 });
     // Remove the reference's auth-gate blur and overlay (no-op on the replica).
     await page.evaluate(() => {

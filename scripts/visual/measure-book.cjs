@@ -1,5 +1,6 @@
 // Compares the chart card (tabs + price bar) and the order book card of the reference and the replica.
 const puppeteer = require(process.env.PUPPETEER_CORE || "puppeteer-core");
+const { emulateReferenceFonts } = require("./ref-fonts.cjs");
 
 const CHROME = "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const [width, height] = (process.argv[2] || "1440x900").split("x").map(Number);
@@ -73,6 +74,7 @@ const probe = () => {
     const page = await browser.newPage();
     await page.setViewport({ width, height });
     await page.goto(base + eventQuery, { waitUntil: "networkidle2" });
+    await emulateReferenceFonts(page, base);
     await page.waitForFunction(() => document.body.innerText.includes("Order Book") && document.body.innerText.includes("Price(USDT)"), { timeout: 30000 });
     await new Promise((resolve) => setTimeout(resolve, 800));
     out[name] = await page.evaluate(probe);

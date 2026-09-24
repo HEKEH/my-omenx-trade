@@ -4,9 +4,10 @@ import { useEffect, useMemo, useState } from "react";
 import type { MarketDataSnapshot, RecentTrade } from "../../application";
 import {
   aggregateOrderBook,
-  depthPercent,
-  mirrorOrderBook,
-  mirrorPrice,
+  bookForSide,
+  sidePrice,
+  toSide,
+  withDepth,
   type AggregatedLevel,
   type OrderSide,
 } from "../../domain";
@@ -40,16 +41,14 @@ interface Pushed {
 }
 
 const aggregate = (snapshot: MarketDataSnapshot, side: OrderSide, step: number) => {
-  const book = side === "sell" ? mirrorOrderBook(snapshot.book) : snapshot.book;
+  const book = bookForSide(snapshot.book, side);
   return { asks: aggregateOrderBook(book.asks, step, "ask"), bids: aggregateOrderBook(book.bids, step, "bid") };
 };
 
 const rows = (levels: AggregatedLevel[], previous: AggregatedLevel[] | undefined): BookRow[] => {
   const before = new Map(previous?.map((level) => [level.price, level.amount]));
-  const max = Math.max(0, ...levels.map((level) => level.total));
-  return levels.map((level) => ({
+  return withDepth(levels).map((level) => ({
     ...level,
-    depth: depthPercent(level.total, max),
     updated: before.has(level.price) && before.get(level.price) !== level.amount,
   }));
 };
@@ -79,7 +78,7 @@ export function useOrderBook(optionId: string | undefined, side: OrderSide, step
     const { current, previous } = pushed;
     const now = aggregate(current, side, step);
     const before = previous ? aggregate(previous, side, step) : undefined;
-    const price = (value: number) => (side === "sell" ? mirrorPrice(value) : value);
+    const price = (value: number) => sidePrice(value, toSide(side));
     return {
       asks: rows(now.asks, before?.asks),
       bids: rows(now.bids, before?.bids),

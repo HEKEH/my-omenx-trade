@@ -28,9 +28,13 @@ export const quantityForAmount = (amount: number, leverage: number, price: numbe
   return divRoundHalfUp(amountCents * leverage * 100, priceUnits);
 };
 
-/** Margin-sized amount that buys `quantity` contracts. */
+/** Margin-sized amount that buys `quantity` contracts; a quantity is whole contracts. */
 export const amountForQuantity = (quantity: number, leverage: number, price: number) =>
-  leverage > 0 ? round2((quantity * price) / leverage) : 0;
+  leverage > 0 ? round2((Math.round(quantity) * price) / leverage) : 0;
+
+/** Order amount for a share (0–100%) of the available balance, in cents. */
+export const amountForBalancePercent = (available: number, percent: number) =>
+  available > 0 && percent > 0 ? round2((available * percent) / 100) : 0;
 
 export interface OrderCost {
   notional: number;

@@ -1,4 +1,4 @@
-import { binaryOutcome, clamp, isBinaryMarket, randomFundingRate, round4, sidePrice } from "../../domain";
+import { FUNDING_INTERVAL_MS, binaryOutcome, clamp, isBinaryMarket, randomFundingRate, round4, sidePrice } from "../../domain";
 import type { EventOptionRow, TradeRow } from "../supabase-shape/rows";
 import type { MockDatabase } from "./db";
 
@@ -84,7 +84,7 @@ export class MarketSimulator {
     if (this.running) return;
     this.timers.push(setInterval(() => this.tick(), this.options.priceIntervalMs ?? 3000));
     if (this.options.onFundingTick) {
-      this.timers.push(setInterval(() => this.options.onFundingTick?.(), this.options.fundingIntervalMs ?? 5 * 60_000));
+      this.timers.push(setInterval(() => this.options.onFundingTick?.(), this.options.fundingIntervalMs ?? FUNDING_INTERVAL_MS));
     }
   }
 

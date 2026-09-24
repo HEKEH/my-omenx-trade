@@ -1,11 +1,13 @@
 import { describe, expect, it } from "vitest";
 import {
   aggregateOrderBook,
+  bookForSide,
   depthPercent,
   mirrorOrderBook,
   priceChangePercent,
   stepDecimals,
   withCumulativeTotals,
+  withDepth,
 } from "./index";
 
 describe("price step", () => {
@@ -83,5 +85,23 @@ describe("depth and change", () => {
     expect(priceChangePercent(0.303, 0.3)).toBe(1);
     expect(priceChangePercent(0.297, 0.3)).toBe(-1);
     expect(priceChangePercent(0.3, 0)).toBe(0);
+  });
+});
+
+describe("book views", () => {
+  const book = {
+    asks: [{ price: 0.61, amount: 10 }],
+    bids: [{ price: 0.59, amount: 20 }],
+  };
+
+  it("shows the Yes book as is and the No book mirrored", () => {
+    expect(bookForSide(book, "buy")).toBe(book);
+    expect(bookForSide(book, "sell")).toEqual({ asks: [{ price: 0.41, amount: 20 }], bids: [{ price: 0.39, amount: 10 }] });
+  });
+
+  it("scales depth bars to the largest total in the list", () => {
+    const rows = withDepth([{ total: 50 }, { total: 200 }, { total: 100 }]);
+    expect(rows.map((row) => row.depth)).toEqual([25, 100, 50]);
+    expect(withDepth([{ total: 0 }])[0].depth).toBe(0);
   });
 });
