@@ -125,6 +125,7 @@ export interface ClosePositionOutcome {
   fee: number;
   balanceDelta: number;
   fullyClosed: boolean;
+  remainingSize: number;
 }
 
 /** Order execution against the backend. */

@@ -4,7 +4,6 @@ const puppeteer = require(process.env.PUPPETEER_CORE || "puppeteer-core");
 
 const CHROME = "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const BASE = "http://localhost:3000/trade";
-const num = (text) => Number(String(text).replace(/[^\d.-]/g, ""));
 
 const helpers = `
   const card = () => {
@@ -43,7 +42,7 @@ const run = (page, body) => page.evaluate(new Function(`${helpers}; ${body}`));
   const waitToast = async (text) => {
     try {
       await page.waitForFunction((t) => document.body.innerText.includes(t), { timeout: 5000 }, text);
-    } catch (error) {
+    } catch {
       const toasts = await page.evaluate(() => [...document.querySelectorAll("[data-sonner-toast]")].map((t) => t.innerText));
       throw new Error(`toast \"${text}\" not shown; toasts: ${JSON.stringify(toasts)}`);
     }

@@ -129,6 +129,7 @@ export class SupabaseTradingGateway implements TradingGateway {
       fee: result.fee,
       balanceDelta: result.balanceDelta,
       fullyClosed: result.fullyClosed,
+      remainingSize: result.remaining.size,
     };
   }
 

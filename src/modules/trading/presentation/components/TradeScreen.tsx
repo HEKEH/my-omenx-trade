@@ -8,6 +8,8 @@ import { OptionChips } from "./OptionChips";
 import { ChartCard } from "./chart/ChartCard";
 import { TradeHeader } from "./header/TradeHeader";
 import { OrderBookCard } from "./orderbook/OrderBookCard";
+import { AccountRiskCard } from "./account/AccountRiskCard";
+import { PositionsPanel } from "./positions/PositionsPanel";
 import { TradeFormCard } from "./trade-form/TradeFormCard";
 import { TradeLayout } from "./TradeLayout";
 import { EventEndedState, LoadingState, NoEventsState } from "./TradePageStates";
@@ -33,8 +35,8 @@ export function TradeScreen() {
         chart={<ChartCard market={market} option={option} side={side} />}
         orderBook={<OrderBookCard optionId={option?.id} side={side} />}
         tradeForm={<TradeFormCard listing={listing} market={market} option={option} />}
-        // Remaining sections are filled in by milestones M8–M9.
-        bottomPanel={null}
+        bottomPanel={<PositionsPanel onGoToEvent={selectEvent} />}
+        riskCard={<AccountRiskCard />}
       />
     </TooltipProvider>
   );
