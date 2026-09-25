@@ -1,3 +1,4 @@
+import type { AccountStats, CurrentUser, EventPageSources, MarketCatalog } from "../application/use-cases";
 import type { SportsMarket } from "../domain/market/types";
 import { ACCOUNT_STATS } from "./data/account";
 import { ALL_MARKETS } from "./data/sports-markets";
@@ -6,7 +7,7 @@ import { ALL_MARKETS } from "./data/sports-markets";
  * Mock repositories over the ported static data (dev reference §6). The reference has no
  * data API (E-02), so these read in-memory tables synchronously.
  */
-export const marketRepository = {
+export const marketRepository: MarketCatalog = {
   getById(id: string): SportsMarket | undefined {
     return ALL_MARKETS.find((market) => market.id === id);
   },
@@ -15,23 +16,11 @@ export const marketRepository = {
   },
 };
 
-export interface AccountStats {
-  available: string;
-  openPositions: number;
-  pnlToday: string;
-  toClaim: string;
-}
-
 export const accountRepository = {
   getStats(): AccountStats {
     return ACCOUNT_STATS;
   },
 };
-
-export interface CurrentUser {
-  name: string;
-  avatar: string;
-}
 
 // Hard-coded on the reference's event page (event.$id.tsx:556-560).
 const CURRENT_USER: CurrentUser = {
@@ -43,4 +32,11 @@ export const profileRepository = {
   getCurrentUser(): CurrentUser {
     return CURRENT_USER;
   },
+};
+
+/** The composition root passes this to `loadEventPage`. */
+export const eventPageSources: EventPageSources = {
+  markets: marketRepository,
+  account: accountRepository,
+  profile: profileRepository,
 };
