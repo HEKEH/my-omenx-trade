@@ -1,0 +1,6347 @@
+[
+  {
+    "id": "che-psg-2025-ucl",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "United States vs Mexico — Full time result",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Today 8:00pm",
+    "volume": "$612K",
+    "volume24h": "$184K",
+    "participants": 4821,
+    "fixture": {
+      "home": {
+        "name": "United States",
+        "short": "USA",
+        "logo": "https://flagcdn.com/w160/us.png",
+        "hue": 220
+      },
+      "away": {
+        "name": "Mexico",
+        "short": "MEX",
+        "logo": "https://flagcdn.com/w160/mx.png",
+        "hue": 145
+      },
+      "kickoff": "8:00pm",
+      "whenLabel": "Today"
+    },
+    "outcomes": [
+      {
+        "id": "h",
+        "label": "USA",
+        "price": 0.46,
+        "delta24h": 0.03,
+        "team": {
+          "name": "United States",
+          "short": "USA",
+          "logo": "https://flagcdn.com/w160/us.png",
+          "hue": 220
+        }
+      },
+      {
+        "id": "d",
+        "label": "Draw",
+        "price": 0.25,
+        "delta24h": -0.01,
+        "meta": "X"
+      },
+      {
+        "id": "a",
+        "label": "MEX",
+        "price": 0.29,
+        "delta24h": -0.02,
+        "team": {
+          "name": "Mexico",
+          "short": "MEX",
+          "logo": "https://flagcdn.com/w160/mx.png",
+          "hue": 145
+        }
+      }
+    ],
+    "tradeHref": "/event/che-psg-2025-ucl",
+    "stage": "Group · MD2"
+  },
+  {
+    "id": "wc26-usa-par",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "United States vs Paraguay",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Today 9:00pm",
+    "volume": "$612K",
+    "volume24h": "$184K",
+    "participants": 4720,
+    "fixture": {
+      "home": {
+        "name": "United States",
+        "short": "USA",
+        "logo": "https://flagcdn.com/w160/us.png",
+        "hue": 220
+      },
+      "away": {
+        "name": "Paraguay",
+        "short": "PAR",
+        "logo": "https://flagcdn.com/w160/py.png",
+        "hue": 10
+      },
+      "kickoff": "9:00pm",
+      "whenLabel": "Today"
+    },
+    "outcomes": [
+      {
+        "id": "h",
+        "label": "USA",
+        "price": 0.48,
+        "delta24h": 0.03,
+        "team": {
+          "name": "United States",
+          "short": "USA",
+          "logo": "https://flagcdn.com/w160/us.png",
+          "hue": 220
+        }
+      },
+      {
+        "id": "d",
+        "label": "Draw",
+        "price": 0.29,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "a",
+        "label": "PAR",
+        "price": 0.25,
+        "delta24h": -0.03,
+        "team": {
+          "name": "Paraguay",
+          "short": "PAR",
+          "logo": "https://flagcdn.com/w160/py.png",
+          "hue": 10
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-usa-par",
+    "dayOffset": 0,
+    "isLiveStream": true,
+    "livePoster": "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1200&h=675&fit=crop&q=80",
+    "liveScore": {
+      "home": 1,
+      "away": 0
+    },
+    "liveClock": "00:38:12",
+    "stage": "Group D · MD1"
+  },
+  {
+    "id": "wc26-mex-rsa",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Mexico vs South Africa",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Today 3:00pm",
+    "volume": "$497K",
+    "volume24h": "$124K",
+    "participants": 3120,
+    "fixture": {
+      "home": {
+        "name": "Mexico",
+        "short": "MEX",
+        "logo": "https://flagcdn.com/w160/mx.png",
+        "hue": 145
+      },
+      "away": {
+        "name": "South Africa",
+        "short": "RSA",
+        "logo": "https://flagcdn.com/w160/za.png",
+        "hue": 150
+      },
+      "kickoff": "3:00pm",
+      "whenLabel": "Today"
+    },
+    "outcomes": [
+      {
+        "id": "h",
+        "label": "MEX",
+        "price": 0.67,
+        "delta24h": 0.04,
+        "team": {
+          "name": "Mexico",
+          "short": "MEX",
+          "logo": "https://flagcdn.com/w160/mx.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "d",
+        "label": "Draw",
+        "price": 0.22,
+        "delta24h": -0.01,
+        "meta": "X"
+      },
+      {
+        "id": "a",
+        "label": "RSA",
+        "price": 0.13,
+        "delta24h": -0.03,
+        "team": {
+          "name": "South Africa",
+          "short": "RSA",
+          "logo": "https://flagcdn.com/w160/za.png",
+          "hue": 150
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-mex-rsa",
+    "dayOffset": 0,
+    "isLiveStream": true,
+    "livePoster": "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1200&h=675&fit=crop&q=80",
+    "liveScore": {
+      "home": 2,
+      "away": 0
+    },
+    "liveClock": "01:04:22",
+    "stage": "Group A · MD1"
+  },
+  {
+    "id": "wc26-can-bih",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Canada vs Bosnia-Herzegovina",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Tomorrow 3:00pm",
+    "volume": "$208K",
+    "volume24h": "$54K",
+    "participants": 1840,
+    "fixture": {
+      "home": {
+        "name": "Canada",
+        "short": "CAN",
+        "logo": "https://flagcdn.com/w160/ca.png",
+        "hue": 15
+      },
+      "away": {
+        "name": "Bosnia-Herzegovina",
+        "short": "BIH",
+        "logo": "https://flagcdn.com/w160/ba.png",
+        "hue": 230
+      },
+      "kickoff": "3:00pm",
+      "whenLabel": "Tomorrow"
+    },
+    "outcomes": [
+      {
+        "id": "h",
+        "label": "CAN",
+        "price": 0.53,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Canada",
+          "short": "CAN",
+          "logo": "https://flagcdn.com/w160/ca.png",
+          "hue": 15
+        }
+      },
+      {
+        "id": "d",
+        "label": "Draw",
+        "price": 0.26,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "a",
+        "label": "BIH",
+        "price": 0.22,
+        "delta24h": -0.02,
+        "team": {
+          "name": "Bosnia-Herzegovina",
+          "short": "BIH",
+          "logo": "https://flagcdn.com/w160/ba.png",
+          "hue": 230
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-can-bih",
+    "dayOffset": 1,
+    "stage": "Group B · MD1"
+  },
+  {
+    "id": "wc26-kor-cze",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Korea Republic vs Czechia",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Tomorrow 10:00pm",
+    "volume": "$162K",
+    "volume24h": "$41K",
+    "participants": 1480,
+    "fixture": {
+      "home": {
+        "name": "Korea Republic",
+        "short": "KOR",
+        "logo": "https://flagcdn.com/w160/kr.png",
+        "hue": 215
+      },
+      "away": {
+        "name": "Czechia",
+        "short": "CZE",
+        "logo": "https://flagcdn.com/w160/cz.png",
+        "hue": 5
+      },
+      "kickoff": "10:00pm",
+      "whenLabel": "Tomorrow"
+    },
+    "outcomes": [
+      {
+        "id": "h",
+        "label": "KOR",
+        "price": 0.37,
+        "delta24h": 0.01,
+        "team": {
+          "name": "Korea Republic",
+          "short": "KOR",
+          "logo": "https://flagcdn.com/w160/kr.png",
+          "hue": 215
+        }
+      },
+      {
+        "id": "d",
+        "label": "Draw",
+        "price": 0.31,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "a",
+        "label": "CZE",
+        "price": 0.32,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Czechia",
+          "short": "CZE",
+          "logo": "https://flagcdn.com/w160/cz.png",
+          "hue": 5
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-kor-cze",
+    "dayOffset": 1,
+    "stage": "Group F · MD1"
+  },
+  {
+    "id": "wc26-messi-plays",
+    "kind": "player-prop",
+    "shape": "binary",
+    "title": "Messi plays at the World Cup",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 11, 2026",
+    "volume": "$176K",
+    "volume24h": "$3.2K",
+    "participants": 612,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.97,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.03,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-messi-plays",
+    "dayOffset": 12,
+    "stage": "Player prop"
+  },
+  {
+    "id": "mci-ars",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Man City vs Arsenal",
+    "league": {
+      "name": "Premier League",
+      "short": "EPL"
+    },
+    "endsLabel": "Today 6:00pm",
+    "volume": "$1.82M",
+    "volume24h": "$240K",
+    "participants": 2104,
+    "fixture": {
+      "home": {
+        "name": "Man City",
+        "short": "MCI",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+        "hue": 210
+      },
+      "away": {
+        "name": "Arsenal",
+        "short": "ARS",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
+        "hue": 10
+      },
+      "kickoff": "6:00pm",
+      "whenLabel": "Today"
+    },
+    "outcomes": [
+      {
+        "id": "h",
+        "label": "MCI",
+        "price": 0.48,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Man City",
+          "short": "MCI",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+          "hue": 210
+        }
+      },
+      {
+        "id": "d",
+        "label": "Draw",
+        "price": 0.24,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "a",
+        "label": "ARS",
+        "price": 0.28,
+        "delta24h": -0.02,
+        "team": {
+          "name": "Arsenal",
+          "short": "ARS",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
+          "hue": 10
+        }
+      }
+    ],
+    "tradeHref": "/event/a",
+    "dayOffset": 0
+  },
+  {
+    "id": "liv-new",
+    "kind": "match",
+    "shape": "binary",
+    "title": "Liverpool to beat Newcastle",
+    "league": {
+      "name": "Premier League",
+      "short": "EPL"
+    },
+    "endsLabel": "23 Aug 4:30pm",
+    "volume": "$1.18M",
+    "volume24h": "$310K",
+    "participants": 2604,
+    "fixture": {
+      "home": {
+        "name": "Liverpool",
+        "short": "LIV",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+        "hue": 15
+      },
+      "away": {
+        "name": "Newcastle",
+        "short": "NEW",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
+        "hue": 0
+      },
+      "kickoff": "4:30pm",
+      "whenLabel": "23 Aug"
+    },
+    "outcomes": [
+      {
+        "id": "h",
+        "label": "LIV",
+        "price": 0.63,
+        "delta24h": 0.04,
+        "team": {
+          "name": "Liverpool",
+          "short": "LIV",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+          "hue": 15
+        }
+      },
+      {
+        "id": "a",
+        "label": "NEW",
+        "price": 0.37,
+        "delta24h": -0.04,
+        "team": {
+          "name": "Newcastle",
+          "short": "NEW",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
+          "hue": 0
+        }
+      }
+    ],
+    "tradeHref": "/event/a",
+    "dayOffset": 1
+  },
+  {
+    "id": "messi-hattrick",
+    "kind": "player-prop",
+    "shape": "binary",
+    "title": "Messi scores a hat-trick on Sunday",
+    "league": {
+      "name": "MLS",
+      "short": "MLS"
+    },
+    "endsLabel": "28 Aug 9:00pm",
+    "volume": "$420K",
+    "volume24h": "$96K",
+    "participants": 1184,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.18,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.82,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/n",
+    "dayOffset": 2
+  },
+  {
+    "id": "rma-bar",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Real Madrid vs Barcelona",
+    "league": {
+      "name": "La Liga",
+      "short": "LL"
+    },
+    "endsLabel": "Today 9:30pm",
+    "volume": "$3.10M",
+    "volume24h": "$540K",
+    "participants": 5240,
+    "fixture": {
+      "home": {
+        "name": "Real Madrid",
+        "short": "RMA",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+        "hue": 270
+      },
+      "away": {
+        "name": "Barcelona",
+        "short": "BAR",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+        "hue": 250
+      },
+      "kickoff": "9:30pm",
+      "whenLabel": "Today"
+    },
+    "outcomes": [
+      {
+        "id": "h",
+        "label": "RMA",
+        "price": 0.41,
+        "delta24h": 0.01,
+        "team": {
+          "name": "Real Madrid",
+          "short": "RMA",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+          "hue": 270
+        }
+      },
+      {
+        "id": "d",
+        "label": "Draw",
+        "price": 0.23,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "a",
+        "label": "BAR",
+        "price": 0.36,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Barcelona",
+          "short": "BAR",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+          "hue": 250
+        }
+      }
+    ],
+    "tradeHref": "/event/a",
+    "dayOffset": 0
+  },
+  {
+    "id": "che-psg-ucl",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Chelsea vs Paris SG",
+    "league": {
+      "name": "UEFA Champions League",
+      "short": "UCL"
+    },
+    "endsLabel": "Tomorrow 8:00pm",
+    "volume": "$2.45M",
+    "volume24h": "$612K",
+    "participants": 4821,
+    "fixture": {
+      "home": {
+        "name": "Chelsea",
+        "short": "CHE",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
+        "hue": 245
+      },
+      "away": {
+        "name": "Paris SG",
+        "short": "PSG",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+        "hue": 295
+      },
+      "kickoff": "8:00pm",
+      "whenLabel": "Tomorrow"
+    },
+    "outcomes": [
+      {
+        "id": "h",
+        "label": "CHE",
+        "price": 0.42,
+        "delta24h": 0.03,
+        "team": {
+          "name": "Chelsea",
+          "short": "CHE",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
+          "hue": 245
+        }
+      },
+      {
+        "id": "d",
+        "label": "Draw",
+        "price": 0.21,
+        "delta24h": -0.01,
+        "meta": "X"
+      },
+      {
+        "id": "a",
+        "label": "PSG",
+        "price": 0.37,
+        "delta24h": -0.02,
+        "team": {
+          "name": "Paris SG",
+          "short": "PSG",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+          "hue": 295
+        }
+      }
+    ],
+    "tradeHref": "/event/a",
+    "dayOffset": 1
+  },
+  {
+    "id": "ars-new",
+    "kind": "match",
+    "shape": "binary",
+    "title": "Arsenal to beat Newcastle",
+    "league": {
+      "name": "Premier League",
+      "short": "EPL"
+    },
+    "endsLabel": "In 3 days",
+    "volume": "$880K",
+    "volume24h": "$140K",
+    "participants": 1820,
+    "fixture": {
+      "home": {
+        "name": "Arsenal",
+        "short": "ARS",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
+        "hue": 10
+      },
+      "away": {
+        "name": "Newcastle",
+        "short": "NEW",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
+        "hue": 0
+      },
+      "kickoff": "5:30pm",
+      "whenLabel": "Sat"
+    },
+    "outcomes": [
+      {
+        "id": "h",
+        "label": "ARS",
+        "price": 0.66,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Arsenal",
+          "short": "ARS",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
+          "hue": 10
+        }
+      },
+      {
+        "id": "a",
+        "label": "NEW",
+        "price": 0.34,
+        "delta24h": -0.02,
+        "team": {
+          "name": "Newcastle",
+          "short": "NEW",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
+          "hue": 0
+        }
+      }
+    ],
+    "tradeHref": "/event/a",
+    "dayOffset": 3
+  },
+  {
+    "id": "haaland-2g",
+    "kind": "player-prop",
+    "shape": "binary",
+    "title": "Haaland 2+ goals vs Arsenal",
+    "league": {
+      "name": "Premier League",
+      "short": "EPL"
+    },
+    "endsLabel": "Today 6:00pm",
+    "volume": "$310K",
+    "volume24h": "$72K",
+    "participants": 940,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.31,
+        "delta24h": 0.03
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.69,
+        "delta24h": -0.03
+      }
+    ],
+    "tradeHref": "/event/n",
+    "dayOffset": 0
+  },
+  {
+    "id": "mci-tot-recap",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Man City vs Tottenham — settled",
+    "league": {
+      "name": "Premier League",
+      "short": "EPL"
+    },
+    "endsLabel": "Yesterday 8:00pm",
+    "volume": "$1.42M",
+    "volume24h": "$0",
+    "participants": 2380,
+    "fixture": {
+      "home": {
+        "name": "Man City",
+        "short": "MCI",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+        "hue": 210
+      },
+      "away": {
+        "name": "Arsenal",
+        "short": "ARS",
+        "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
+        "hue": 10
+      },
+      "kickoff": "8:00pm",
+      "whenLabel": "Yesterday"
+    },
+    "outcomes": [
+      {
+        "id": "h",
+        "label": "MCI",
+        "price": 0.72,
+        "delta24h": 0,
+        "team": {
+          "name": "Man City",
+          "short": "MCI",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+          "hue": 210
+        }
+      },
+      {
+        "id": "d",
+        "label": "Draw",
+        "price": 0.16,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "a",
+        "label": "TOT",
+        "price": 0.12,
+        "delta24h": 0,
+        "team": {
+          "name": "Arsenal",
+          "short": "ARS",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
+          "hue": 10
+        }
+      }
+    ],
+    "tradeHref": "/event/a",
+    "dayOffset": -1
+  },
+  {
+    "id": "wc26-can-advance",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Canada to advance from group stage",
+    "kindLabel": "Group stage",
+    "subject": "Canada",
+    "subjectTeam": {
+      "name": "Canada",
+      "short": "CAN",
+      "logo": "https://flagcdn.com/w160/ca.png",
+      "hue": 15
+    },
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 28, 2026",
+    "volume": "$184K",
+    "volume24h": "$24K",
+    "participants": 920,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.61,
+        "delta24h": 0.03
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.39,
+        "delta24h": -0.03
+      }
+    ],
+    "tradeHref": "/event/wc26-can-advance"
+  },
+  {
+    "id": "wc26-bih-advance",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Bosnia-Herzegovina to advance from group stage",
+    "kindLabel": "Group stage",
+    "subject": "Bosnia-Herzegovina",
+    "subjectTeam": {
+      "name": "Bosnia-Herzegovina",
+      "short": "BIH",
+      "logo": "https://flagcdn.com/w160/ba.png",
+      "hue": 230
+    },
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 28, 2026",
+    "volume": "$96K",
+    "volume24h": "$14K",
+    "participants": 540,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.32,
+        "delta24h": -0.02
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.68,
+        "delta24h": 0.02
+      }
+    ],
+    "tradeHref": "/event/wc26-bih-advance"
+  },
+  {
+    "id": "wc26-can-clean-sheet",
+    "kind": "match",
+    "shape": "binary",
+    "title": "Canada to keep a clean sheet vs Bosnia-Herzegovina",
+    "kindLabel": "Match question",
+    "subject": "Canada",
+    "subjectTeam": {
+      "name": "Canada",
+      "short": "CAN",
+      "logo": "https://flagcdn.com/w160/ca.png",
+      "hue": 15
+    },
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Tomorrow 3:00pm",
+    "volume": "$58K",
+    "volume24h": "$12K",
+    "participants": 310,
+    "fixture": {
+      "home": {
+        "name": "Canada",
+        "short": "CAN",
+        "logo": "https://flagcdn.com/w160/ca.png",
+        "hue": 15
+      },
+      "away": {
+        "name": "Bosnia-Herzegovina",
+        "short": "BIH",
+        "logo": "https://flagcdn.com/w160/ba.png",
+        "hue": 230
+      },
+      "kickoff": "3:00pm",
+      "whenLabel": "Tomorrow"
+    },
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.37,
+        "delta24h": 0.01
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.63,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-can-clean-sheet",
+    "dayOffset": 1,
+    "stage": "Group B · MD1"
+  },
+  {
+    "id": "epl-winner-25-26",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Premier League — Winner 25/26",
+    "league": {
+      "name": "Premier League",
+      "short": "EPL"
+    },
+    "endsLabel": "Settles May 24, 2026",
+    "volume": "$12.4M",
+    "volume24h": "$1.1M",
+    "participants": 18420,
+    "outcomes": [
+      {
+        "id": "mci",
+        "label": "Man City",
+        "price": 0.38,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Man City",
+          "short": "MCI",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+          "hue": 210
+        }
+      },
+      {
+        "id": "ars",
+        "label": "Arsenal",
+        "price": 0.31,
+        "delta24h": 0.04,
+        "team": {
+          "name": "Arsenal",
+          "short": "ARS",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/359.png",
+          "hue": 10
+        }
+      },
+      {
+        "id": "liv",
+        "label": "Liverpool",
+        "price": 0.18,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Liverpool",
+          "short": "LIV",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+          "hue": 15
+        }
+      },
+      {
+        "id": "new",
+        "label": "Newcastle",
+        "price": 0.08,
+        "delta24h": -0.02,
+        "team": {
+          "name": "Newcastle",
+          "short": "NEW",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
+          "hue": 0
+        }
+      }
+    ],
+    "tradeHref": "/event/new"
+  },
+  {
+    "id": "epl-top-scorer-25-26",
+    "kind": "top-scorer",
+    "shape": "three-way",
+    "title": "Premier League — Top scorer 25/26",
+    "league": {
+      "name": "Premier League",
+      "short": "EPL"
+    },
+    "endsLabel": "Settles May 24, 2026",
+    "volume": "$3.6M",
+    "volume24h": "$420K",
+    "participants": 6210,
+    "outcomes": [
+      {
+        "id": "messi",
+        "label": "L. Messi",
+        "price": 0.34,
+        "delta24h": 0.03,
+        "team": {
+          "name": "Inter Miami",
+          "short": "MIA",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/20232.png",
+          "hue": 340
+        },
+        "meta": "21G · #10"
+      },
+      {
+        "id": "haaland",
+        "label": "E. Haaland",
+        "price": 0.41,
+        "delta24h": -0.02,
+        "team": {
+          "name": "Man City",
+          "short": "MCI",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+          "hue": 210
+        },
+        "meta": "16G · #17"
+      }
+    ],
+    "tradeHref": "/event/haaland"
+  },
+  {
+    "id": "laliga-winner-25-26",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "La Liga — Winner 25/26",
+    "league": {
+      "name": "La Liga",
+      "short": "LL"
+    },
+    "endsLabel": "Settles May 24, 2026",
+    "volume": "$8.7M",
+    "volume24h": "$640K",
+    "participants": 11240,
+    "outcomes": [
+      {
+        "id": "rma",
+        "label": "Real Madrid",
+        "price": 0.46,
+        "delta24h": 0.03,
+        "team": {
+          "name": "Real Madrid",
+          "short": "RMA",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+          "hue": 270
+        }
+      },
+      {
+        "id": "bar",
+        "label": "Barcelona",
+        "price": 0.39,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Barcelona",
+          "short": "BAR",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+          "hue": 250
+        }
+      },
+      {
+        "id": "atm",
+        "label": "Atlético Madrid",
+        "price": 0.12,
+        "delta24h": -0.01
+      },
+      {
+        "id": "sev",
+        "label": "Sevilla",
+        "price": 0.03,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/laliga-winner-25-26"
+  },
+  {
+    "id": "ucl-winner-25-26",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Champions League — Winner 25/26",
+    "league": {
+      "name": "UEFA Champions League",
+      "short": "UCL"
+    },
+    "endsLabel": "Settles May 30, 2026",
+    "volume": "$18.2M",
+    "volume24h": "$1.8M",
+    "participants": 24120,
+    "outcomes": [
+      {
+        "id": "mci",
+        "label": "Man City",
+        "price": 0.32,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Man City",
+          "short": "MCI",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+          "hue": 210
+        }
+      },
+      {
+        "id": "rma",
+        "label": "Real Madrid",
+        "price": 0.28,
+        "delta24h": 0.01,
+        "team": {
+          "name": "Real Madrid",
+          "short": "RMA",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+          "hue": 270
+        }
+      },
+      {
+        "id": "psg",
+        "label": "Paris SG",
+        "price": 0.18,
+        "delta24h": -0.02,
+        "team": {
+          "name": "Paris SG",
+          "short": "PSG",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
+          "hue": 295
+        }
+      },
+      {
+        "id": "liv",
+        "label": "Liverpool",
+        "price": 0.14,
+        "delta24h": 0.01,
+        "team": {
+          "name": "Liverpool",
+          "short": "LIV",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+          "hue": 15
+        }
+      }
+    ],
+    "tradeHref": "/event/ucl-winner-25-26"
+  },
+  {
+    "id": "laliga-top-scorer-25-26",
+    "kind": "top-scorer",
+    "shape": "three-way",
+    "title": "La Liga — Top scorer 25/26",
+    "league": {
+      "name": "La Liga",
+      "short": "LL"
+    },
+    "endsLabel": "Settles May 24, 2026",
+    "volume": "$2.4M",
+    "volume24h": "$310K",
+    "participants": 4820,
+    "outcomes": [
+      {
+        "id": "mbappe",
+        "label": "K. Mbappé",
+        "price": 0.52,
+        "delta24h": 0.04,
+        "team": {
+          "name": "Real Madrid",
+          "short": "RMA",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+          "hue": 270
+        },
+        "meta": "19G · #9"
+      },
+      {
+        "id": "lewandowski",
+        "label": "R. Lewandowski",
+        "price": 0.34,
+        "delta24h": -0.02,
+        "team": {
+          "name": "Barcelona",
+          "short": "BAR",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png",
+          "hue": 250
+        },
+        "meta": "14G · #9"
+      }
+    ],
+    "tradeHref": "/event/laliga-top-scorer-25-26"
+  },
+  {
+    "id": "ucl-top-scorer-25-26",
+    "kind": "top-scorer",
+    "shape": "three-way",
+    "title": "Champions League — Top scorer 25/26",
+    "league": {
+      "name": "UEFA Champions League",
+      "short": "UCL"
+    },
+    "endsLabel": "Settles May 30, 2026",
+    "volume": "$1.9M",
+    "volume24h": "$260K",
+    "participants": 3640,
+    "outcomes": [
+      {
+        "id": "haaland",
+        "label": "E. Haaland",
+        "price": 0.44,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Man City",
+          "short": "MCI",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
+          "hue": 210
+        },
+        "meta": "8G · #17"
+      },
+      {
+        "id": "mbappe",
+        "label": "K. Mbappé",
+        "price": 0.38,
+        "delta24h": 0.03,
+        "team": {
+          "name": "Real Madrid",
+          "short": "RMA",
+          "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png",
+          "hue": 270
+        },
+        "meta": "7G · #9"
+      }
+    ],
+    "tradeHref": "/event/ucl-top-scorer-25-26"
+  },
+  {
+    "id": "wc26-champion",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "World Cup 2026 — Champion",
+    "kindLabel": "Tournament winner · 48 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$8.95M",
+    "volume24h": "$1.18M",
+    "participants": 25070,
+    "outcomes": [
+      {
+        "id": "bra",
+        "label": "Brazil",
+        "price": 0.18,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Brazil",
+          "short": "BRA",
+          "logo": "https://flagcdn.com/w160/br.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "arg",
+        "label": "Argentina",
+        "price": 0.16,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Argentina",
+          "short": "ARG",
+          "logo": "https://flagcdn.com/w160/ar.png",
+          "hue": 215
+        }
+      },
+      {
+        "id": "fra",
+        "label": "France",
+        "price": 0.14,
+        "delta24h": 0.01,
+        "team": {
+          "name": "France",
+          "short": "FRA",
+          "logo": "https://flagcdn.com/w160/fr.png",
+          "hue": 250
+        }
+      },
+      {
+        "id": "eng",
+        "label": "England",
+        "price": 0.11,
+        "delta24h": 0,
+        "team": {
+          "name": "England",
+          "short": "ENG",
+          "logo": "https://flagcdn.com/w160/gb-eng.png",
+          "hue": 25
+        }
+      },
+      {
+        "id": "spa",
+        "label": "Spain",
+        "price": 0.1,
+        "delta24h": 0.01,
+        "team": {
+          "name": "Spain",
+          "short": "ESP",
+          "logo": "https://flagcdn.com/w160/es.png",
+          "hue": 30
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-champion"
+  },
+  {
+    "id": "wc26-golden-boot",
+    "kind": "top-scorer",
+    "shape": "three-way",
+    "title": "World Cup 2026 — Golden Boot",
+    "kindLabel": "Top scorer · Tournament award",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$2.34M",
+    "volume24h": "$298K",
+    "participants": 7270,
+    "outcomes": [
+      {
+        "id": "mbappe",
+        "label": "Mbappé",
+        "price": 0.22,
+        "delta24h": 0.03,
+        "meta": "FRA · #10"
+      },
+      {
+        "id": "haaland",
+        "label": "Haaland",
+        "price": 0.16,
+        "delta24h": -0.02,
+        "meta": "NOR · #9"
+      },
+      {
+        "id": "vinicius",
+        "label": "Vinícius Jr.",
+        "price": 0.13,
+        "delta24h": 0.01,
+        "meta": "BRA · #7"
+      },
+      {
+        "id": "kane",
+        "label": "Kane",
+        "price": 0.11,
+        "delta24h": 0,
+        "meta": "ENG · #9"
+      }
+    ],
+    "tradeHref": "/event/wc26-golden-boot"
+  },
+  {
+    "id": "mbappe-anytime",
+    "kind": "player-prop",
+    "shape": "binary",
+    "title": "Anytime goalscorer",
+    "league": {
+      "name": "La Liga",
+      "short": "LL"
+    },
+    "endsLabel": "Today 8:00pm",
+    "volume": "$184K",
+    "volume24h": "$42K",
+    "participants": 612,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.71,
+        "delta24h": 0.04
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.29,
+        "delta24h": -0.04
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "mbappe-2plus",
+    "kind": "player-prop",
+    "shape": "binary",
+    "title": "2+ goals scored",
+    "league": {
+      "name": "La Liga",
+      "short": "LL"
+    },
+    "endsLabel": "Today 8:00pm",
+    "volume": "$96K",
+    "volume24h": "$22K",
+    "participants": 318,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.28,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.72,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "mbappe-shots",
+    "kind": "player-prop",
+    "shape": "binary",
+    "title": "Over 3.5 shots on target",
+    "league": {
+      "name": "La Liga",
+      "short": "LL"
+    },
+    "endsLabel": "Today 8:00pm",
+    "volume": "$58K",
+    "volume24h": "$11K",
+    "participants": 204,
+    "outcomes": [
+      {
+        "id": "o",
+        "label": "Over",
+        "price": 0.46,
+        "delta24h": 0.01
+      },
+      {
+        "id": "u",
+        "label": "Under",
+        "price": 0.54,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/u"
+  },
+  {
+    "id": "che-epl-win",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Win the Premier League",
+    "league": {
+      "name": "Premier League",
+      "short": "EPL"
+    },
+    "endsLabel": "End of season",
+    "volume": "$612K",
+    "volume24h": "$58K",
+    "participants": 1842,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.18,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.82,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "che-top4",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Finish top 4",
+    "league": {
+      "name": "Premier League",
+      "short": "EPL"
+    },
+    "endsLabel": "End of season",
+    "volume": "$840K",
+    "volume24h": "$72K",
+    "participants": 2410,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.66,
+        "delta24h": 0.03
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.34,
+        "delta24h": -0.03
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "che-ucl-qual",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Qualify for Champions League",
+    "league": {
+      "name": "Premier League",
+      "short": "EPL"
+    },
+    "endsLabel": "End of season",
+    "volume": "$520K",
+    "volume24h": "$48K",
+    "participants": 1604,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.74,
+        "delta24h": 0.01
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.26,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-champ-bra",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Brazil to win the World Cup 2026",
+    "subject": "Brazil",
+    "subjectTeam": {
+      "name": "Brazil",
+      "short": "BRA",
+      "logo": "https://flagcdn.com/w160/br.png",
+      "hue": 145
+    },
+    "eventMarketId": "wc26-champion",
+    "eventOutcomeId": "bra",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$2.40M",
+    "volume24h": "$310K",
+    "participants": 6420,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.18,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.82,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-champ-arg",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Argentina to win the World Cup 2026",
+    "subject": "Argentina",
+    "subjectTeam": {
+      "name": "Argentina",
+      "short": "ARG",
+      "logo": "https://flagcdn.com/w160/ar.png",
+      "hue": 215
+    },
+    "eventMarketId": "wc26-champion",
+    "eventOutcomeId": "arg",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$2.10M",
+    "volume24h": "$280K",
+    "participants": 5840,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.16,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.84,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-champ-fra",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "France to win the World Cup 2026",
+    "subject": "France",
+    "subjectTeam": {
+      "name": "France",
+      "short": "FRA",
+      "logo": "https://flagcdn.com/w160/fr.png",
+      "hue": 250
+    },
+    "eventMarketId": "wc26-champion",
+    "eventOutcomeId": "fra",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.80M",
+    "volume24h": "$240K",
+    "participants": 4910,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.14,
+        "delta24h": 0.01
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.86,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-champ-eng",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "England to win the World Cup 2026",
+    "subject": "England",
+    "subjectTeam": {
+      "name": "England",
+      "short": "ENG",
+      "logo": "https://flagcdn.com/w160/gb-eng.png",
+      "hue": 25
+    },
+    "eventMarketId": "wc26-champion",
+    "eventOutcomeId": "eng",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.45M",
+    "volume24h": "$190K",
+    "participants": 4220,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.11,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.89,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-champ-spa",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Spain to win the World Cup 2026",
+    "subject": "Spain",
+    "subjectTeam": {
+      "name": "Spain",
+      "short": "ESP",
+      "logo": "https://flagcdn.com/w160/es.png",
+      "hue": 30
+    },
+    "eventMarketId": "wc26-champion",
+    "eventOutcomeId": "spa",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.20M",
+    "volume24h": "$160K",
+    "participants": 3680,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.1,
+        "delta24h": 0.01
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.9,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-boot-mbappe",
+    "kind": "player-prop",
+    "shape": "binary",
+    "title": "Mbappé to win the Golden Boot",
+    "subject": "Mbappé",
+    "eventMarketId": "wc26-golden-boot",
+    "eventOutcomeId": "mbappe",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$920K",
+    "volume24h": "$118K",
+    "participants": 2840,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.22,
+        "delta24h": 0.03
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.78,
+        "delta24h": -0.03
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-boot-haaland",
+    "kind": "player-prop",
+    "shape": "binary",
+    "title": "Haaland to win the Golden Boot",
+    "subject": "Haaland",
+    "eventMarketId": "wc26-golden-boot",
+    "eventOutcomeId": "haaland",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$640K",
+    "volume24h": "$82K",
+    "participants": 1980,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.16,
+        "delta24h": -0.02
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.84,
+        "delta24h": 0.02
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-boot-vinicius",
+    "kind": "player-prop",
+    "shape": "binary",
+    "title": "Vinícius Jr. to win the Golden Boot",
+    "subject": "Vinícius Jr.",
+    "eventMarketId": "wc26-golden-boot",
+    "eventOutcomeId": "vinicius",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$420K",
+    "volume24h": "$54K",
+    "participants": 1310,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.13,
+        "delta24h": 0.01
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.87,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-boot-kane",
+    "kind": "player-prop",
+    "shape": "binary",
+    "title": "Kane to win the Golden Boot",
+    "subject": "Kane",
+    "eventMarketId": "wc26-golden-boot",
+    "eventOutcomeId": "kane",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$360K",
+    "volume24h": "$44K",
+    "participants": 1140,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.11,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.89,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-grpa-mex",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Mexico to top Group A",
+    "subject": "Mexico",
+    "subjectTeam": {
+      "name": "Mexico",
+      "short": "MEX",
+      "logo": "https://flagcdn.com/w160/mx.png",
+      "hue": 145
+    },
+    "eventMarketId": "wc26-grpa-winner",
+    "eventOutcomeId": "mex",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 24, 2026",
+    "volume": "$780K",
+    "volume24h": "$96K",
+    "participants": 2240,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.46,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.54,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-grpa-can",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Canada to top Group A",
+    "subject": "Canada",
+    "subjectTeam": {
+      "name": "Canada",
+      "short": "CAN",
+      "logo": "https://flagcdn.com/w160/ca.png",
+      "hue": 15
+    },
+    "eventMarketId": "wc26-grpa-winner",
+    "eventOutcomeId": "can",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 24, 2026",
+    "volume": "$420K",
+    "volume24h": "$52K",
+    "participants": 1380,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.28,
+        "delta24h": 0.03
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.72,
+        "delta24h": -0.03
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-grpa-rsa",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "South Africa to top Group A",
+    "subject": "South Africa",
+    "subjectTeam": {
+      "name": "South Africa",
+      "short": "RSA",
+      "logo": "https://flagcdn.com/w160/za.png",
+      "hue": 150
+    },
+    "eventMarketId": "wc26-grpa-winner",
+    "eventOutcomeId": "rsa",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 24, 2026",
+    "volume": "$210K",
+    "volume24h": "$28K",
+    "participants": 720,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.14,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.86,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-grpa-par",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Paraguay to top Group A",
+    "subject": "Paraguay",
+    "subjectTeam": {
+      "name": "Paraguay",
+      "short": "PAR",
+      "logo": "https://flagcdn.com/w160/py.png",
+      "hue": 10
+    },
+    "eventMarketId": "wc26-grpa-winner",
+    "eventOutcomeId": "par",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 24, 2026",
+    "volume": "$180K",
+    "volume24h": "$22K",
+    "participants": 610,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.12,
+        "delta24h": 0.01
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.88,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-grpf-fra",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "France to top Group F",
+    "subject": "France",
+    "subjectTeam": {
+      "name": "France",
+      "short": "FRA",
+      "logo": "https://flagcdn.com/w160/fr.png",
+      "hue": 250
+    },
+    "eventMarketId": "wc26-grpf-winner",
+    "eventOutcomeId": "fra",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$1.10M",
+    "volume24h": "$140K",
+    "participants": 3120,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.52,
+        "delta24h": 0.03
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.48,
+        "delta24h": -0.03
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-grpf-ger",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Germany to top Group F",
+    "subject": "Germany",
+    "subjectTeam": {
+      "name": "Germany",
+      "short": "GER",
+      "logo": "https://flagcdn.com/w160/de.png",
+      "hue": 50
+    },
+    "eventMarketId": "wc26-grpf-winner",
+    "eventOutcomeId": "ger",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$680K",
+    "volume24h": "$92K",
+    "participants": 2010,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.31,
+        "delta24h": -0.02
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.69,
+        "delta24h": 0.02
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-grpf-jpn",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Japan to top Group F",
+    "subject": "Japan",
+    "subjectTeam": {
+      "name": "Japan",
+      "short": "JPN",
+      "logo": "https://flagcdn.com/w160/jp.png",
+      "hue": 0
+    },
+    "eventMarketId": "wc26-grpf-winner",
+    "eventOutcomeId": "jpn",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$240K",
+    "volume24h": "$36K",
+    "participants": 860,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "Yes",
+        "price": 0.12,
+        "delta24h": 0.01
+      },
+      {
+        "id": "n",
+        "label": "No",
+        "price": 0.88,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/n"
+  },
+  {
+    "id": "wc26-winner",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "World Cup Winner",
+    "kindLabel": "Tournament winner · 8 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.00B",
+    "volume24h": "$0",
+    "participants": 24800,
+    "outcomes": [
+      {
+        "id": "es",
+        "label": "Spain",
+        "price": 0.17,
+        "delta24h": 0.01,
+        "team": {
+          "name": "Spain",
+          "short": "es",
+          "logo": "https://flagcdn.com/w160/es.png",
+          "hue": 25
+        }
+      },
+      {
+        "id": "fr",
+        "label": "France",
+        "price": 0.17,
+        "delta24h": 0,
+        "team": {
+          "name": "France",
+          "short": "fr",
+          "logo": "https://flagcdn.com/w160/fr.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "ar",
+        "label": "Argentina",
+        "price": 0.12,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Argentina",
+          "short": "ar",
+          "logo": "https://flagcdn.com/w160/ar.png",
+          "hue": 220
+        }
+      },
+      {
+        "id": "br",
+        "label": "Brazil",
+        "price": 0.11,
+        "delta24h": 0.01,
+        "team": {
+          "name": "Brazil",
+          "short": "br",
+          "logo": "https://flagcdn.com/w160/br.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "gb-eng",
+        "label": "England",
+        "price": 0.09,
+        "delta24h": 0,
+        "team": {
+          "name": "England",
+          "short": "gb-eng",
+          "logo": "https://flagcdn.com/w160/gb-eng.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "de",
+        "label": "Germany",
+        "price": 0.07,
+        "delta24h": 0,
+        "team": {
+          "name": "Germany",
+          "short": "de",
+          "logo": "https://flagcdn.com/w160/de.png",
+          "hue": 50
+        }
+      },
+      {
+        "id": "pt",
+        "label": "Portugal",
+        "price": 0.06,
+        "delta24h": 0.01,
+        "team": {
+          "name": "Portugal",
+          "short": "pt",
+          "logo": "https://flagcdn.com/w160/pt.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "nl",
+        "label": "Netherlands",
+        "price": 0.05,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Netherlands",
+          "short": "nl",
+          "logo": "https://flagcdn.com/w160/nl.png",
+          "hue": 35
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-winner"
+  },
+  {
+    "id": "wc26-grpa-winner",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Group A — Winner",
+    "kindLabel": "Group winner · 4 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$336K",
+    "volume24h": "$0",
+    "participants": 4120,
+    "outcomes": [
+      {
+        "id": "mx",
+        "label": "Mexico",
+        "price": 0.52,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Mexico",
+          "short": "mx",
+          "logo": "https://flagcdn.com/w160/mx.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "cz",
+        "label": "Czechia",
+        "price": 0.22,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Czechia",
+          "short": "cz",
+          "logo": "https://flagcdn.com/w160/cz.png",
+          "hue": 5
+        }
+      },
+      {
+        "id": "nz",
+        "label": "New Zealand",
+        "price": 0.15,
+        "delta24h": 0,
+        "team": {
+          "name": "New Zealand",
+          "short": "nz",
+          "logo": "https://flagcdn.com/w160/nz.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "ht",
+        "label": "Haiti",
+        "price": 0.11,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Haiti",
+          "short": "ht",
+          "logo": "https://flagcdn.com/w160/ht.png",
+          "hue": 220
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-grpa-winner"
+  },
+  {
+    "id": "wc26-grpb-winner",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Group B — Winner",
+    "kindLabel": "Group winner · 4 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$127K",
+    "volume24h": "$0",
+    "participants": 1860,
+    "outcomes": [
+      {
+        "id": "ch",
+        "label": "Switzerland",
+        "price": 0.55,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Switzerland",
+          "short": "ch",
+          "logo": "https://flagcdn.com/w160/ch.png",
+          "hue": 0
+        }
+      },
+      {
+        "id": "ca",
+        "label": "Canada",
+        "price": 0.29,
+        "delta24h": 0,
+        "team": {
+          "name": "Canada",
+          "short": "ca",
+          "logo": "https://flagcdn.com/w160/ca.png",
+          "hue": 10
+        }
+      },
+      {
+        "id": "dz",
+        "label": "Algeria",
+        "price": 0.1,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Algeria",
+          "short": "dz",
+          "logo": "https://flagcdn.com/w160/dz.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "pa",
+        "label": "Panama",
+        "price": 0.06,
+        "delta24h": 0,
+        "team": {
+          "name": "Panama",
+          "short": "pa",
+          "logo": "https://flagcdn.com/w160/pa.png",
+          "hue": 220
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-grpb-winner"
+  },
+  {
+    "id": "wc26-grpc-winner",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Group C — Winner",
+    "kindLabel": "Group winner · 4 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$292K",
+    "volume24h": "$0",
+    "participants": 3640,
+    "outcomes": [
+      {
+        "id": "br",
+        "label": "Brazil",
+        "price": 0.73,
+        "delta24h": 0.03,
+        "team": {
+          "name": "Brazil",
+          "short": "br",
+          "logo": "https://flagcdn.com/w160/br.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "ma",
+        "label": "Morocco",
+        "price": 0.19,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Morocco",
+          "short": "ma",
+          "logo": "https://flagcdn.com/w160/ma.png",
+          "hue": 0
+        }
+      },
+      {
+        "id": "kr",
+        "label": "South Korea",
+        "price": 0.05,
+        "delta24h": 0,
+        "team": {
+          "name": "South Korea",
+          "short": "kr",
+          "logo": "https://flagcdn.com/w160/kr.png",
+          "hue": 250
+        }
+      },
+      {
+        "id": "py",
+        "label": "Paraguay",
+        "price": 0.03,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Paraguay",
+          "short": "py",
+          "logo": "https://flagcdn.com/w160/py.png",
+          "hue": 200
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-grpc-winner"
+  },
+  {
+    "id": "wc26-grpd-winner",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Group D — Winner",
+    "kindLabel": "Group winner · 4 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$74K",
+    "volume24h": "$0",
+    "participants": 1240,
+    "outcomes": [
+      {
+        "id": "us",
+        "label": "United States",
+        "price": 0.39,
+        "delta24h": 0.02,
+        "team": {
+          "name": "United States",
+          "short": "us",
+          "logo": "https://flagcdn.com/w160/us.png",
+          "hue": 250
+        }
+      },
+      {
+        "id": "tr",
+        "label": "Türkiye",
+        "price": 0.36,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Türkiye",
+          "short": "tr",
+          "logo": "https://flagcdn.com/w160/tr.png",
+          "hue": 0
+        }
+      },
+      {
+        "id": "sn",
+        "label": "Senegal",
+        "price": 0.15,
+        "delta24h": 0,
+        "team": {
+          "name": "Senegal",
+          "short": "sn",
+          "logo": "https://flagcdn.com/w160/sn.png",
+          "hue": 120
+        }
+      },
+      {
+        "id": "cr",
+        "label": "Costa Rica",
+        "price": 0.1,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Costa Rica",
+          "short": "cr",
+          "logo": "https://flagcdn.com/w160/cr.png",
+          "hue": 220
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-grpd-winner"
+  },
+  {
+    "id": "wc26-grpe-winner",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Group E — Winner",
+    "kindLabel": "Group winner · 4 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$59K",
+    "volume24h": "$0",
+    "participants": 980,
+    "outcomes": [
+      {
+        "id": "de",
+        "label": "Germany",
+        "price": 0.68,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Germany",
+          "short": "de",
+          "logo": "https://flagcdn.com/w160/de.png",
+          "hue": 50
+        }
+      },
+      {
+        "id": "ec",
+        "label": "Ecuador",
+        "price": 0.21,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Ecuador",
+          "short": "ec",
+          "logo": "https://flagcdn.com/w160/ec.png",
+          "hue": 50
+        }
+      },
+      {
+        "id": "dk",
+        "label": "Denmark",
+        "price": 0.07,
+        "delta24h": 0,
+        "team": {
+          "name": "Denmark",
+          "short": "dk",
+          "logo": "https://flagcdn.com/w160/dk.png",
+          "hue": 0
+        }
+      },
+      {
+        "id": "qa",
+        "label": "Qatar",
+        "price": 0.04,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Qatar",
+          "short": "qa",
+          "logo": "https://flagcdn.com/w160/qa.png",
+          "hue": 0
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-grpe-winner"
+  },
+  {
+    "id": "wc26-grpf-winner",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Group F — Winner",
+    "kindLabel": "Group winner · 4 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$192K",
+    "volume24h": "$0",
+    "participants": 2510,
+    "outcomes": [
+      {
+        "id": "nl",
+        "label": "Netherlands",
+        "price": 0.55,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Netherlands",
+          "short": "nl",
+          "logo": "https://flagcdn.com/w160/nl.png",
+          "hue": 35
+        }
+      },
+      {
+        "id": "jp",
+        "label": "Japan",
+        "price": 0.26,
+        "delta24h": 0,
+        "team": {
+          "name": "Japan",
+          "short": "jp",
+          "logo": "https://flagcdn.com/w160/jp.png",
+          "hue": 0
+        }
+      },
+      {
+        "id": "co",
+        "label": "Colombia",
+        "price": 0.13,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Colombia",
+          "short": "co",
+          "logo": "https://flagcdn.com/w160/co.png",
+          "hue": 50
+        }
+      },
+      {
+        "id": "ir",
+        "label": "Iran",
+        "price": 0.06,
+        "delta24h": 0,
+        "team": {
+          "name": "Iran",
+          "short": "ir",
+          "logo": "https://flagcdn.com/w160/ir.png",
+          "hue": 145
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-grpf-winner"
+  },
+  {
+    "id": "wc26-grpg-winner",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Group G — Winner",
+    "kindLabel": "Group winner · 4 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$80K",
+    "volume24h": "$0",
+    "participants": 1310,
+    "outcomes": [
+      {
+        "id": "be",
+        "label": "Belgium",
+        "price": 0.67,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Belgium",
+          "short": "be",
+          "logo": "https://flagcdn.com/w160/be.png",
+          "hue": 25
+        }
+      },
+      {
+        "id": "eg",
+        "label": "Egypt",
+        "price": 0.19,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Egypt",
+          "short": "eg",
+          "logo": "https://flagcdn.com/w160/eg.png",
+          "hue": 0
+        }
+      },
+      {
+        "id": "ci",
+        "label": "Ivory Coast",
+        "price": 0.09,
+        "delta24h": 0,
+        "team": {
+          "name": "Ivory Coast",
+          "short": "ci",
+          "logo": "https://flagcdn.com/w160/ci.png",
+          "hue": 30
+        }
+      },
+      {
+        "id": "fi",
+        "label": "Finland",
+        "price": 0.05,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Finland",
+          "short": "fi",
+          "logo": "https://flagcdn.com/w160/fi.png",
+          "hue": 230
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-grpg-winner"
+  },
+  {
+    "id": "wc26-grph-winner",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Group H — Winner",
+    "kindLabel": "Group winner · 4 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$203K",
+    "volume24h": "$0",
+    "participants": 2680,
+    "outcomes": [
+      {
+        "id": "es",
+        "label": "Spain",
+        "price": 0.78,
+        "delta24h": 0.03,
+        "team": {
+          "name": "Spain",
+          "short": "es",
+          "logo": "https://flagcdn.com/w160/es.png",
+          "hue": 25
+        }
+      },
+      {
+        "id": "uy",
+        "label": "Uruguay",
+        "price": 0.19,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Uruguay",
+          "short": "uy",
+          "logo": "https://flagcdn.com/w160/uy.png",
+          "hue": 200
+        }
+      },
+      {
+        "id": "pt",
+        "label": "Portugal",
+        "price": 0.02,
+        "delta24h": 0,
+        "team": {
+          "name": "Portugal",
+          "short": "pt",
+          "logo": "https://flagcdn.com/w160/pt.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "cl",
+        "label": "Chile",
+        "price": 0.01,
+        "delta24h": 0,
+        "team": {
+          "name": "Chile",
+          "short": "cl",
+          "logo": "https://flagcdn.com/w160/cl.png",
+          "hue": 5
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-grph-winner"
+  },
+  {
+    "id": "wc26-grpi-winner",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Group I — Winner",
+    "kindLabel": "Group winner · 4 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$191K",
+    "volume24h": "$0",
+    "participants": 2440,
+    "outcomes": [
+      {
+        "id": "fr",
+        "label": "France",
+        "price": 0.69,
+        "delta24h": 0.02,
+        "team": {
+          "name": "France",
+          "short": "fr",
+          "logo": "https://flagcdn.com/w160/fr.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "no",
+        "label": "Norway",
+        "price": 0.22,
+        "delta24h": 0,
+        "team": {
+          "name": "Norway",
+          "short": "no",
+          "logo": "https://flagcdn.com/w160/no.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "it",
+        "label": "Italy",
+        "price": 0.06,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Italy",
+          "short": "it",
+          "logo": "https://flagcdn.com/w160/it.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "sa",
+        "label": "Saudi Arabia",
+        "price": 0.03,
+        "delta24h": 0,
+        "team": {
+          "name": "Saudi Arabia",
+          "short": "sa",
+          "logo": "https://flagcdn.com/w160/sa.png",
+          "hue": 145
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-grpi-winner"
+  },
+  {
+    "id": "wc26-grpj-winner",
+    "kind": "league-winner",
+    "shape": "three-way",
+    "title": "Group J — Winner",
+    "kindLabel": "Group winner · 4 nations",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$148K",
+    "volume24h": "$0",
+    "participants": 2010,
+    "outcomes": [
+      {
+        "id": "ar",
+        "label": "Argentina",
+        "price": 0.73,
+        "delta24h": 0.02,
+        "team": {
+          "name": "Argentina",
+          "short": "ar",
+          "logo": "https://flagcdn.com/w160/ar.png",
+          "hue": 220
+        }
+      },
+      {
+        "id": "at",
+        "label": "Austria",
+        "price": 0.19,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Austria",
+          "short": "at",
+          "logo": "https://flagcdn.com/w160/at.png",
+          "hue": 0
+        }
+      },
+      {
+        "id": "uy",
+        "label": "Uruguay",
+        "price": 0.05,
+        "delta24h": 0,
+        "team": {
+          "name": "Uruguay",
+          "short": "uy",
+          "logo": "https://flagcdn.com/w160/uy.png",
+          "hue": 200
+        }
+      },
+      {
+        "id": "py",
+        "label": "Paraguay",
+        "price": 0.03,
+        "delta24h": -0.01,
+        "team": {
+          "name": "Paraguay",
+          "short": "py",
+          "logo": "https://flagcdn.com/w160/py.png",
+          "hue": 200
+        }
+      }
+    ],
+    "tradeHref": "/event/wc26-grpj-winner"
+  },
+  {
+    "id": "r32-1",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Argentina vs Saudi Arabia — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jun 27",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Argentina",
+        "short": "ar",
+        "logo": "https://flagcdn.com/w160/ar.png",
+        "hue": 220
+      },
+      "away": {
+        "name": "Saudi Arabia",
+        "short": "sa",
+        "logo": "https://flagcdn.com/w160/sa.png",
+        "hue": 145
+      },
+      "kickoff": "Jun 27",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Argentina",
+        "price": 0.71,
+        "delta24h": 0,
+        "team": {
+          "name": "Argentina",
+          "short": "ar",
+          "logo": "https://flagcdn.com/w160/ar.png",
+          "hue": 220
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Saudi Arabia",
+        "price": 0.11,
+        "delta24h": 0,
+        "team": {
+          "name": "Saudi Arabia",
+          "short": "sa",
+          "logo": "https://flagcdn.com/w160/sa.png",
+          "hue": 145
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-1"
+  },
+  {
+    "id": "r32-2",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Norway vs Scotland — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jun 27",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Norway",
+        "short": "no",
+        "logo": "https://flagcdn.com/w160/no.png",
+        "hue": 230
+      },
+      "away": {
+        "name": "Scotland",
+        "short": "gb-sct",
+        "logo": "https://flagcdn.com/w160/gb-sct.png",
+        "hue": 230
+      },
+      "kickoff": "Jun 27",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Norway",
+        "price": 0.48,
+        "delta24h": 0,
+        "team": {
+          "name": "Norway",
+          "short": "no",
+          "logo": "https://flagcdn.com/w160/no.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Scotland",
+        "price": 0.34,
+        "delta24h": 0,
+        "team": {
+          "name": "Scotland",
+          "short": "gb-sct",
+          "logo": "https://flagcdn.com/w160/gb-sct.png",
+          "hue": 230
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-2"
+  },
+  {
+    "id": "r32-3",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Netherlands vs Australia — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jun 28",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Netherlands",
+        "short": "nl",
+        "logo": "https://flagcdn.com/w160/nl.png",
+        "hue": 35
+      },
+      "away": {
+        "name": "Australia",
+        "short": "au",
+        "logo": "https://flagcdn.com/w160/au.png",
+        "hue": 50
+      },
+      "kickoff": "Jun 28",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Netherlands",
+        "price": 0.61,
+        "delta24h": 0,
+        "team": {
+          "name": "Netherlands",
+          "short": "nl",
+          "logo": "https://flagcdn.com/w160/nl.png",
+          "hue": 35
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Australia",
+        "price": 0.21,
+        "delta24h": 0,
+        "team": {
+          "name": "Australia",
+          "short": "au",
+          "logo": "https://flagcdn.com/w160/au.png",
+          "hue": 50
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-3"
+  },
+  {
+    "id": "r32-4",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "England vs Egypt — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jun 28",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "England",
+        "short": "gb-eng",
+        "logo": "https://flagcdn.com/w160/gb-eng.png",
+        "hue": 230
+      },
+      "away": {
+        "name": "Egypt",
+        "short": "eg",
+        "logo": "https://flagcdn.com/w160/eg.png",
+        "hue": 0
+      },
+      "kickoff": "Jun 28",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "England",
+        "price": 0.64,
+        "delta24h": 0,
+        "team": {
+          "name": "England",
+          "short": "gb-eng",
+          "logo": "https://flagcdn.com/w160/gb-eng.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Egypt",
+        "price": 0.18,
+        "delta24h": 0,
+        "team": {
+          "name": "Egypt",
+          "short": "eg",
+          "logo": "https://flagcdn.com/w160/eg.png",
+          "hue": 0
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-4"
+  },
+  {
+    "id": "r32-5",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "France vs Senegal — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jun 29",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "France",
+        "short": "fr",
+        "logo": "https://flagcdn.com/w160/fr.png",
+        "hue": 230
+      },
+      "away": {
+        "name": "Senegal",
+        "short": "sn",
+        "logo": "https://flagcdn.com/w160/sn.png",
+        "hue": 120
+      },
+      "kickoff": "Jun 29",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "France",
+        "price": 0.59,
+        "delta24h": 0,
+        "team": {
+          "name": "France",
+          "short": "fr",
+          "logo": "https://flagcdn.com/w160/fr.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Senegal",
+        "price": 0.23,
+        "delta24h": 0,
+        "team": {
+          "name": "Senegal",
+          "short": "sn",
+          "logo": "https://flagcdn.com/w160/sn.png",
+          "hue": 120
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-5"
+  },
+  {
+    "id": "r32-6",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Italy vs South Korea — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jun 29",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Italy",
+        "short": "it",
+        "logo": "https://flagcdn.com/w160/it.png",
+        "hue": 230
+      },
+      "away": {
+        "name": "South Korea",
+        "short": "kr",
+        "logo": "https://flagcdn.com/w160/kr.png",
+        "hue": 250
+      },
+      "kickoff": "Jun 29",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Italy",
+        "price": 0.53,
+        "delta24h": 0,
+        "team": {
+          "name": "Italy",
+          "short": "it",
+          "logo": "https://flagcdn.com/w160/it.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "South Korea",
+        "price": 0.29,
+        "delta24h": 0,
+        "team": {
+          "name": "South Korea",
+          "short": "kr",
+          "logo": "https://flagcdn.com/w160/kr.png",
+          "hue": 250
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-6"
+  },
+  {
+    "id": "r32-7",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Germany vs Mexico — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jun 30",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Germany",
+        "short": "de",
+        "logo": "https://flagcdn.com/w160/de.png",
+        "hue": 50
+      },
+      "away": {
+        "name": "Mexico",
+        "short": "mx",
+        "logo": "https://flagcdn.com/w160/mx.png",
+        "hue": 145
+      },
+      "kickoff": "Jun 30",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Germany",
+        "price": 0.5,
+        "delta24h": 0,
+        "team": {
+          "name": "Germany",
+          "short": "de",
+          "logo": "https://flagcdn.com/w160/de.png",
+          "hue": 50
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Mexico",
+        "price": 0.32,
+        "delta24h": 0,
+        "team": {
+          "name": "Mexico",
+          "short": "mx",
+          "logo": "https://flagcdn.com/w160/mx.png",
+          "hue": 145
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-7"
+  },
+  {
+    "id": "r32-8",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Croatia vs Japan — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jun 30",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Croatia",
+        "short": "hr",
+        "logo": "https://flagcdn.com/w160/hr.png",
+        "hue": 0
+      },
+      "away": {
+        "name": "Japan",
+        "short": "jp",
+        "logo": "https://flagcdn.com/w160/jp.png",
+        "hue": 0
+      },
+      "kickoff": "Jun 30",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Croatia",
+        "price": 0.43,
+        "delta24h": 0,
+        "team": {
+          "name": "Croatia",
+          "short": "hr",
+          "logo": "https://flagcdn.com/w160/hr.png",
+          "hue": 0
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Japan",
+        "price": 0.39,
+        "delta24h": 0,
+        "team": {
+          "name": "Japan",
+          "short": "jp",
+          "logo": "https://flagcdn.com/w160/jp.png",
+          "hue": 0
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-8"
+  },
+  {
+    "id": "r32-9",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Brazil vs Nigeria — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 1",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Brazil",
+        "short": "br",
+        "logo": "https://flagcdn.com/w160/br.png",
+        "hue": 145
+      },
+      "away": {
+        "name": "Nigeria",
+        "short": "ng",
+        "logo": "https://flagcdn.com/w160/ng.png",
+        "hue": 145
+      },
+      "kickoff": "Jul 1",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Brazil",
+        "price": 0.65,
+        "delta24h": 0,
+        "team": {
+          "name": "Brazil",
+          "short": "br",
+          "logo": "https://flagcdn.com/w160/br.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Nigeria",
+        "price": 0.17,
+        "delta24h": 0,
+        "team": {
+          "name": "Nigeria",
+          "short": "ng",
+          "logo": "https://flagcdn.com/w160/ng.png",
+          "hue": 145
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-9"
+  },
+  {
+    "id": "r32-10",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Uruguay vs Denmark — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 1",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Uruguay",
+        "short": "uy",
+        "logo": "https://flagcdn.com/w160/uy.png",
+        "hue": 200
+      },
+      "away": {
+        "name": "Denmark",
+        "short": "dk",
+        "logo": "https://flagcdn.com/w160/dk.png",
+        "hue": 0
+      },
+      "kickoff": "Jul 1",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Uruguay",
+        "price": 0.44,
+        "delta24h": 0,
+        "team": {
+          "name": "Uruguay",
+          "short": "uy",
+          "logo": "https://flagcdn.com/w160/uy.png",
+          "hue": 200
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Denmark",
+        "price": 0.38,
+        "delta24h": 0,
+        "team": {
+          "name": "Denmark",
+          "short": "dk",
+          "logo": "https://flagcdn.com/w160/dk.png",
+          "hue": 0
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-10"
+  },
+  {
+    "id": "r32-11",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Spain vs Switzerland — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 2",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Spain",
+        "short": "es",
+        "logo": "https://flagcdn.com/w160/es.png",
+        "hue": 25
+      },
+      "away": {
+        "name": "Switzerland",
+        "short": "ch",
+        "logo": "https://flagcdn.com/w160/ch.png",
+        "hue": 0
+      },
+      "kickoff": "Jul 2",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Spain",
+        "price": 0.58,
+        "delta24h": 0,
+        "team": {
+          "name": "Spain",
+          "short": "es",
+          "logo": "https://flagcdn.com/w160/es.png",
+          "hue": 25
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Switzerland",
+        "price": 0.24,
+        "delta24h": 0,
+        "team": {
+          "name": "Switzerland",
+          "short": "ch",
+          "logo": "https://flagcdn.com/w160/ch.png",
+          "hue": 0
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-11"
+  },
+  {
+    "id": "r32-12",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Belgium vs Colombia — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 2",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Belgium",
+        "short": "be",
+        "logo": "https://flagcdn.com/w160/be.png",
+        "hue": 25
+      },
+      "away": {
+        "name": "Colombia",
+        "short": "co",
+        "logo": "https://flagcdn.com/w160/co.png",
+        "hue": 50
+      },
+      "kickoff": "Jul 2",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Belgium",
+        "price": 0.45,
+        "delta24h": 0,
+        "team": {
+          "name": "Belgium",
+          "short": "be",
+          "logo": "https://flagcdn.com/w160/be.png",
+          "hue": 25
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Colombia",
+        "price": 0.37,
+        "delta24h": 0,
+        "team": {
+          "name": "Colombia",
+          "short": "co",
+          "logo": "https://flagcdn.com/w160/co.png",
+          "hue": 50
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-12"
+  },
+  {
+    "id": "r32-13",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Portugal vs Türkiye — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 3",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Portugal",
+        "short": "pt",
+        "logo": "https://flagcdn.com/w160/pt.png",
+        "hue": 145
+      },
+      "away": {
+        "name": "Türkiye",
+        "short": "tr",
+        "logo": "https://flagcdn.com/w160/tr.png",
+        "hue": 0
+      },
+      "kickoff": "Jul 3",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Portugal",
+        "price": 0.56,
+        "delta24h": 0,
+        "team": {
+          "name": "Portugal",
+          "short": "pt",
+          "logo": "https://flagcdn.com/w160/pt.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Türkiye",
+        "price": 0.26,
+        "delta24h": 0,
+        "team": {
+          "name": "Türkiye",
+          "short": "tr",
+          "logo": "https://flagcdn.com/w160/tr.png",
+          "hue": 0
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-13"
+  },
+  {
+    "id": "r32-14",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "United States vs Ecuador — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 3",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "United States",
+        "short": "us",
+        "logo": "https://flagcdn.com/w160/us.png",
+        "hue": 250
+      },
+      "away": {
+        "name": "Ecuador",
+        "short": "ec",
+        "logo": "https://flagcdn.com/w160/ec.png",
+        "hue": 50
+      },
+      "kickoff": "Jul 3",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "United States",
+        "price": 0.48,
+        "delta24h": 0,
+        "team": {
+          "name": "United States",
+          "short": "us",
+          "logo": "https://flagcdn.com/w160/us.png",
+          "hue": 250
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Ecuador",
+        "price": 0.34,
+        "delta24h": 0,
+        "team": {
+          "name": "Ecuador",
+          "short": "ec",
+          "logo": "https://flagcdn.com/w160/ec.png",
+          "hue": 50
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-14"
+  },
+  {
+    "id": "r32-15",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Poland vs Serbia — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 4",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Poland",
+        "short": "pl",
+        "logo": "https://flagcdn.com/w160/pl.png",
+        "hue": 0
+      },
+      "away": {
+        "name": "Serbia",
+        "short": "rs",
+        "logo": "https://flagcdn.com/w160/rs.png",
+        "hue": 0
+      },
+      "kickoff": "Jul 4",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Poland",
+        "price": 0.42,
+        "delta24h": 0,
+        "team": {
+          "name": "Poland",
+          "short": "pl",
+          "logo": "https://flagcdn.com/w160/pl.png",
+          "hue": 0
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Serbia",
+        "price": 0.4,
+        "delta24h": 0,
+        "team": {
+          "name": "Serbia",
+          "short": "rs",
+          "logo": "https://flagcdn.com/w160/rs.png",
+          "hue": 0
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-15"
+  },
+  {
+    "id": "r32-16",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Canada vs Morocco — Winner",
+    "kindLabel": "Round of 32 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 4",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Canada",
+        "short": "ca",
+        "logo": "https://flagcdn.com/w160/ca.png",
+        "hue": 10
+      },
+      "away": {
+        "name": "Morocco",
+        "short": "ma",
+        "logo": "https://flagcdn.com/w160/ma.png",
+        "hue": 0
+      },
+      "kickoff": "Jul 4",
+      "whenLabel": "Round of 32"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Canada",
+        "price": 0.39,
+        "delta24h": 0,
+        "team": {
+          "name": "Canada",
+          "short": "ca",
+          "logo": "https://flagcdn.com/w160/ca.png",
+          "hue": 10
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Morocco",
+        "price": 0.43,
+        "delta24h": 0,
+        "team": {
+          "name": "Morocco",
+          "short": "ma",
+          "logo": "https://flagcdn.com/w160/ma.png",
+          "hue": 0
+        }
+      }
+    ],
+    "stage": "Round of 32",
+    "tradeHref": "/event/r32-16"
+  },
+  {
+    "id": "r16-1",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Argentina vs Norway — Winner",
+    "kindLabel": "Round of 16 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 5",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Argentina",
+        "short": "ar",
+        "logo": "https://flagcdn.com/w160/ar.png",
+        "hue": 220
+      },
+      "away": {
+        "name": "Norway",
+        "short": "no",
+        "logo": "https://flagcdn.com/w160/no.png",
+        "hue": 230
+      },
+      "kickoff": "Jul 5",
+      "whenLabel": "Round of 16"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Argentina",
+        "price": 0.58,
+        "delta24h": 0,
+        "team": {
+          "name": "Argentina",
+          "short": "ar",
+          "logo": "https://flagcdn.com/w160/ar.png",
+          "hue": 220
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Norway",
+        "price": 0.24,
+        "delta24h": 0,
+        "team": {
+          "name": "Norway",
+          "short": "no",
+          "logo": "https://flagcdn.com/w160/no.png",
+          "hue": 230
+        }
+      }
+    ],
+    "stage": "Round of 16",
+    "tradeHref": "/event/r16-1"
+  },
+  {
+    "id": "r16-2",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Netherlands vs England — Winner",
+    "kindLabel": "Round of 16 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 5",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Netherlands",
+        "short": "nl",
+        "logo": "https://flagcdn.com/w160/nl.png",
+        "hue": 35
+      },
+      "away": {
+        "name": "England",
+        "short": "gb-eng",
+        "logo": "https://flagcdn.com/w160/gb-eng.png",
+        "hue": 230
+      },
+      "kickoff": "Jul 5",
+      "whenLabel": "Round of 16"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Netherlands",
+        "price": 0.38,
+        "delta24h": 0,
+        "team": {
+          "name": "Netherlands",
+          "short": "nl",
+          "logo": "https://flagcdn.com/w160/nl.png",
+          "hue": 35
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "England",
+        "price": 0.44,
+        "delta24h": 0,
+        "team": {
+          "name": "England",
+          "short": "gb-eng",
+          "logo": "https://flagcdn.com/w160/gb-eng.png",
+          "hue": 230
+        }
+      }
+    ],
+    "stage": "Round of 16",
+    "tradeHref": "/event/r16-2"
+  },
+  {
+    "id": "r16-3",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "France vs Italy — Winner",
+    "kindLabel": "Round of 16 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 6",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "France",
+        "short": "fr",
+        "logo": "https://flagcdn.com/w160/fr.png",
+        "hue": 230
+      },
+      "away": {
+        "name": "Italy",
+        "short": "it",
+        "logo": "https://flagcdn.com/w160/it.png",
+        "hue": 230
+      },
+      "kickoff": "Jul 6",
+      "whenLabel": "Round of 16"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "France",
+        "price": 0.48,
+        "delta24h": 0,
+        "team": {
+          "name": "France",
+          "short": "fr",
+          "logo": "https://flagcdn.com/w160/fr.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Italy",
+        "price": 0.34,
+        "delta24h": 0,
+        "team": {
+          "name": "Italy",
+          "short": "it",
+          "logo": "https://flagcdn.com/w160/it.png",
+          "hue": 230
+        }
+      }
+    ],
+    "stage": "Round of 16",
+    "tradeHref": "/event/r16-3"
+  },
+  {
+    "id": "r16-4",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Germany vs Croatia — Winner",
+    "kindLabel": "Round of 16 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 6",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Germany",
+        "short": "de",
+        "logo": "https://flagcdn.com/w160/de.png",
+        "hue": 50
+      },
+      "away": {
+        "name": "Croatia",
+        "short": "hr",
+        "logo": "https://flagcdn.com/w160/hr.png",
+        "hue": 0
+      },
+      "kickoff": "Jul 6",
+      "whenLabel": "Round of 16"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Germany",
+        "price": 0.51,
+        "delta24h": 0,
+        "team": {
+          "name": "Germany",
+          "short": "de",
+          "logo": "https://flagcdn.com/w160/de.png",
+          "hue": 50
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Croatia",
+        "price": 0.31,
+        "delta24h": 0,
+        "team": {
+          "name": "Croatia",
+          "short": "hr",
+          "logo": "https://flagcdn.com/w160/hr.png",
+          "hue": 0
+        }
+      }
+    ],
+    "stage": "Round of 16",
+    "tradeHref": "/event/r16-4"
+  },
+  {
+    "id": "r16-5",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Brazil vs Uruguay — Winner",
+    "kindLabel": "Round of 16 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 7",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Brazil",
+        "short": "br",
+        "logo": "https://flagcdn.com/w160/br.png",
+        "hue": 145
+      },
+      "away": {
+        "name": "Uruguay",
+        "short": "uy",
+        "logo": "https://flagcdn.com/w160/uy.png",
+        "hue": 200
+      },
+      "kickoff": "Jul 7",
+      "whenLabel": "Round of 16"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Brazil",
+        "price": 0.54,
+        "delta24h": 0,
+        "team": {
+          "name": "Brazil",
+          "short": "br",
+          "logo": "https://flagcdn.com/w160/br.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Uruguay",
+        "price": 0.28,
+        "delta24h": 0,
+        "team": {
+          "name": "Uruguay",
+          "short": "uy",
+          "logo": "https://flagcdn.com/w160/uy.png",
+          "hue": 200
+        }
+      }
+    ],
+    "stage": "Round of 16",
+    "tradeHref": "/event/r16-5"
+  },
+  {
+    "id": "r16-6",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Spain vs Belgium — Winner",
+    "kindLabel": "Round of 16 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 7",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Spain",
+        "short": "es",
+        "logo": "https://flagcdn.com/w160/es.png",
+        "hue": 25
+      },
+      "away": {
+        "name": "Belgium",
+        "short": "be",
+        "logo": "https://flagcdn.com/w160/be.png",
+        "hue": 25
+      },
+      "kickoff": "Jul 7",
+      "whenLabel": "Round of 16"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Spain",
+        "price": 0.48,
+        "delta24h": 0,
+        "team": {
+          "name": "Spain",
+          "short": "es",
+          "logo": "https://flagcdn.com/w160/es.png",
+          "hue": 25
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Belgium",
+        "price": 0.34,
+        "delta24h": 0,
+        "team": {
+          "name": "Belgium",
+          "short": "be",
+          "logo": "https://flagcdn.com/w160/be.png",
+          "hue": 25
+        }
+      }
+    ],
+    "stage": "Round of 16",
+    "tradeHref": "/event/r16-6"
+  },
+  {
+    "id": "r16-7",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Portugal vs United States — Winner",
+    "kindLabel": "Round of 16 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 8",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Portugal",
+        "short": "pt",
+        "logo": "https://flagcdn.com/w160/pt.png",
+        "hue": 145
+      },
+      "away": {
+        "name": "United States",
+        "short": "us",
+        "logo": "https://flagcdn.com/w160/us.png",
+        "hue": 250
+      },
+      "kickoff": "Jul 8",
+      "whenLabel": "Round of 16"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Portugal",
+        "price": 0.56,
+        "delta24h": 0,
+        "team": {
+          "name": "Portugal",
+          "short": "pt",
+          "logo": "https://flagcdn.com/w160/pt.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "United States",
+        "price": 0.26,
+        "delta24h": 0,
+        "team": {
+          "name": "United States",
+          "short": "us",
+          "logo": "https://flagcdn.com/w160/us.png",
+          "hue": 250
+        }
+      }
+    ],
+    "stage": "Round of 16",
+    "tradeHref": "/event/r16-7"
+  },
+  {
+    "id": "r16-8",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Poland vs Morocco — Winner",
+    "kindLabel": "Round of 16 · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 8",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Poland",
+        "short": "pl",
+        "logo": "https://flagcdn.com/w160/pl.png",
+        "hue": 0
+      },
+      "away": {
+        "name": "Morocco",
+        "short": "ma",
+        "logo": "https://flagcdn.com/w160/ma.png",
+        "hue": 0
+      },
+      "kickoff": "Jul 8",
+      "whenLabel": "Round of 16"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Poland",
+        "price": 0.43,
+        "delta24h": 0,
+        "team": {
+          "name": "Poland",
+          "short": "pl",
+          "logo": "https://flagcdn.com/w160/pl.png",
+          "hue": 0
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Morocco",
+        "price": 0.39,
+        "delta24h": 0,
+        "team": {
+          "name": "Morocco",
+          "short": "ma",
+          "logo": "https://flagcdn.com/w160/ma.png",
+          "hue": 0
+        }
+      }
+    ],
+    "stage": "Round of 16",
+    "tradeHref": "/event/r16-8"
+  },
+  {
+    "id": "qf1",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Argentina vs Netherlands — Winner",
+    "kindLabel": "Quarterfinals · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 10",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Argentina",
+        "short": "ar",
+        "logo": "https://flagcdn.com/w160/ar.png",
+        "hue": 220
+      },
+      "away": {
+        "name": "Netherlands",
+        "short": "nl",
+        "logo": "https://flagcdn.com/w160/nl.png",
+        "hue": 35
+      },
+      "kickoff": "Jul 10",
+      "whenLabel": "Quarterfinals"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Argentina",
+        "price": 0.51,
+        "delta24h": 0,
+        "team": {
+          "name": "Argentina",
+          "short": "ar",
+          "logo": "https://flagcdn.com/w160/ar.png",
+          "hue": 220
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Netherlands",
+        "price": 0.31,
+        "delta24h": 0,
+        "team": {
+          "name": "Netherlands",
+          "short": "nl",
+          "logo": "https://flagcdn.com/w160/nl.png",
+          "hue": 35
+        }
+      }
+    ],
+    "stage": "Quarterfinals",
+    "tradeHref": "/event/qf1"
+  },
+  {
+    "id": "qf2",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "France vs Germany — Winner",
+    "kindLabel": "Quarterfinals · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 10",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "France",
+        "short": "fr",
+        "logo": "https://flagcdn.com/w160/fr.png",
+        "hue": 230
+      },
+      "away": {
+        "name": "Germany",
+        "short": "de",
+        "logo": "https://flagcdn.com/w160/de.png",
+        "hue": 50
+      },
+      "kickoff": "Jul 10",
+      "whenLabel": "Quarterfinals"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "France",
+        "price": 0.48,
+        "delta24h": 0,
+        "team": {
+          "name": "France",
+          "short": "fr",
+          "logo": "https://flagcdn.com/w160/fr.png",
+          "hue": 230
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Germany",
+        "price": 0.34,
+        "delta24h": 0,
+        "team": {
+          "name": "Germany",
+          "short": "de",
+          "logo": "https://flagcdn.com/w160/de.png",
+          "hue": 50
+        }
+      }
+    ],
+    "stage": "Quarterfinals",
+    "tradeHref": "/event/qf2"
+  },
+  {
+    "id": "qf3",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Brazil vs Spain — Winner",
+    "kindLabel": "Quarterfinals · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 11",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Brazil",
+        "short": "br",
+        "logo": "https://flagcdn.com/w160/br.png",
+        "hue": 145
+      },
+      "away": {
+        "name": "Spain",
+        "short": "es",
+        "logo": "https://flagcdn.com/w160/es.png",
+        "hue": 25
+      },
+      "kickoff": "Jul 11",
+      "whenLabel": "Quarterfinals"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Brazil",
+        "price": 0.45,
+        "delta24h": 0,
+        "team": {
+          "name": "Brazil",
+          "short": "br",
+          "logo": "https://flagcdn.com/w160/br.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Spain",
+        "price": 0.37,
+        "delta24h": 0,
+        "team": {
+          "name": "Spain",
+          "short": "es",
+          "logo": "https://flagcdn.com/w160/es.png",
+          "hue": 25
+        }
+      }
+    ],
+    "stage": "Quarterfinals",
+    "tradeHref": "/event/qf3"
+  },
+  {
+    "id": "qf4",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Portugal vs United States — Winner",
+    "kindLabel": "Quarterfinals · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 11",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Portugal",
+        "short": "pt",
+        "logo": "https://flagcdn.com/w160/pt.png",
+        "hue": 145
+      },
+      "away": {
+        "name": "United States",
+        "short": "us",
+        "logo": "https://flagcdn.com/w160/us.png",
+        "hue": 250
+      },
+      "kickoff": "Jul 11",
+      "whenLabel": "Quarterfinals"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Portugal",
+        "price": 0.56,
+        "delta24h": 0,
+        "team": {
+          "name": "Portugal",
+          "short": "pt",
+          "logo": "https://flagcdn.com/w160/pt.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "United States",
+        "price": 0.26,
+        "delta24h": 0,
+        "team": {
+          "name": "United States",
+          "short": "us",
+          "logo": "https://flagcdn.com/w160/us.png",
+          "hue": 250
+        }
+      }
+    ],
+    "stage": "Quarterfinals",
+    "tradeHref": "/event/qf4"
+  },
+  {
+    "id": "sf1",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Argentina vs France — Winner",
+    "kindLabel": "Semifinals · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 14",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Argentina",
+        "short": "ar",
+        "logo": "https://flagcdn.com/w160/ar.png",
+        "hue": 220
+      },
+      "away": {
+        "name": "France",
+        "short": "fr",
+        "logo": "https://flagcdn.com/w160/fr.png",
+        "hue": 230
+      },
+      "kickoff": "Jul 14",
+      "whenLabel": "Semifinals"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Argentina",
+        "price": 0.41,
+        "delta24h": 0,
+        "team": {
+          "name": "Argentina",
+          "short": "ar",
+          "logo": "https://flagcdn.com/w160/ar.png",
+          "hue": 220
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "France",
+        "price": 0.41,
+        "delta24h": 0,
+        "team": {
+          "name": "France",
+          "short": "fr",
+          "logo": "https://flagcdn.com/w160/fr.png",
+          "hue": 230
+        }
+      }
+    ],
+    "stage": "Semifinals",
+    "tradeHref": "/event/sf1"
+  },
+  {
+    "id": "sf2",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Brazil vs Portugal — Winner",
+    "kindLabel": "Semifinals · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 15",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Brazil",
+        "short": "br",
+        "logo": "https://flagcdn.com/w160/br.png",
+        "hue": 145
+      },
+      "away": {
+        "name": "Portugal",
+        "short": "pt",
+        "logo": "https://flagcdn.com/w160/pt.png",
+        "hue": 145
+      },
+      "kickoff": "Jul 15",
+      "whenLabel": "Semifinals"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Brazil",
+        "price": 0.48,
+        "delta24h": 0,
+        "team": {
+          "name": "Brazil",
+          "short": "br",
+          "logo": "https://flagcdn.com/w160/br.png",
+          "hue": 145
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Portugal",
+        "price": 0.34,
+        "delta24h": 0,
+        "team": {
+          "name": "Portugal",
+          "short": "pt",
+          "logo": "https://flagcdn.com/w160/pt.png",
+          "hue": 145
+        }
+      }
+    ],
+    "stage": "Semifinals",
+    "tradeHref": "/event/sf2"
+  },
+  {
+    "id": "final",
+    "kind": "match",
+    "shape": "three-way",
+    "title": "Argentina vs Brazil — Winner",
+    "kindLabel": "Final · 1X2",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Jul 19 · MetLife",
+    "volume": "$0",
+    "volume24h": "$0",
+    "participants": 0,
+    "fixture": {
+      "home": {
+        "name": "Argentina",
+        "short": "ar",
+        "logo": "https://flagcdn.com/w160/ar.png",
+        "hue": 220
+      },
+      "away": {
+        "name": "Brazil",
+        "short": "br",
+        "logo": "https://flagcdn.com/w160/br.png",
+        "hue": 145
+      },
+      "kickoff": "Jul 19 · MetLife",
+      "whenLabel": "Final"
+    },
+    "outcomes": [
+      {
+        "id": "home",
+        "label": "Argentina",
+        "price": 0.39,
+        "delta24h": 0,
+        "team": {
+          "name": "Argentina",
+          "short": "ar",
+          "logo": "https://flagcdn.com/w160/ar.png",
+          "hue": 220
+        }
+      },
+      {
+        "id": "draw",
+        "label": "Draw",
+        "price": 0.18,
+        "delta24h": 0,
+        "meta": "X"
+      },
+      {
+        "id": "away",
+        "label": "Brazil",
+        "price": 0.43,
+        "delta24h": 0,
+        "team": {
+          "name": "Brazil",
+          "short": "br",
+          "logo": "https://flagcdn.com/w160/br.png",
+          "hue": 145
+        }
+      }
+    ],
+    "stage": "Final",
+    "tradeHref": "/event/final"
+  },
+  {
+    "id": "wc26-winner--es",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Spain win World Cup Winner?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.00B",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.17,
+        "delta24h": 0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.83,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-winner--es"
+  },
+  {
+    "id": "wc26-winner--fr",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will France win World Cup Winner?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.00B",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.17,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.83,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-winner--fr"
+  },
+  {
+    "id": "wc26-winner--ar",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Argentina win World Cup Winner?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.00B",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.12,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.88,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-winner--ar"
+  },
+  {
+    "id": "wc26-winner--br",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Brazil win World Cup Winner?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.00B",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.11,
+        "delta24h": 0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.89,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-winner--br"
+  },
+  {
+    "id": "wc26-winner--gb-eng",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will England win World Cup Winner?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.00B",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.09,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.91,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-winner--gb-eng"
+  },
+  {
+    "id": "wc26-winner--de",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Germany win World Cup Winner?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.00B",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.07,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.93,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-winner--de"
+  },
+  {
+    "id": "wc26-winner--pt",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Portugal win World Cup Winner?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.00B",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.06,
+        "delta24h": 0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.94,
+        "delta24h": -0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-winner--pt"
+  },
+  {
+    "id": "wc26-winner--nl",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Netherlands win World Cup Winner?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jul 19, 2026",
+    "volume": "$1.00B",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.05,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.95,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-winner--nl"
+  },
+  {
+    "id": "wc26-grpa-winner--mx",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Mexico win Group A?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$336K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.52,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.48,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/wc26-grpa-winner--mx"
+  },
+  {
+    "id": "wc26-grpa-winner--cz",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Czechia win Group A?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$336K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.22,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.78,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpa-winner--cz"
+  },
+  {
+    "id": "wc26-grpa-winner--nz",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will New Zealand win Group A?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$336K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.15,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.85,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpa-winner--nz"
+  },
+  {
+    "id": "wc26-grpa-winner--ht",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Haiti win Group A?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$336K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.11,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.89,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpa-winner--ht"
+  },
+  {
+    "id": "wc26-grpb-winner--ch",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Switzerland win Group B?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$127K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.55,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.45,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/wc26-grpb-winner--ch"
+  },
+  {
+    "id": "wc26-grpb-winner--ca",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Canada win Group B?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$127K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.29,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.71,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpb-winner--ca"
+  },
+  {
+    "id": "wc26-grpb-winner--dz",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Algeria win Group B?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$127K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.1,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.9,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpb-winner--dz"
+  },
+  {
+    "id": "wc26-grpb-winner--pa",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Panama win Group B?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$127K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.06,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.94,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpb-winner--pa"
+  },
+  {
+    "id": "wc26-grpc-winner--br",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Brazil win Group C?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$292K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.73,
+        "delta24h": 0.03
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.27,
+        "delta24h": -0.03
+      }
+    ],
+    "tradeHref": "/event/wc26-grpc-winner--br"
+  },
+  {
+    "id": "wc26-grpc-winner--ma",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Morocco win Group C?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$292K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.19,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.81,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpc-winner--ma"
+  },
+  {
+    "id": "wc26-grpc-winner--kr",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will South Korea win Group C?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$292K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.05,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.95,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpc-winner--kr"
+  },
+  {
+    "id": "wc26-grpc-winner--py",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Paraguay win Group C?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$292K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.03,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.97,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpc-winner--py"
+  },
+  {
+    "id": "wc26-grpd-winner--us",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will United States win Group D?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$74K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.39,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.61,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/wc26-grpd-winner--us"
+  },
+  {
+    "id": "wc26-grpd-winner--tr",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Türkiye win Group D?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$74K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.36,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.64,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpd-winner--tr"
+  },
+  {
+    "id": "wc26-grpd-winner--sn",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Senegal win Group D?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$74K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.15,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.85,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpd-winner--sn"
+  },
+  {
+    "id": "wc26-grpd-winner--cr",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Costa Rica win Group D?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$74K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.1,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.9,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpd-winner--cr"
+  },
+  {
+    "id": "wc26-grpe-winner--de",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Germany win Group E?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$59K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.68,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.32,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/wc26-grpe-winner--de"
+  },
+  {
+    "id": "wc26-grpe-winner--ec",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Ecuador win Group E?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$59K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.21,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.79,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpe-winner--ec"
+  },
+  {
+    "id": "wc26-grpe-winner--dk",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Denmark win Group E?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$59K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.07,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.93,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpe-winner--dk"
+  },
+  {
+    "id": "wc26-grpe-winner--qa",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Qatar win Group E?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$59K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.04,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.96,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpe-winner--qa"
+  },
+  {
+    "id": "wc26-grpf-winner--nl",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Netherlands win Group F?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$192K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.55,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.45,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/wc26-grpf-winner--nl"
+  },
+  {
+    "id": "wc26-grpf-winner--jp",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Japan win Group F?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$192K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.26,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.74,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpf-winner--jp"
+  },
+  {
+    "id": "wc26-grpf-winner--co",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Colombia win Group F?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$192K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.13,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.87,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpf-winner--co"
+  },
+  {
+    "id": "wc26-grpf-winner--ir",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Iran win Group F?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$192K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.06,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.94,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpf-winner--ir"
+  },
+  {
+    "id": "wc26-grpg-winner--be",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Belgium win Group G?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$80K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.67,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.33,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/wc26-grpg-winner--be"
+  },
+  {
+    "id": "wc26-grpg-winner--eg",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Egypt win Group G?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$80K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.19,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.81,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpg-winner--eg"
+  },
+  {
+    "id": "wc26-grpg-winner--ci",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Ivory Coast win Group G?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$80K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.09,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.91,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpg-winner--ci"
+  },
+  {
+    "id": "wc26-grpg-winner--fi",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Finland win Group G?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$80K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.05,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.95,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpg-winner--fi"
+  },
+  {
+    "id": "wc26-grph-winner--es",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Spain win Group H?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$203K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.78,
+        "delta24h": 0.03
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.22,
+        "delta24h": -0.03
+      }
+    ],
+    "tradeHref": "/event/wc26-grph-winner--es"
+  },
+  {
+    "id": "wc26-grph-winner--uy",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Uruguay win Group H?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$203K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.19,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.81,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grph-winner--uy"
+  },
+  {
+    "id": "wc26-grph-winner--pt",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Portugal win Group H?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$203K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.02,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.98,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grph-winner--pt"
+  },
+  {
+    "id": "wc26-grph-winner--cl",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Chile win Group H?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$203K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.01,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.99,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grph-winner--cl"
+  },
+  {
+    "id": "wc26-grpi-winner--fr",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will France win Group I?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$191K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.69,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.31,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/wc26-grpi-winner--fr"
+  },
+  {
+    "id": "wc26-grpi-winner--no",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Norway win Group I?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$191K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.22,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.78,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpi-winner--no"
+  },
+  {
+    "id": "wc26-grpi-winner--it",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Italy win Group I?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$191K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.06,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.94,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpi-winner--it"
+  },
+  {
+    "id": "wc26-grpi-winner--sa",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Saudi Arabia win Group I?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$191K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.03,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.97,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpi-winner--sa"
+  },
+  {
+    "id": "wc26-grpj-winner--ar",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Argentina win Group J?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$148K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.73,
+        "delta24h": 0.02
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.27,
+        "delta24h": -0.02
+      }
+    ],
+    "tradeHref": "/event/wc26-grpj-winner--ar"
+  },
+  {
+    "id": "wc26-grpj-winner--at",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Austria win Group J?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$148K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.19,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.81,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpj-winner--at"
+  },
+  {
+    "id": "wc26-grpj-winner--uy",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Uruguay win Group J?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$148K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.05,
+        "delta24h": 0
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.95,
+        "delta24h": 0
+      }
+    ],
+    "tradeHref": "/event/wc26-grpj-winner--uy"
+  },
+  {
+    "id": "wc26-grpj-winner--py",
+    "kind": "league-winner",
+    "shape": "binary",
+    "title": "Will Paraguay win Group J?",
+    "league": {
+      "name": "World Cup 2026",
+      "short": "WC"
+    },
+    "endsLabel": "Settles Jun 27, 2026",
+    "volume": "$148K",
+    "volume24h": "$0",
+    "participants": 0,
+    "outcomes": [
+      {
+        "id": "y",
+        "label": "YES",
+        "price": 0.03,
+        "delta24h": -0.01
+      },
+      {
+        "id": "n",
+        "label": "NO",
+        "price": 0.97,
+        "delta24h": 0.01
+      }
+    ],
+    "tradeHref": "/event/wc26-grpj-winner--py"
+  }
+]
