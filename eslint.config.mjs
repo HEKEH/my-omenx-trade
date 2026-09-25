@@ -10,6 +10,17 @@ const eslintConfig = defineConfig([
     files: ["scripts/**/*.cjs"],
     rules: { "@typescript-eslint/no-require-imports": "off" },
   },
+  // The sports page draws its icons with lucide 0.575 (the trade page is pinned to 0.462,
+  // whose icons differ), so sports code must import the aliased package.
+  {
+    files: ["src/modules/sports/**", "src/app/sports/**"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        { paths: [{ name: "lucide-react", message: "Import icons from \"lucide-react-sports\" in sports code." }] },
+      ],
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
