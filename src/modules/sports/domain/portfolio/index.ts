@@ -107,8 +107,11 @@ const markJitter = (tick: number, index: number) => Math.sin((tick + index * 7) 
 
 // Notional first, as on the reference: the multiplication order changes the rounding for
 // decimal margins.
+/** Margin × leverage. */
+export const notionalOf = (row: Pick<PositionRow, "margin" | "leverage">) => row.margin * row.leverage;
+
 const unrealisedPnl = (row: PositionRow, mark: number) => {
-  const notional = row.margin * row.leverage;
+  const notional = notionalOf(row);
   return (mark / 100 - row.entry / 100) * notional * (row.outcome === "yes" ? 1 : -1);
 };
 

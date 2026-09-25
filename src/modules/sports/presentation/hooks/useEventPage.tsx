@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useLayoutEffect, useState, type ReactNode } from "react";
 import { useStore } from "zustand";
 import { createEventPageStore, type EventPageActions, type EventPageState, type EventPageStore } from "../../application/event-page-store";
 import type { SportsMarket } from "../../domain";
@@ -8,25 +8,14 @@ import type { SportsMarket } from "../../domain";
 const EventPageContext = createContext<EventPageStore | null>(null);
 
 /**
- * The reference keeps its route component mounted when you follow a link to another event, so
- * the selection, side and clock carry over while the rows re-seed (dev reference R-12). Next
- * remounts the page instead, so the browser keeps the page store here between client-side
- * navigations; a full load starts fresh, and the server always builds a new one.
+ * Provides the page store for one mounted event page. The event layout keeps the page mounted
+ * across events (dev reference R-12), so a new market re-seeds the same store; the switch runs
+ * before paint so the old market never shows.
  */
-let browserStore: EventPageStore | null = null;
-
-function storeFor(market: SportsMarket): EventPageStore {
-  if (typeof window === "undefined") return createEventPageStore(market);
-  if (!browserStore) browserStore = createEventPageStore(market);
-  else if (browserStore.getState().market.id !== market.id) browserStore.getState().switchMarket(market);
-  return browserStore;
-}
-
-/** Provides the page store for one event page. */
 export function EventPageProvider({ market, children }: { market: SportsMarket; children: ReactNode }) {
-  const [store] = useState(() => storeFor(market));
+  const [store] = useState(() => createEventPageStore(market));
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (store.getState().market.id !== market.id) store.getState().switchMarket(market);
   }, [store, market]);
 

@@ -7,6 +7,7 @@ import {
   delta24hCents,
   isBinaryMarket,
   isDrawOutcome,
+  noCents,
   outcomeColor,
   outcomeName,
   type ChartPosition,
@@ -207,7 +208,7 @@ function OutcomeRow({
               }}
             >
               <span>{side === "yes" ? "YES" : "NO"}</span>
-              <span className="ml-1.5 tabular-nums opacity-80">{side === "yes" ? yes : 100 - yes}¢</span>
+              <span className="ml-1.5 tabular-nums opacity-80">{side === "yes" ? yes : noCents(yes)}¢</span>
             </TradeButton>
           ))}
           <ChevronDown className={cn("h-4 w-4 shrink-0 text-muted-foreground transition-transform", expanded && "rotate-180 text-foreground")} />

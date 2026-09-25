@@ -143,6 +143,35 @@ async function observe(browser, base, id, flow, query = "") {
     assert.deepEqual(mine, ref);
   });
 
+  // The reference keeps its component tree mounted across events, so components' own state
+  // (the table tab, the chart range) survives where the tree has the same shape.
+  await check("local state after following a related event", async () => {
+    const follow = async (base, from) => {
+      const { page } = await openPage(browser, `${base}${from}`);
+      await run(page, "startsWith(regions.positions(), 'History').click();");
+      await run(page, "byText(document, 'Markets')?.click();");
+      await settle(page);
+      await run(page, "byText(regions.outcomes(), '1W').click();");
+      await settle(page);
+      await run(page, "[...regions.related().querySelectorAll('a')][0].click();");
+      await page.waitForFunction((f) => !location.pathname.endsWith(f), { timeout: 15000 }, from);
+      await wait(800);
+      const value = await run(page, `return {
+        path: location.pathname.split('/').pop(),
+        tab: [...regions.positions().children[0].querySelectorAll('button')].find((b) => b.querySelector('.bg-gradient-neon'))?.textContent.trim(),
+        range: [...(regions.outcomes()?.querySelectorAll('button') ?? [])].find((b) => b.className.includes('bg-primary text-primary-foreground'))?.textContent.trim() ?? null,
+      };`);
+      await page.close();
+      return value;
+    };
+    for (const from of ["wc26-usa-par", "liv-new"]) {
+      const ref = await follow(REF, from);
+      const mine = await follow(NEW, from);
+      console.log(`  ${from}: ref ${JSON.stringify(ref)} new ${JSON.stringify(mine)}`);
+      assert.deepEqual(mine, ref);
+    }
+  });
+
   await check("an unknown id shows Event not found", async () => {
     const { page } = await openPage(browser, `${NEW}nope`);
     assert.match(await page.evaluate(() => document.body.innerText), /Event not found/);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Cloud, Timer, Users2 } from "lucide-react-sports";
 import { formatCountdown, preMatchInfo, type SportsMarket } from "../../../domain";
 import { cn } from "../../cn";
@@ -15,13 +15,16 @@ export function PreMatchStrip({ market, className }: { market: SportsMarket; cla
   const info = useMemo(() => preMatchInfo(market), [market]);
   const [remainingMs, setRemainingMs] = useState(info.offsetMs);
 
+  // Like the reference's useState(targetMs), the target is fixed when the strip mounts and is
+  // kept if the page moves to another pre-match event.
+  const firstOffset = useRef(info.offsetMs);
   useEffect(() => {
-    const target = Date.now() + info.offsetMs;
+    const target = Date.now() + firstOffset.current;
     const tick = () => setRemainingMs(target - Date.now());
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, [info.offsetMs]);
+  }, []);
 
   const fixture = market.fixture;
   if (!fixture) return null;

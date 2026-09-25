@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { marketRepository } from "../../infrastructure/repositories";
 import { positionLeagueKey } from "../market";
 import type { PlacedOrder } from "../trade";
-import { applyPlacedOrder, buildSeed, closePosition, livePositions, outcomeTag, positionsOnChart, roe } from ".";
+import { applyPlacedOrder, buildSeed, closePosition, livePositions, notionalOf, outcomeTag, positionsOnChart, roe } from ".";
 
 const market = (id: string) => {
   const found = marketRepository.getById(id);
@@ -70,6 +70,10 @@ describe("live mark jitter and close (BUG-3, BUG-4)", () => {
     const row = { ...liveSeed.positions[1], outcome: "no" as const, entry: 3, margin: 3.3, leverage: 5 };
     // Reference: (0.04 − 0.03) × 16.5 × −1 × 100 = −16.500000000000004 → −0.17.
     expect(closePosition(row, 1, 0)).toMatchObject({ mark: 4, pnl: -0.17 });
+  });
+
+  it("a position's notional is margin × leverage", () => {
+    expect(notionalOf(liveSeed.positions[0])).toBe(180);
   });
 
   it("ROE is PnL over margin, 0 without margin", () => {

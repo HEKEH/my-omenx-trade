@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FEE_RATE, parseTpSlInput, previewTpSlPnl, validateTpSl, type OrderRow, type PositionRow } from "../../../domain";
+import { feeOn, notionalOf, parseTpSlInput, previewTpSlPnl, validateTpSl, type OrderRow, type PositionRow } from "../../../domain";
 import { cn } from "../../cn";
 import {
   AlertDialog,
@@ -126,10 +126,10 @@ export function EditTpslDialog({
   const [sl, setSl] = useState(row.sl != null ? String(row.sl) : "");
   const tpNum = parseTpSlInput(tp);
   const slNum = parseTpSlInput(sl);
-  const notional = row.margin * row.leverage;
+  const notional = notionalOf(row);
   const input = { side: row.outcome, entry: row.entry, liq: row.liq, leverage: row.leverage, tp: tpNum, sl: slNum };
   const validation = validateTpSl(input);
-  const preview = previewTpSlPnl({ ...input, notional, fee: notional * FEE_RATE });
+  const preview = previewTpSlPnl({ ...input, notional, fee: feeOn(notional) });
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>

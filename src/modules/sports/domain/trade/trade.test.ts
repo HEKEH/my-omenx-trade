@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { marketRepository } from "../../infrastructure/repositories";
-import { buildPlacedOrder, ctaLabel, deriveTicket, formCta, orderProblem, parseMarginInput, parseTpSlInput, quickMargin, quoteOrder, REFERENCE_FORM_BALANCE } from ".";
+import { buildPlacedOrder, feeOn, ctaLabel, deriveTicket, formCta, orderProblem, parseMarginInput, parseTpSlInput, quickMargin, quoteOrder, REFERENCE_FORM_BALANCE } from ".";
 
 const market = (id: string) => {
   const found = marketRepository.getById(id);
@@ -65,6 +65,10 @@ describe("quoteOrder (dev reference §5.7, TradeForm.tsx:74-90)", () => {
 
   it("zero margin quotes to zero", () => {
     expect(quoteOrder({ ...base, margin: 0, leverage: 5 })).toMatchObject({ notional: 0, shares: 0, fee: 0, pnlAtSettle: 0, liq: 0 });
+  });
+
+  it("the fee is 0.2% of notional", () => {
+    expect([feeOn(300), feeOn(0)]).toEqual([0.6, 0]);
   });
 
   it("the page never passes a balance, so the form uses 5000 (BUG-1)", () => {

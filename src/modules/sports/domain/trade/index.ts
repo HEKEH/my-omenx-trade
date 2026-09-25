@@ -1,4 +1,4 @@
-import { cents, needsSideToggle, outcomeAlias, outcomeName, type Outcome, type SportsMarket } from "../market";
+import { cents, needsSideToggle, noCents, outcomeAlias, outcomeName, type Outcome, type SportsMarket } from "../market";
 
 export type YesNo = "yes" | "no";
 export type OrderSide = "buy" | "sell";
@@ -6,6 +6,8 @@ export type OrderType = "market" | "limit";
 
 /** Taker fee on notional (reference TradeForm.tsx:78). */
 export const FEE_RATE = 0.002;
+/** Fee on a notional. */
+export const feeOn = (notional: number) => notional * FEE_RATE;
 export const LEVERAGE_MIN = 1;
 export const LEVERAGE_MAX = 20;
 export const DEFAULT_MARGIN = 100;
@@ -39,7 +41,7 @@ export function deriveTicket({ market, outcomeId, side }: { market: SportsMarket
 
   const formOutcome: YesNo = toggle ? side : isBinary ? (selected.id === market.outcomes[0]?.id ? "yes" : "no") : "yes";
   const formLabel = toggle ? `${outcomeAlias(selected)} ${side === "yes" ? "YES" : "NO"}` : outcomeName(selected);
-  const formPrice = toggle ? (side === "yes" ? yesCents : 100 - yesCents) : yesCents;
+  const formPrice = toggle ? (side === "yes" ? yesCents : noCents(yesCents)) : yesCents;
   return { selected, needsSideToggle: toggle, formOutcome, formLabel, formPrice };
 }
 
@@ -74,7 +76,7 @@ export function quoteOrder(input: {
   const px = type === "market" ? price : Number(limitInput) || price;
   const notional = margin * leverage;
   const shares = px > 0 ? notional / (px / 100) : 0;
-  const fee = notional * FEE_RATE;
+  const fee = feeOn(notional);
   const pnlAtSettle = (1 - px / 100) * notional - fee;
   let liq = 0;
   if (!(leverage <= 1 || notional <= 0)) {

@@ -6,6 +6,7 @@ import {
   isBinaryMarket,
   isDrawOutcome,
   marketKindLabel,
+  noCents,
   outcomeColor,
   needsSideToggle,
   outcomeAlias,
@@ -26,6 +27,10 @@ describe("market rules (dev reference §5.2, §5.5)", () => {
     // 0.285 × 100 is 28.499… in floating point, as on the reference.
     expect(cents(0.285)).toBe(28);
     expect(cents(0.005)).toBe(1);
+  });
+
+  it("the NO side is priced at 100 − the YES cents", () => {
+    expect([noCents(48), noCents(1), noCents(99)]).toEqual([52, 99, 1]);
   });
 
   it("binary = exactly two outcomes; a side toggle from three", () => {

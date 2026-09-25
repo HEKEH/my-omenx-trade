@@ -8,6 +8,9 @@ export type LeagueKey = "epl" | "laliga" | "ucl" | "seriea" | "mls" | "nba" | "w
 /** A 0..1 price as whole cents. */
 export const cents = (price: number) => Math.round(price * 100);
 
+/** Price of the NO side, in cents, for a YES price in cents. */
+export const noCents = (yesCents: number) => 100 - yesCents;
+
 /** Exactly two outcomes: each outcome is a side of the same market. */
 export const isBinaryMarket = (market: SportsMarket) => market.outcomes.length === 2;
 

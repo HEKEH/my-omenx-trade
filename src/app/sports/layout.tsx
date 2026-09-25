@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono, Sora } from "next/font/google";
+import { SPORTS_OG_IMAGE } from "@/modules/sports/presentation/seo";
 import { SportsToaster } from "@/modules/sports/presentation/ui/sonner";
 import "./sports.css";
 
@@ -18,10 +19,13 @@ const instrumentSerif = Instrument_Serif({
 const description =
   "OmenX Sports is a sports platform showcasing live and upcoming events with interactive features.";
 
+// Same head tags as the reference's root route (__root.tsx:74-89).
 export const metadata: Metadata = {
   title: "OmenX | Sports",
   description,
-  openGraph: { title: "OmenX | Sports", description, type: "website" },
+  authors: [{ name: "Lovable" }],
+  openGraph: { title: "OmenX | Sports", description, type: "website", images: SPORTS_OG_IMAGE },
+  twitter: { card: "summary", site: "@Lovable", title: "OmenX | Sports", description, images: SPORTS_OG_IMAGE },
 };
 
 export default function SportsLayout({ children }: LayoutProps<"/sports">) {

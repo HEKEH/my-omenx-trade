@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { cents, needsSideToggle, outcomeAlias, type SportsMarket, type YesNo } from "../../../domain";
+import { cents, needsSideToggle, noCents, outcomeAlias, type SportsMarket, type YesNo } from "../../../domain";
 import { cn } from "../../cn";
 
 /**
@@ -82,7 +82,7 @@ export function TradeOutcomePicker({
                 className={cn("flex items-center justify-between gap-3 rounded-lg px-2.5 py-1.5 text-left transition", chipClass(s === side))}
               >
                 <span className="font-mono text-[10px] uppercase tracking-widest">{s === "yes" ? "Yes" : "No"}</span>
-                <span className="font-display text-sm font-semibold tabular-nums">{s === "yes" ? yesCents : 100 - yesCents}¢</span>
+                <span className="font-display text-sm font-semibold tabular-nums">{s === "yes" ? yesCents : noCents(yesCents)}¢</span>
               </button>
             ))}
           </div>

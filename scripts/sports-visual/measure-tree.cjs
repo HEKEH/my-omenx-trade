@@ -58,9 +58,12 @@ const snapshot = () => {
   const walk = (node) => {
     const r = node.getBoundingClientRect();
     const s = getComputedStyle(node);
+    // A looping animation (ping, pulse) changes the transform and opacity with time, so its box
+    // and effects depend on when the page is sampled.
+    const looping = node.getAnimations().some((a) => a.effect?.getTiming().iterations === Infinity);
     const out = {
       tag: node.tagName.toLowerCase(),
-      box: `${round(r.x - origin.x)},${round(r.y - origin.y)} ${round(r.width)}x${round(r.height)}`,
+      box: looping && s.transform !== "none" ? "animated" : `${round(r.x - origin.x)},${round(r.y - origin.y)} ${round(r.width)}x${round(r.height)}`,
       font: `${s.fontFamily.split(",")[0]} ${s.fontSize}/${s.lineHeight} ${s.fontWeight} ${s.fontStyle} ${s.letterSpacing} ${s.textTransform}`,
       color: rgba(s.color),
       bg: s.backgroundImage !== "none" ? colours(s.backgroundImage) : rgba(s.backgroundColor),
@@ -68,7 +71,7 @@ const snapshot = () => {
       radius: s.borderRadius.replace(/3\.35544e\+07px/g, "9999px"),
       spacing: `p ${s.padding} gap ${s.gap}`,
       layout: `${s.display} ${s.flexDirection} ${s.alignItems} ${s.justifyContent} ${s.textAlign}`,
-      effects: node.getAnimations().some((a) => a.effect?.getTiming().iterations === Infinity)
+      effects: looping
         ? "animated"
         : `${shadows(s.boxShadow)} op ${s.opacity} ${s.filter} ${s.backdropFilter}`,
       text: [...node.childNodes].filter((child) => child.nodeType === 3).map((child) => child.textContent).join("").trim().slice(0, 60),
@@ -148,11 +151,25 @@ async function capture(page, region) {
 (async () => {
   const browser = await launch();
   let total = 0;
+  const measure = (page, region) => capture(page, region).catch((err) => ({ error: err.message.split("\n")[0] }));
+  // Without an action nothing changes the page, so one load per side serves every region.
+  const loaded = { ref: {}, new: {} };
+  if (!action) {
+    for (const [name, url] of pages(id)) {
+      const { page } = await openPage(browser, url, { width, height });
+      for (const region of wanted) loaded[name][region] = await measure(page, region);
+      await page.close();
+    }
+  }
   for (const region of wanted) {
     const trees = {};
     for (const [name, url] of pages(id)) {
+      if (!action) {
+        trees[name] = loaded[name][region];
+        continue;
+      }
       const { page } = await openPage(browser, url, { width, height });
-      trees[name] = await capture(page, region).catch((err) => ({ error: err.message.split("\n")[0] }));
+      trees[name] = await measure(page, region);
       await page.close();
     }
     if (!trees.ref || !trees.new || trees.ref.error || trees.new.error) {
