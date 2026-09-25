@@ -1,6 +1,7 @@
 // Measures the trade page layout frame on the reference (:8080) and the replica (:3000).
 const puppeteer = require(process.env.PUPPETEER_CORE || "puppeteer-core");
 const { emulateReferenceFonts } = require("./ref-fonts.cjs");
+const { attachReferenceBackend } = require("./ref-backend.cjs");
 
 const CHROME = "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const viewports = (process.argv[2] || "1440x900,1920x1080").split(",").map((v) => v.split("x").map(Number));
@@ -70,6 +71,7 @@ const probe = () => {
       const errors = [];
       page.on("console", (msg) => ["error", "warn"].includes(msg.type()) && errors.push(`${msg.type()}: ${msg.text().slice(0, 160)}`));
       page.on("pageerror", (err) => errors.push(`pageerror: ${err.message.slice(0, 160)}`));
+      await attachReferenceBackend(page, url);
       await page.goto(url, { waitUntil: "networkidle2", timeout: 60000 });
       await emulateReferenceFonts(page, url);
       await page.waitForFunction(() => !document.body.innerText.includes("Loading events"), { timeout: 30000 }).catch(() => {});

@@ -2,6 +2,7 @@
 // panel sits under a blurred auth gate; the blur is removed before measuring (R-1).
 const puppeteer = require(process.env.PUPPETEER_CORE || "puppeteer-core");
 const { emulateReferenceFonts } = require("./ref-fonts.cjs");
+const { attachReferenceBackend } = require("./ref-backend.cjs");
 
 const CHROME = "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const [width, height] = (process.argv[2] || "1440x900").split("x").map(Number);
@@ -64,6 +65,7 @@ const probe = () => {
   for (const [name, base] of [["ref", "http://localhost:8080/trade"], ["new", "http://localhost:3000/trade"]]) {
     const page = await browser.newPage();
     await page.setViewport({ width, height });
+    await attachReferenceBackend(page, base);
     await page.goto(base, { waitUntil: "networkidle2" });
     await emulateReferenceFonts(page, base);
     await page.waitForFunction(() => document.body.innerText.includes("Current Orders"), { timeout: 30000 });

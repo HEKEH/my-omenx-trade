@@ -119,7 +119,9 @@ export function LimitPriceInput({ value, onChange }: { value: string; onChange: 
           type="text"
           value={value}
           onChange={(event) => onChange(event.target.value)}
-          className="flex-1 bg-transparent outline-hidden font-mono text-sm"
+          // min-w-0: next/font's variable JetBrains Mono reports a wider average glyph than the
+          // reference's static files, so the input's intrinsic width would overflow the row by 7px.
+          className="flex-1 min-w-0 bg-transparent outline-hidden font-mono text-sm"
           placeholder="0.0000"
         />
         <span className="text-muted-foreground text-xs">USDC</span>
@@ -152,7 +154,8 @@ export function SizeInput({
           type="text"
           value={value}
           onChange={(event) => onChange(event.target.value)}
-          className="flex-1 bg-transparent outline-hidden font-mono text-sm"
+          // min-w-0: see the price input above.
+          className="flex-1 min-w-0 bg-transparent outline-hidden font-mono text-sm"
           placeholder="0.00"
         />
         {mode === "amount" && <span className="text-muted-foreground text-xs font-medium">USDC</span>}

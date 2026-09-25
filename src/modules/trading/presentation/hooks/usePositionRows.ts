@@ -74,7 +74,9 @@ export function useOrderRows(): OrderRowView[] {
         const listing = listingFor(listings, order.eventName);
         return {
           order,
-          displayOption: listing ? displayOptionLabel(order.optionLabel, listing.market) : order.optionLabel,
+          // The reference's orders table reads rows without display aliases, so a binary
+          // order shows its raw label ("No", not the team name) there and in its dialogs (E-37).
+          displayOption: order.optionLabel,
           outcome: binaryOutcome(order.optionLabel),
           sideLabels: listing?.market.sideLabels,
           listing,

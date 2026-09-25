@@ -33,6 +33,21 @@ Set `REF_FONTS=1` to render the replica in the fonts the reference actually
 shows (system sans-serif instead of Inter, dev reference E-33 / A-12). Any
 difference left then is not caused by the font.
 
+- `measure-tree.cjs [WxH] [region,...]` — node-by-node comparison of whole
+  regions and overlays (header, chips, chart, book, form, panel, risk, cancel,
+  close, tpsl, detail, preview, dropdown, indicator): box, spacing, typography,
+  colours, borders, shadows, own text and SVG path data. `MAX_DIFFS` caps the
+  lines printed per region.
+
+Set `REF_BACKEND=1` to compare against the same data: the reference is logged in
+as the replica's mock user and its Supabase REST reads are answered from the
+replica's seed (`dump-seed.ts`), while the replica starts frozen. Google Fonts
+requests are cached in `scripts/visual/.cache/` (git-ignored) so the reference's
+fonts load reliably. See `ref-backend.cjs` for the details, including the
+workaround for the reference's duplicate realtime channels (dev reference E-36).
+
+The usual full run: `REF_BACKEND=1 REF_FONTS=1 node scripts/visual/measure-tree.cjs 1440x900`.
+
 Behaviour checks on the replica (each also fails on console errors or hydration
 warnings):
 

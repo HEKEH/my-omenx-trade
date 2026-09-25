@@ -4,7 +4,7 @@
 // tell font-caused deltas from real ones (A-12 keeps Inter in the product).
 const emulateReferenceFonts = async (page, url) => {
   if (!process.env.REF_FONTS || !url.includes(":3000")) return;
-  await page.addStyleTag({ content: "html { --font-inter: sans-serif !important; }" });
+  await page.addStyleTag({ content: "body, .font-sans { font-family: sans-serif !important; }" });
   await page.evaluate(() => document.fonts.ready);
 };
 

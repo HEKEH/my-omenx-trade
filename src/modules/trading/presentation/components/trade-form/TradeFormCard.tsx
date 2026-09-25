@@ -175,6 +175,8 @@ export function TradeFormCard({ listing, market, option }: TradeFormCardProps) {
           side={side}
           preview={preview}
           marginMode={form.marginMode}
+          // Amount mode echoes the input like the reference; qty mode shows the amount it converts to (E-34).
+          amountText={form.inputMode === "amount" ? form.size : preview.ticket.amount.toFixed(2)}
           onConfirm={confirm}
           submitting={submitting}
         />

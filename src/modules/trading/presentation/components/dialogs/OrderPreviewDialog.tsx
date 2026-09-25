@@ -24,6 +24,8 @@ interface OrderPreviewDialogProps {
   side: OrderSide;
   preview: OrderFormPreview;
   marginMode: string;
+  /** "Order cost" as the reference shows it: the amount as typed. */
+  amountText: string;
   onConfirm: () => void;
   submitting: boolean;
 }
@@ -57,6 +59,7 @@ export function OrderPreviewDialog({
   side,
   preview,
   marginMode,
+  amountText,
   onConfirm,
   submitting,
 }: OrderPreviewDialogProps) {
@@ -76,7 +79,9 @@ export function OrderPreviewDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-2xl gap-4 p-5">
         <DialogHeader>
-          <DialogTitle>Order Preview</DialogTitle>
+          {/* mb-0: v4's space-y gives the title a bottom margin for the hidden description
+              below; v3 put it on the description, where it had no effect (R-6 ⑦). */}
+          <DialogTitle className="mb-0">Order Preview</DialogTitle>
           <DialogDescription className="sr-only">
             Review the trade, notional values, margin requirement, and position impact before confirming.
           </DialogDescription>
@@ -124,7 +129,7 @@ export function OrderPreviewDialog({
             <FieldCard
               title="Notional"
               fields={[
-                { label: "Order cost", value: usdc(ticket.amount) },
+                { label: "Order cost", value: `${amountText} USDC` },
                 { label: "Traded notional", value: usdc(cost.notional) },
                 { label: "Opening notional", value: usdc(intent.openingNotional) },
                 { label: "Margin required", value: usdc(cost.margin), highlight: true },

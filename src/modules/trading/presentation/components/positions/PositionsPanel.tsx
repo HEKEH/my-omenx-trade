@@ -47,8 +47,19 @@ function EventHoverCard({ eventName, onGo }: { eventName: string; onGo: () => vo
   );
 }
 
-function SideBadge({ side, outcome, label }: { side: "long" | "short"; outcome: "yes" | "no" | null; label: string }) {
-  if (outcome) return <span className="text-xs text-muted-foreground/40">—</span>;
+function SideBadge({
+  side,
+  outcome,
+  label,
+  dashClass = "text-xs",
+}: {
+  side: "long" | "short";
+  outcome: "yes" | "no" | null;
+  label: string;
+  /** The reference's orders table leaves the dash at the cell's 16px; positions use text-xs. */
+  dashClass?: string;
+}) {
+  if (outcome) return <span className={`${dashClass} text-muted-foreground/40`.trim()}>—</span>;
   return (
     <span
       className={`px-2 py-0.5 rounded text-xs font-medium ${
@@ -94,7 +105,7 @@ function OrdersTable({ rows, onGo, onCancel }: { rows: OrderRowView[]; onGo: (ev
                   <EventHoverCard eventName={order.eventName} onGo={() => row.listing && onGo(row.listing.market.id)} />
                 </td>
                 <td className="px-4 py-2">
-                  <SideBadge side={toSide(order.side)} outcome={row.outcome} label={directionLabel(toSide(order.side), row.sideLabels)} />
+                  <SideBadge side={toSide(order.side)} outcome={row.outcome} label={directionLabel(toSide(order.side), row.sideLabels)} dashClass="" />
                 </td>
                 <td className="px-4 py-2 text-sm">{order.orderType}</td>
                 <td className="px-4 py-2 text-sm font-mono text-right">{formatPrice(order.price)}</td>

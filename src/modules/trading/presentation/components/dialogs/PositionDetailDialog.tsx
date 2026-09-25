@@ -74,8 +74,11 @@ function DetailContent({ row }: { row: PositionRowView }) {
         )}
       </div>
 
+      {/* The reference's mb-1 / mt-3 on the children had no effect under Tailwind 3's space-y
+          (higher specificity); v4's :where() space-y lets them win, so they are dropped here to
+          keep both gaps at 6px (R-6 ⑦). */}
       <div className="rounded-lg border border-border bg-muted/30 p-3 space-y-1.5">
-        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1">
+        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
           Net unrealized PnL
           <Tooltip>
             <TooltipTrigger asChild>
@@ -93,7 +96,7 @@ function DetailContent({ row }: { row: PositionRowView }) {
             {detail.pnlPercent.toFixed(2)}%)
           </span>
         </div>
-        <div className="mt-3 grid grid-cols-2 gap-y-1.5 text-xs">
+        <div className="grid grid-cols-2 gap-y-1.5 text-xs">
           <span className="text-muted-foreground">Price PnL</span>
           <span className={cn("font-mono text-right", detail.pricePnl >= 0 ? "text-trading-green" : "text-trading-red")}>
             {signed(detail.pricePnl)}
