@@ -8,11 +8,23 @@ import type { SportsMarket } from "../../domain";
 const EventPageContext = createContext<EventPageStore | null>(null);
 
 /**
- * One page store per mounted event page. When the route's market changes while the page
- * stays mounted, the store re-seeds for the new market (reference event.$id.tsx:339-344).
+ * The reference keeps its route component mounted when you follow a link to another event, so
+ * the selection, side and clock carry over while the rows re-seed (dev reference R-12). Next
+ * remounts the page instead, so the browser keeps the page store here between client-side
+ * navigations; a full load starts fresh, and the server always builds a new one.
  */
+let browserStore: EventPageStore | null = null;
+
+function storeFor(market: SportsMarket): EventPageStore {
+  if (typeof window === "undefined") return createEventPageStore(market);
+  if (!browserStore) browserStore = createEventPageStore(market);
+  else if (browserStore.getState().market.id !== market.id) browserStore.getState().switchMarket(market);
+  return browserStore;
+}
+
+/** Provides the page store for one event page. */
 export function EventPageProvider({ market, children }: { market: SportsMarket; children: ReactNode }) {
-  const [store] = useState(() => createEventPageStore(market));
+  const [store] = useState(() => storeFor(market));
 
   useEffect(() => {
     if (store.getState().market.id !== market.id) store.getState().switchMarket(market);
@@ -30,7 +42,7 @@ export function useEventPage<T>(selector: (state: EventPageState & EventPageActi
   return useStore(store, selector);
 }
 
-/** One tick per second after mount (the positions' mark jitter; frozen by the visual scripts, R-3). */
+/** One tick per second while the page is shown (the positions' mark jitter; frozen by the visual scripts, R-3). */
 function useTicker(store: EventPageStore) {
   useEffect(() => {
     const id = setInterval(() => store.getState().advanceTick(), 1000);

@@ -5,6 +5,8 @@ import { selectTicket, selectTradeSide } from "../application/event-page-store";
 import type { EventPageData } from "../application/use-cases";
 import { livePositions, positionsOnChart } from "../domain";
 import { OutcomesPanel } from "./components/outcomes/OutcomesPanel";
+import { PositionsTable } from "./components/positions/PositionsTable";
+import { RelatedMarketsBar } from "./components/related/RelatedMarketsBar";
 import { LiveTape } from "./components/tape/LiveTape";
 import { TradeForm } from "./components/trade/TradeForm";
 import { TradeOutcomePicker } from "./components/trade/TradeOutcomePicker";
@@ -37,6 +39,10 @@ function EventPageLayout({ data }: { data: EventPageData }) {
   const selectOutcome = useEventPage((s) => s.selectOutcome);
   const buyFromRow = useEventPage((s) => s.buyFromRow);
   const closePosition = useEventPage((s) => s.closePosition);
+  const orders = useEventPage((s) => s.orders);
+  const history = useEventPage((s) => s.history);
+  const cancelOrder = useEventPage((s) => s.cancelOrder);
+  const updateTpsl = useEventPage((s) => s.updateTpsl);
   const selectOutcomeById = useEventPage((s) => s.selectOutcomeById);
   const setSide = useEventPage((s) => s.setSide);
   const placeOrder = useEventPage((s) => s.placeOrder);
@@ -115,7 +121,17 @@ function EventPageLayout({ data }: { data: EventPageData }) {
         </div>
       </div>
 
-      <div className="space-y-5 px-6 pb-28 md:px-8 lg:pb-12" />
+      <div className="space-y-5 px-6 pb-28 md:px-8 lg:pb-12">
+        <RelatedMarketsBar markets={data.related} />
+        <PositionsTable
+          positions={live}
+          orders={orders}
+          history={history}
+          onClosePosition={(index) => showNotice(closePosition(index))}
+          onCancelOrder={(index) => showNotice(cancelOrder(index))}
+          onUpdateTpsl={(index, next) => showNotice(updateTpsl(index, next))}
+        />
+      </div>
     </SportsShell>
   );
 }

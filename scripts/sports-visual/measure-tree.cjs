@@ -7,7 +7,7 @@
 // Regions: see common.cjs. Actions open an overlay or change state before measuring:
 //   menu (user menu), popover (live-delay info), markets (Markets stage tab), expand (second
 //   outcome row), range1w (chart range), limit, tpsl, lev5, tpslerr / tpslok (TP/SL inputs),
-//   submit (order toast), orders, history, close, cancel, edit.
+//   submit (order toast), orders, history, close, cancel, edit, locktip (voucher TP/SL tooltip).
 const { launch, openPage, settle, pages, locators } = require("./common.cjs");
 
 const [id = "wc26-usa-par", size = "1440x900", regionArg = "topbar,hero", ...flags] = process.argv.slice(2);
@@ -31,7 +31,6 @@ const actions = `
     orders: () => clickText(regions.positions(), /^Open Orders/),
     history: () => clickText(regions.positions(), /^History/),
     close: () => clickText(regions.positions(), /^Close$/),
-    cancel: () => { clickText(regions.positions(), /^Open Orders/); },
     edit: () => regions.positions().querySelector("tbody tr button").click(),
   };
 `;
@@ -116,6 +115,17 @@ async function capture(page, region) {
     const inputs = await page.$$("input[inputmode=decimal]");
     await inputs[0].type("60");
     await inputs[1].type("40");
+  } else if (action === "cancel") {
+    await page.evaluate(() => window.__actions.orders());
+    await settle(page);
+    await page.evaluate(() => [...window.__regions.positions().querySelectorAll("button")].find((b) => b.textContent.trim() === "Cancel").click());
+    await page.waitForSelector("[role=alertdialog]");
+    await new Promise((resolve) => setTimeout(resolve, 300));
+  } else if (action === "locktip") {
+    await page.bringToFront();
+    await page.hover("[aria-label='TP/SL not available']");
+    await page.waitForSelector("[data-radix-popper-content-wrapper]");
+    await new Promise((resolve) => setTimeout(resolve, 400));
   } else if (action === "submit") {
     await page.evaluate(() => [...window.__regions.form().querySelectorAll("button")].pop().click());
     await page.waitForSelector("[data-sonner-toast]");
