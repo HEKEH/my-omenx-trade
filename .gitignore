@@ -51,4 +51,5 @@ PROJECT_MAP.md
 tsconfig.tsbuildinfo
 
 *.bak
+out.json
 scripts/visual/.cache/

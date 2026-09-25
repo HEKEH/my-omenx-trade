@@ -8,11 +8,11 @@
       "Glob",
       "Grep",
       "WebFetch",
-      "WebSearch"
-    ],
-    "ask": [
-      "Bash(rm *)",
-      "Bash(rmdir *)"
+      "WebSearch",
+      "Bash(cat)",
+      "Bash(cp /tmp/v.ts ./v-tmp.ts)",
+      "Bash(pnpm dlx *)",
+      "Bash(pnpm dev *)"
     ],
     "deny": [
       "Bash(sudo *)",
@@ -25,11 +25,15 @@
       "Bash(git reset --hard *)",
       "Bash(git clean *)"
     ],
+    "ask": [
+      "Bash(rm *)",
+      "Bash(rmdir *)"
+    ],
+    "defaultMode": "acceptEdits",
     "additionalDirectories": [
       "/private/tmp",
       "/tmp"
-    ],
-    "defaultMode": "acceptEdits"
+    ]
   },
   "sandbox": {
     "enabled": true,
