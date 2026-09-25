@@ -11,13 +11,19 @@ const eslintConfig = defineConfig([
     rules: { "@typescript-eslint/no-require-imports": "off" },
   },
   // The sports page draws its icons with lucide 0.575 (the trade page is pinned to 0.462,
-  // whose icons differ), so sports code must import the aliased package.
+  // whose icons differ) and its toasts with sonner 2.0.7 (2.0.8 widens the toast text), so
+  // sports code must import the aliased packages.
   {
     files: ["src/modules/sports/**", "src/app/sports/**"],
     rules: {
       "no-restricted-imports": [
         "error",
-        { paths: [{ name: "lucide-react", message: "Import icons from \"lucide-react-sports\" in sports code." }] },
+        {
+          paths: [
+            { name: "lucide-react", message: "Import icons from \"lucide-react-sports\" in sports code." },
+            { name: "sonner", message: "Import toasts from \"sonner-sports\" (sonner 2.0.7, as on the reference) in sports code." },
+          ],
+        },
       ],
     },
   },

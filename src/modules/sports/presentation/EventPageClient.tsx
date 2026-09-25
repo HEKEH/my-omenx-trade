@@ -1,11 +1,14 @@
 "use client";
 
-import { useMemo } from "react";
-import { selectTradeSide } from "../application/event-page-store";
+import { useEffect, useMemo } from "react";
+import { selectTicket, selectTradeSide } from "../application/event-page-store";
 import type { EventPageData } from "../application/use-cases";
 import { livePositions, positionsOnChart } from "../domain";
 import { OutcomesPanel } from "./components/outcomes/OutcomesPanel";
 import { LiveTape } from "./components/tape/LiveTape";
+import { TradeForm } from "./components/trade/TradeForm";
+import { TradeOutcomePicker } from "./components/trade/TradeOutcomePicker";
+import { cn } from "./cn";
 import { EventHeader } from "./components/header/EventHeader";
 import { SportsShell } from "./components/shell/SportsShell";
 import { SportsTopBar } from "./components/shell/SportsTopBar";
@@ -34,6 +37,21 @@ function EventPageLayout({ data }: { data: EventPageData }) {
   const selectOutcome = useEventPage((s) => s.selectOutcome);
   const buyFromRow = useEventPage((s) => s.buyFromRow);
   const closePosition = useEventPage((s) => s.closePosition);
+  const selectOutcomeById = useEventPage((s) => s.selectOutcomeById);
+  const setSide = useEventPage((s) => s.setSide);
+  const placeOrder = useEventPage((s) => s.placeOrder);
+  const pulseKey = useEventPage((s) => s.pulseKey);
+  const endPulse = useEventPage((s) => s.endPulse);
+  const formOutcome = useEventPage((s) => selectTicket(s).formOutcome);
+  const formLabel = useEventPage((s) => selectTicket(s).formLabel);
+  const formPrice = useEventPage((s) => selectTicket(s).formPrice);
+
+  // The pulse plays once per row buy (reference event.$id.tsx:481-485).
+  useEffect(() => {
+    if (pulseKey === 0) return;
+    const t = setTimeout(endPulse, 700);
+    return () => clearTimeout(t);
+  }, [pulseKey, endPulse]);
 
   const live = useMemo(() => livePositions(positions, tick), [positions, tick]);
   const chartPositions = useMemo(() => positionsOnChart(live, market), [live, market]);
@@ -81,7 +99,20 @@ function EventPageLayout({ data }: { data: EventPageData }) {
           <LiveTape market={market} />
         </div>
 
-        <div className="space-y-3 lg:sticky lg:top-20 lg:self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:pr-1 lg:[scrollbar-gutter:stable]" />
+        <div className="space-y-3 lg:sticky lg:top-20 lg:self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto lg:pr-1 lg:[scrollbar-gutter:stable]">
+          <div className="rounded-2xl border border-border bg-surface p-3 shadow-card lg:sticky lg:top-0 lg:z-10">
+            <TradeOutcomePicker market={market} outcomeId={selectedId} onOutcomeChange={selectOutcomeById} side={tradeSide} onSideChange={setSide} />
+          </div>
+          {/* Remounted per outcome and side, so the inputs start over (reference event.$id.tsx:634). */}
+          <TradeForm
+            key={`${market.id}-${selectedId}-${tradeSide}`}
+            className={cn(pulseKey > 0 && "animate-trade-pulse")}
+            outcome={formOutcome}
+            outcomeLabel={formLabel}
+            price={formPrice}
+            onPlaceOrder={placeOrder}
+          />
+        </div>
       </div>
 
       <div className="space-y-5 px-6 pb-28 md:px-8 lg:pb-12" />

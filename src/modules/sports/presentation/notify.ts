@@ -1,4 +1,4 @@
-import { toast } from "sonner";
+import { toast } from "sonner-sports";
 import type { Notice } from "../application/event-page-store";
 
 /** Shows a store action's notice as a toast (success styling or the plain default). */

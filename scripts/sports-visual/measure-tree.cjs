@@ -6,7 +6,8 @@
 //
 // Regions: see common.cjs. Actions open an overlay or change state before measuring:
 //   menu (user menu), popover (live-delay info), markets (Markets stage tab), expand (second
-//   outcome row), range1w (chart range), limit, tpsl, lev5, orders, history, close, cancel, edit.
+//   outcome row), range1w (chart range), limit, tpsl, lev5, tpslerr / tpslok (TP/SL inputs),
+//   submit (order toast), orders, history, close, cancel, edit.
 const { launch, openPage, settle, pages, locators } = require("./common.cjs");
 
 const [id = "wc26-usa-par", size = "1440x900", regionArg = "topbar,hero", ...flags] = process.argv.slice(2);
@@ -97,7 +98,29 @@ const noAnimations = (page) =>
 
 async function capture(page, region) {
   await page.evaluate(new Function(`${locators}; ${actions}; window.__regions = regions; window.__actions = actions;`));
-  if (action) {
+  // Actions that need the keyboard run from here rather than in the page.
+  if (action === "lev5") {
+    await page.focus("[role=slider]");
+    for (let i = 0; i < 4; i++) await page.keyboard.press("ArrowRight");
+  } else if (action === "tpslerr") {
+    await page.evaluate(() => window.__regions.form().querySelector("button[role=switch]").click());
+    await settle(page);
+    const inputs = await page.$$("input[inputmode=decimal]");
+    await inputs[0].type("10");
+    await inputs[1].type("90");
+  } else if (action === "tpslok") {
+    await page.focus("[role=slider]");
+    for (let i = 0; i < 2; i++) await page.keyboard.press("ArrowRight");
+    await page.evaluate(() => window.__regions.form().querySelector("button[role=switch]").click());
+    await settle(page);
+    const inputs = await page.$$("input[inputmode=decimal]");
+    await inputs[0].type("60");
+    await inputs[1].type("40");
+  } else if (action === "submit") {
+    await page.evaluate(() => [...window.__regions.form().querySelectorAll("button")].pop().click());
+    await page.waitForSelector("[data-sonner-toast]");
+    await new Promise((resolve) => setTimeout(resolve, 600));
+  } else if (action) {
     // Menu / popover triggers need a real pointer (Radix listens to pointerdown).
     const trigger = await page.evaluateHandle((name) => window.__actions[name](), action);
     if (trigger.asElement()) {

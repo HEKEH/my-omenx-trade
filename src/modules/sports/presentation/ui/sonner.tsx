@@ -1,7 +1,7 @@
 "use client";
 
 import type * as React from "react";
-import { Toaster as Sonner } from "sonner";
+import { Toaster as Sonner } from "sonner-sports";
 
 // Same options as the reference's toaster: sonner's default position and theme, plus the
 // group classes that tint toasts with the page tokens.
