@@ -56,9 +56,9 @@ describe("chart position overlay (CombinedPriceChart.tsx:134-149)", () => {
       ],
       live,
     );
-    expect(rows.map((r) => [r.outcomeId, r.outcomeIndex, r.yChart])).toEqual([
-      ["d", 1, 68],
-      ["h", 0, 44],
+    expect(rows.map((r) => [r.outcomeId, r.outcomeIndex, r.yChart, r.topPct])).toEqual([
+      ["d", 1, 68, 32],
+      ["h", 0, 44, 56],
     ]);
   });
 });

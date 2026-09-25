@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { marketRepository } from "../../infrastructure/repositories";
-import { formatAgo, nextFill, seededRandom, seedTape, TAPE_ROWS } from ".";
+import { ageTape, formatAgo, injectFill, nextFill, seededRandom, seedTape, TAPE_ROWS, type Fill } from ".";
 
 const market = (id: string) => marketRepository.getById(id)!;
 
@@ -30,13 +30,32 @@ describe("live tape seed (dev reference §5.6)", () => {
 
   it("injected fills draw in the same order and start at 1s", () => {
     const live = market("wc26-usa-par");
-    const fill = nextFill(seededRandom(123), live, "live-1");
+    const fill = nextFill(seededRandom(123), live, "live-1")!;
     const r = seededRandom(123);
     const outcomeIdx = Math.floor(r() * 3);
     r(); // price jitter
     expect(fill).toMatchObject({ id: "live-1", outcomeIdx, agoSec: 1 });
     expect(fill.price).toBeGreaterThanOrEqual(1);
     expect(fill.size).toBeGreaterThanOrEqual(10);
+  });
+
+  it("a negative seed (Date.now() | 0 today) draws an outcome index of −1: no fill, one draw used (BUG-11)", () => {
+    const r = seededRandom(-649759879);
+    expect(nextFill(r, market("wc26-usa-par"), "live-1")).toBeNull();
+    // Only the outcome draw was consumed.
+    const fresh = seededRandom(-649759879);
+    fresh();
+    expect(r()).toBe(fresh());
+  });
+
+  it("each second every fill ages by one; injected fills go on top and the list keeps its length", () => {
+    const fills = seedTape(market("wc26-usa-par"));
+    expect(ageTape(fills).map((f) => f.agoSec)).toEqual(fills.map((f) => f.agoSec + 1));
+    const fresh: Fill = { ...fills[0], id: "live-9", agoSec: 1 };
+    const next = injectFill(fills, fresh);
+    expect(next).toHaveLength(TAPE_ROWS);
+    expect(next[0]).toBe(fresh);
+    expect(next.at(-1)).toBe(fills[6]);
   });
 
   it("ages read as s / m / h, at least 1s", () => {

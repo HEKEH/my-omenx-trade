@@ -50,6 +50,8 @@ export interface OverlayRow extends ChartPosition {
   outcomeIndex: number;
   /** Entry on the chart's YES axis: NO entries plot at 100 − entry. */
   yChart: number;
+  /** Distance of the rail from the top of the plot, in percent. */
+  topPct: number;
 }
 
 /** Chart overlay rows, top-down so overlapping chips read in order (CombinedPriceChart.tsx:134-149). */
@@ -58,7 +60,8 @@ export function chartOverlay(positions: readonly ChartPosition[], market: Sports
     .map((p) => {
       const outcomeIndex = market.outcomes.findIndex((o) => o.id === p.outcomeId);
       if (outcomeIndex < 0) return null;
-      return { ...p, outcomeIndex, yChart: p.side === "yes" ? p.entry : 100 - p.entry };
+      const yChart = p.side === "yes" ? p.entry : 100 - p.entry;
+      return { ...p, outcomeIndex, yChart, topPct: Math.max(0, Math.min(100, 100 - yChart)) };
     })
     .filter((row): row is OverlayRow => row !== null)
     .sort((a, b) => b.yChart - a.yChart);

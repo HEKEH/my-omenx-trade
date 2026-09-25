@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { marketRepository } from "../../infrastructure/repositories";
-import { buildPlacedOrder, ctaLabel, deriveTicket, orderProblem, quickMargin, quoteOrder, REFERENCE_FORM_BALANCE } from ".";
+import { buildPlacedOrder, ctaLabel, deriveTicket, formCta, orderProblem, parseMarginInput, parseTpSlInput, quickMargin, quoteOrder, REFERENCE_FORM_BALANCE } from ".";
 
 const market = (id: string) => {
   const found = marketRepository.getById(id);
@@ -77,6 +77,16 @@ describe("CTA and submit checks (TradeForm.tsx:116-164)", () => {
   it("shows leverage only above 1×, price rounded", () => {
     expect(ctaLabel({ side: "buy", label: "USA YES", leverage: 1, px: 48 })).toBe("Buy USA YES @ 48¢");
     expect(ctaLabel({ side: "sell", label: "Draw NO", leverage: 5, px: 70.6 })).toBe("Sell Draw NO 5× @ 71¢");
+  });
+
+  it("the button asks to fix TP/SL while there is an error (TradeForm.tsx:120)", () => {
+    expect(formCta({ hasTpSlError: true, base: "Buy USA YES @ 48¢" })).toBe("Fix TP / SL");
+    expect(formCta({ hasTpSlError: false, base: "Buy USA YES @ 48¢" })).toBe("Buy USA YES @ 48¢");
+  });
+
+  it("parses inputs like the form: empty TP/SL is unset, anything else goes through Number; margin falls back to 0", () => {
+    expect(["", "12", "abc", " 7 "].map(parseTpSlInput)).toEqual([null, 12, Number.NaN, 7]);
+    expect(["", "150", "abc", "-5"].map(parseMarginInput)).toEqual([0, 150, 0, -5]);
   });
 
   it("reports the first problem: TP/SL, then margin, then balance", () => {

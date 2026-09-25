@@ -27,6 +27,31 @@ export const isDrawOutcome = (outcome: Outcome) => !outcome.team && (outcome.lab
 export const delta24hCents = (outcome: Outcome) =>
   typeof outcome.delta24h === "number" ? Math.round(outcome.delta24h * 100) : 0;
 
+/**
+ * Palette for outcomes without an inferable hue, distinguishable when many lines overlap
+ * (reference CombinedPriceChart.tsx FALLBACK_PALETTE).
+ */
+const FALLBACK_PALETTE = [
+  "oklch(0.72 0.18 250)",
+  "oklch(0.78 0.18 155)",
+  "oklch(0.78 0.18 60)",
+  "oklch(0.7 0.22 25)",
+  "oklch(0.72 0.2 305)",
+  "oklch(0.78 0.16 195)",
+  "oklch(0.78 0.15 110)",
+  "oklch(0.74 0.18 340)",
+];
+
+/** Colour of an outcome on the chart, the list and the overlay (CombinedPriceChart.tsx:92-99). */
+export function outcomeColor(outcome: Outcome, index: number): string {
+  if (outcome.team) return `oklch(0.72 0.2 ${outcome.team.hue})`;
+  const label = outcome.label.toUpperCase();
+  if (label === "YES") return "oklch(0.78 0.18 155)";
+  if (label === "NO") return "oklch(0.7 0.22 25)";
+  if (label === "DRAW" || outcome.meta === "X") return "oklch(0.85 0.17 85)";
+  return FALLBACK_PALETTE[index % FALLBACK_PALETTE.length];
+}
+
 /** Question-heading category (reference EventQuestionHeading.tsx getMarketKindLabel). */
 export function marketKindLabel(market: SportsMarket): string {
   if (market.kindLabel) return market.kindLabel;

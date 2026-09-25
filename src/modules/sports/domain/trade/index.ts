@@ -94,6 +94,15 @@ export function ctaLabel({ side, label, leverage, px }: { side: OrderSide; label
   return leverage > 1 ? `${action} ${label} ${leverage}× @ ${Math.round(px)}¢` : `${action} ${label} @ ${Math.round(px)}¢`;
 }
 
+/** The submit button reads "Fix TP / SL" while a target is invalid (TradeForm.tsx:120). */
+export const formCta = ({ hasTpSlError, base }: { hasTpSlError: boolean; base: string }) => (hasTpSlError ? "Fix TP / SL" : base);
+
+/** TP / SL inputs: empty is unset, anything else goes through Number (so "abc" is NaN, out of range). */
+export const parseTpSlInput = (value: string): number | null => (value === "" ? null : Number(value));
+
+/** Margin input: anything that is not a number (or is 0) reads as 0. */
+export const parseMarginInput = (value: string): number => Number(value) || 0;
+
 export type OrderProblem = "tpsl" | "no-margin" | "insufficient";
 
 /** The first reason a submit is refused (reference TradeForm.tsx:122-137). */

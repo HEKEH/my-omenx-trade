@@ -66,6 +66,12 @@ describe("live mark jitter and close (BUG-3, BUG-4)", () => {
     expect(closePosition(liveSeed.positions[0], 0, 5)).toMatchObject({ mark: 45, pnl: 1.8 });
   });
 
+  it("multiplies by notional (margin × leverage) in the reference's order, which matters for decimal margins", () => {
+    const row = { ...liveSeed.positions[1], outcome: "no" as const, entry: 3, margin: 3.3, leverage: 5 };
+    // Reference: (0.04 − 0.03) × 16.5 × −1 × 100 = −16.500000000000004 → −0.17.
+    expect(closePosition(row, 1, 0)).toMatchObject({ mark: 4, pnl: -0.17 });
+  });
+
   it("ROE is PnL over margin, 0 without margin", () => {
     expect(roe(1.8, 60)).toBeCloseTo(3, 12);
     expect(roe(5, 0)).toBe(0);

@@ -6,6 +6,7 @@ import {
   isBinaryMarket,
   isDrawOutcome,
   marketKindLabel,
+  outcomeColor,
   needsSideToggle,
   outcomeAlias,
   outcomeName,
@@ -53,6 +54,16 @@ describe("market rules (dev reference §5.2, §5.5)", () => {
     const [usa, draw, par] = market("wc26-usa-par").outcomes;
     expect([delta24hCents(usa), delta24hCents(draw), delta24hCents(par)]).toEqual([3, 0, -3]);
     expect(delta24hCents({ id: "x", label: "X", price: 0.5 })).toBe(0);
+  });
+
+  it("outcome colours: team hue, then YES / NO / draw, then the palette by index (CombinedPriceChart.tsx:81-99)", () => {
+    const [usa, draw] = market("wc26-usa-par").outcomes;
+    expect(outcomeColor(usa, 0)).toBe(`oklch(0.72 0.2 ${usa.team!.hue})`);
+    expect(outcomeColor(draw, 1)).toBe("oklch(0.85 0.17 85)");
+    expect(outcomeColor({ id: "y", label: "Yes", price: 0.5 }, 0)).toBe("oklch(0.78 0.18 155)");
+    expect(outcomeColor({ id: "n", label: "no", price: 0.5 }, 1)).toBe("oklch(0.7 0.22 25)");
+    expect(outcomeColor({ id: "x", label: "Kane", price: 0.5 }, 2)).toBe("oklch(0.78 0.18 60)");
+    expect(outcomeColor({ id: "x", label: "Kane", price: 0.5 }, 9)).toBe("oklch(0.78 0.18 155)");
   });
 
   it("kind label: explicit kindLabel, else by kind", () => {

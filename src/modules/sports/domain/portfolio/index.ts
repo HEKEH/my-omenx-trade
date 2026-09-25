@@ -105,8 +105,12 @@ export function buildSeed(market: SportsMarket, league: PositionLeagueKey): Port
 /** Mark offset for row `index` at `tick` (one tick per second). */
 const markJitter = (tick: number, index: number) => Math.sin((tick + index * 7) / 3) * 1.4;
 
-const unrealisedPnl = (row: PositionRow, mark: number) =>
-  (mark / 100 - row.entry / 100) * row.margin * row.leverage * (row.outcome === "yes" ? 1 : -1);
+// Notional first, as on the reference: the multiplication order changes the rounding for
+// decimal margins.
+const unrealisedPnl = (row: PositionRow, mark: number) => {
+  const notional = row.margin * row.leverage;
+  return (mark / 100 - row.entry / 100) * notional * (row.outcome === "yes" ? 1 : -1);
+};
 
 /**
  * Positions with a live mark that swings around each row's entry, not the market price
