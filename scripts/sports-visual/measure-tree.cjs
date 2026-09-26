@@ -6,7 +6,7 @@
 //
 // Regions: see common.cjs. Actions open an overlay or change state before measuring:
 //   menu (user menu), popover (live-delay info), markets (Markets stage tab), expand (second
-//   outcome row), range1w (chart range), limit, tpsl, lev5, tpslerr / tpslok (TP/SL inputs),
+//   outcome row), marketsexpand (both, for live events), range1w (chart range), limit, tpsl, lev5, tpslerr / tpslok (TP/SL inputs),
 //   submit (order toast), orders, history, close, cancel, edit, locktip (voucher TP/SL tooltip).
 const { launch, openPage, settle, pages, locators } = require("./common.cjs");
 
@@ -118,6 +118,12 @@ async function capture(page, region) {
     const inputs = await page.$$("input[inputmode=decimal]");
     await inputs[0].type("60");
     await inputs[1].type("40");
+  } else if (action === "marketsexpand") {
+    // Live events show the outcome rows under the Markets stage tab.
+    await page.evaluate(() => window.__actions.markets());
+    await settle(page);
+    await page.evaluate(() => window.__actions.expand());
+    await new Promise((resolve) => setTimeout(resolve, 300));
   } else if (action === "cancel") {
     await page.evaluate(() => window.__actions.orders());
     await settle(page);
