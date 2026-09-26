@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowLeftRight, ChevronDown, ChevronUp, Plus } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import type { OrderType, TpSlMode } from "../../../domain";
 import { formatBalance } from "../../format";
+import { useDismiss } from "../../hooks/useDismiss";
 import type { TpSlPreview } from "../../hooks/useOrderPreview";
 import type { InputMode } from "../../stores/tradeFormStore";
 
@@ -14,8 +15,10 @@ const PERCENT_LABELS = ["0%", "25%", "50%", "75%", "100%"];
 /** Only cross margin is supported; isolated is shown as unavailable. */
 export function MarginModeSelect({ value }: { value: "Cross" }) {
   const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useDismiss([ref], open, () => setOpen(false));
   return (
-    <div className="flex items-center justify-between relative">
+    <div ref={ref} className="flex items-center justify-between relative">
       <span className="text-xs text-muted-foreground">Margin Mode</span>
       <button
         type="button"

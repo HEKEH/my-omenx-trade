@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type KeyboardEvent } from "react";
+import { useState, type KeyboardEvent, type Ref } from "react";
 import { Search, Star } from "lucide-react";
 import type { MarketListing } from "../../../application";
 import { formatDate } from "../../format";
@@ -12,13 +12,14 @@ interface EventSelectorProps {
   favorites: readonly string[];
   onSelect: (eventId: string) => void;
   onToggleFavorite: (eventId: string) => void;
+  ref?: Ref<HTMLDivElement>;
 }
 
 const starClass = (active: boolean) =>
   `w-4 h-4 transition-colors ${active ? "text-trading-yellow fill-trading-yellow" : "text-muted-foreground hover:text-trading-yellow"}`;
 
 /** The header's event dropdown: search, favourites filter and the event list. */
-export function EventSelector({ listings, selectedEventId, favorites, onSelect, onToggleFavorite }: EventSelectorProps) {
+export function EventSelector({ listings, selectedEventId, favorites, onSelect, onToggleFavorite, ref }: EventSelectorProps) {
   const [query, setQuery] = useState("");
   const [favoritesOnly, setFavoritesOnly] = useState(false);
   const events = filterEvents(listings, { query, favoritesOnly, favorites });
@@ -36,7 +37,7 @@ export function EventSelector({ listings, selectedEventId, favorites, onSelect, 
   };
 
   return (
-    <div className="absolute left-0 top-full mt-2 z-50 bg-background border border-border rounded-lg shadow-xl w-[500px]">
+    <div ref={ref} className="absolute left-0 top-full mt-2 z-50 bg-background border border-border rounded-lg shadow-xl w-[500px]">
       <div className="p-3 border-b border-border/30">
         <div className="flex items-center gap-2 bg-muted rounded-lg px-3 py-2">
           <Search className="w-4 h-4 text-muted-foreground" />

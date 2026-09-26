@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { stepDecimals, withDepth, type OrderSide } from "../../../domain";
 import { formatInteger } from "../../format";
+import { useDismiss } from "../../hooks/useDismiss";
 import { useOrderBook, type BookRow } from "../../hooks/useOrderBook";
 import { useTradeFormActions } from "../../hooks/useTrade";
 import { MarkPriceBadge } from "../MarkPriceBadge";
@@ -79,6 +80,8 @@ export function OrderBookCard({ optionId, side }: { optionId: string | undefined
   const [viewMode, setViewMode] = useState<ViewMode>("both");
   const [step, setStep] = useState<(typeof PRICE_STEPS)[number]>("0.0001");
   const [stepOpen, setStepOpen] = useState(false);
+  const stepRef = useRef<HTMLDivElement>(null);
+  useDismiss([stepRef], stepOpen, () => setStepOpen(false));
   const book = useOrderBook(optionId, side, Number(step));
   const form = useTradeFormActions();
   const decimals = stepDecimals(Number(step));
@@ -122,7 +125,7 @@ export function OrderBookCard({ optionId, side }: { optionId: string | undefined
                 </button>
               ))}
             </div>
-            <div className="relative">
+            <div ref={stepRef} className="relative">
               <button
                 type="button"
                 onClick={() => setStepOpen((open) => !open)}

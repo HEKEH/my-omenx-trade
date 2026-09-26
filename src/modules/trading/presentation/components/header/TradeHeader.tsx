@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowLeft, ChevronDown, Star } from "lucide-react";
 import { toast } from "sonner";
 import type { MarketListing } from "../../../application";
 import type { Market, OutcomeOption } from "../../../domain";
 import { useCountdown } from "../../hooks/useCountdown";
+import { useDismiss } from "../../hooks/useDismiss";
 import { useMarketStats } from "../../hooks/useMarketStats";
 import { useTrade, useTradeActions } from "../../hooks/useTrade";
 import { EventSelector } from "./EventSelector";
@@ -24,6 +25,9 @@ interface TradeHeaderProps {
 
 export function TradeHeader({ listing, market, option, onSelectEvent, showBack = false, onBack }: TradeHeaderProps) {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  useDismiss([triggerRef, panelRef], open, () => setOpen(false));
   const countdown = useCountdown(market.endTime);
   const stats = useMarketStats(market.id);
   const listings = useTrade((state) => state.listings);
@@ -51,6 +55,7 @@ export function TradeHeader({ listing, market, option, onSelectEvent, showBack =
 
       <div className="flex items-center gap-3 flex-1 min-w-0 relative">
         <button
+          ref={triggerRef}
           type="button"
           onClick={() => setOpen((value) => !value)}
           className="flex items-center gap-2 min-w-0 hover:bg-muted/30 rounded-lg p-1 transition-colors"
@@ -74,6 +79,7 @@ export function TradeHeader({ listing, market, option, onSelectEvent, showBack =
 
         {open && (
           <EventSelector
+            ref={panelRef}
             listings={listings}
             selectedEventId={market.id}
             favorites={favorites}
