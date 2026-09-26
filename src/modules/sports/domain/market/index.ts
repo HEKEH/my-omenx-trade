@@ -14,6 +14,9 @@ export const noCents = (yesCents: number) => 100 - yesCents;
 /** Exactly two outcomes: each outcome is a side of the same market. */
 export const isBinaryMarket = (market: SportsMarket) => market.outcomes.length === 2;
 
+/** In play now: streamed, with a fixture and a score (the page shows the live stage). */
+export const isLiveMarket = (market: SportsMarket) => Boolean(market.isLiveStream && market.fixture && market.liveScore);
+
 /** Three or more outcomes: each is its own YES/NO sub-market. */
 export const needsSideToggle = (market: SportsMarket) => market.outcomes.length >= 3;
 

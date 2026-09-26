@@ -3,7 +3,7 @@
 import { useEffect, useMemo } from "react";
 import { selectTicket, selectTradeSide } from "../application/event-page-store";
 import type { EventPageData } from "../application/use-cases";
-import { livePositions, positionsOnChart } from "../domain";
+import { isLiveMarket, livePositions, positionsOnChart } from "../domain";
 import { OutcomesPanel } from "./components/outcomes/OutcomesPanel";
 import { PositionsTable } from "./components/positions/PositionsTable";
 import { RelatedMarketsBar } from "./components/related/RelatedMarketsBar";
@@ -61,7 +61,7 @@ function EventPageLayout({ data }: { data: EventPageData }) {
 
   const live = useMemo(() => livePositions(positions, tick), [positions, tick]);
   const chartPositions = useMemo(() => positionsOnChart(live, market), [live, market]);
-  const isLive = Boolean(market.isLiveStream && market.fixture && market.liveScore);
+  const isLive = isLiveMarket(market);
   const isPreMatch = !isLive && Boolean(market.fixture);
 
   const outcomes = (

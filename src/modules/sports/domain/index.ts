@@ -9,3 +9,4 @@ export * from "./series";
 export * from "./tape";
 export * from "./prematch";
 export * from "./related";
+export * from "./live-price";

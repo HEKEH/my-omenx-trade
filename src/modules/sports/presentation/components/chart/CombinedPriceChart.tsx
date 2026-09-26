@@ -1,14 +1,21 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { X } from "lucide-react-sports";
+import { ChartCandlestick, ChartLine, X } from "lucide-react-sports";
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import {
+  buildCandles,
+  CANDLE_INTERVAL_SECONDS,
+  CANDLE_INTERVALS,
+  CANDLE_WINDOW,
   CHART_RANGES,
   chartOverlay,
+  DEFAULT_CANDLE_INTERVAL,
   DEFAULT_CHART_RANGE,
+  isLiveMarket,
   outcomeColor,
   priceSeries,
+  type CandleInterval,
   type ChartPosition,
   type ChartRange,
   type OverlayRow,
@@ -16,11 +23,16 @@ import {
 } from "../../../domain";
 import { cn } from "../../cn";
 import { formatChipPnl, formatInteger } from "../../format";
+import { useLiveTrades } from "../../hooks/useLiveTrades";
+import { LiveCandleChart, type CandlePriceLine } from "./LiveCandleChart";
+
+type ChartMode = "line" | "candles";
 
 /**
  * Every outcome's price history on one chart, with range pills, a clickable legend and a
  * TradingView-style overlay of open positions (dev reference §5.5, reference
- * event/CombinedPriceChart.tsx).
+ * event/CombinedPriceChart.tsx). Candles mode (§11, not on the reference) shows the
+ * highlighted outcome's simulated live price at 1s–1m; the legend picks the outcome.
  */
 export function CombinedPriceChart({
   market,
@@ -39,6 +51,16 @@ export function CombinedPriceChart({
   className?: string;
 }) {
   const [range, setRange] = useState<ChartRange>(DEFAULT_CHART_RANGE);
+  const [mode, setMode] = useState<ChartMode>("line");
+  const [candleInterval, setCandleInterval] = useState<CandleInterval>(DEFAULT_CANDLE_INTERVAL);
+  const charted = market.outcomes.find((o) => o.id === highlightedOutcomeId) ?? market.outcomes[0];
+  const seedKey = `${market.id}:${charted.id}`;
+  const intervalSec = CANDLE_INTERVAL_SECONDS[candleInterval];
+  const feed = useLiveTrades({ seedKey, basePrice: charted.price * 100, live: isLiveMarket(market), enabled: mode === "candles" });
+  const candles = useMemo(
+    () => (feed.now ? buildCandles(feed.trades, { intervalSec, endMs: feed.now, count: CANDLE_WINDOW, fallbackPrice: charted.price * 100 }) : []),
+    [feed, intervalSec, charted.price],
+  );
 
   const { data, perOutcome } = useMemo(() => {
     const series = priceSeries(market, range).map((s) => ({ ...s, color: outcomeColor(market.outcomes[s.outcomeIndex], s.outcomeIndex) }));
@@ -58,76 +80,132 @@ export function CombinedPriceChart({
       })),
     [positions, market],
   );
+  // Positions on the charted outcome, on its YES axis (a NO entry plots at 100 − entry).
+  const priceLines = useMemo<CandlePriceLine[]>(
+    () =>
+      overlay
+        .filter((row) => row.outcomeId === charted.id)
+        .map((row) => ({
+          key: String(row.index),
+          price: row.yChart,
+          color: row.color,
+          title: `${row.side === "yes" ? "YES" : "NO"} ${formatChipPnl(row.pnl)}`,
+        })),
+    [overlay, charted.id],
+  );
 
   return (
     <div className={cn("rounded-2xl border border-border bg-surface p-5 shadow-card", className)}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Price history</div>
-          <div className="mt-1 font-display text-sm text-foreground/80">All outcomes</div>
+          <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">{mode === "line" ? "Price history" : "Live price"}</div>
+          <div className="mt-1 font-display text-sm text-foreground/80">
+            {mode === "line" ? (
+              "All outcomes"
+            ) : (
+              <>
+                {perOutcome.find((s) => s.id === charted.id)?.label}
+                <span className="ml-2 rounded bg-white/[0.06] px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-widest text-muted-foreground">
+                  Simulated
+                </span>
+              </>
+            )}
+          </div>
         </div>
-        <div className="flex items-center gap-1 rounded-full bg-white/[0.04] p-1 ring-1 ring-white/5">
-          {CHART_RANGES.map((r) => (
-            <button
-              key={r}
-              type="button"
-              onClick={() => setRange(r)}
-              className={cn(
-                "rounded-full px-2.5 py-0.5 font-mono text-[11px] transition-colors",
-                range === r ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground",
-              )}
-            >
-              {r}
-            </button>
-          ))}
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-0.5 rounded-full bg-white/[0.04] p-1 ring-1 ring-white/5">
+            {(
+              [
+                ["line", ChartLine, "Line chart"],
+                ["candles", ChartCandlestick, "Candles"],
+              ] as const
+            ).map(([m, Icon, label]) => (
+              <button
+                key={m}
+                type="button"
+                onClick={() => setMode(m)}
+                aria-label={label}
+                aria-pressed={mode === m}
+                title={label}
+                className={cn(
+                  "grid h-[22px] w-7 place-items-center rounded-full transition-colors",
+                  mode === m ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                <Icon className="h-3.5 w-3.5" />
+              </button>
+            ))}
+          </div>
+          <div className="flex items-center gap-1 rounded-full bg-white/[0.04] p-1 ring-1 ring-white/5">
+            {(mode === "line" ? CHART_RANGES : CANDLE_INTERVALS).map((r) => {
+              const active = mode === "line" ? range === r : candleInterval === r;
+              return (
+                <button
+                  key={r}
+                  type="button"
+                  onClick={() => (mode === "line" ? setRange(r as ChartRange) : setCandleInterval(r as CandleInterval))}
+                  className={cn(
+                    "rounded-full px-2.5 py-0.5 font-mono text-[11px] transition-colors",
+                    active ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground",
+                  )}
+                >
+                  {r}
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
       <div className="mt-4 h-56 w-full">
-        <div className="relative h-full w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={data} margin={{ left: 0, right: 8, top: 8, bottom: 0 }}>
-              <XAxis dataKey="t" hide />
-              <YAxis domain={[0, 100]} hide />
-              <Tooltip
-                cursor={{ stroke: "var(--muted-foreground)", strokeDasharray: "3 3" }}
-                contentStyle={{
-                  background: "var(--surface-elevated)",
-                  border: "1px solid var(--border)",
-                  borderRadius: 12,
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 11,
-                }}
-                labelStyle={{ color: "var(--muted-foreground)" }}
-                formatter={(v: number, name: string) => [`${Math.round(v)}¢`, perOutcome.find((s) => s.id === name)?.label ?? name]}
-                labelFormatter={() => ""}
-              />
-              {perOutcome.map((s) => {
-                const dimmed = highlightedOutcomeId && highlightedOutcomeId !== s.id;
-                return (
-                  <Line
-                    key={s.id}
-                    type="monotone"
-                    dataKey={s.id}
-                    stroke={s.color}
-                    strokeWidth={dimmed ? 1.25 : 2.25}
-                    strokeOpacity={dimmed ? 0.45 : 1}
-                    dot={false}
-                    isAnimationActive={false}
-                  />
-                );
-              })}
-            </LineChart>
-          </ResponsiveContainer>
-          {/* Sits over the plot; top 8px matches the chart's top margin so the rails line up. */}
-          {overlay.length > 0 && (
-            <div className="pointer-events-none absolute inset-x-0" style={{ top: 8, bottom: 0, right: 8 }}>
-              {overlay.map((row) => (
-                <PositionOverlayRow key={row.index} row={row} onClose={onClosePosition ? () => onClosePosition(row.index) : undefined} />
-              ))}
-            </div>
-          )}
-        </div>
+        {mode === "candles" ? (
+          <LiveCandleChart candles={candles} dataKey={`${seedKey}:${candleInterval}`} intervalSec={intervalSec} priceLines={priceLines} />
+        ) : (
+          <div className="relative h-full w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={data} margin={{ left: 0, right: 8, top: 8, bottom: 0 }}>
+                <XAxis dataKey="t" hide />
+                <YAxis domain={[0, 100]} hide />
+                <Tooltip
+                  cursor={{ stroke: "var(--muted-foreground)", strokeDasharray: "3 3" }}
+                  contentStyle={{
+                    background: "var(--surface-elevated)",
+                    border: "1px solid var(--border)",
+                    borderRadius: 12,
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 11,
+                  }}
+                  labelStyle={{ color: "var(--muted-foreground)" }}
+                  formatter={(v: number, name: string) => [`${Math.round(v)}¢`, perOutcome.find((s) => s.id === name)?.label ?? name]}
+                  labelFormatter={() => ""}
+                />
+                {perOutcome.map((s) => {
+                  const dimmed = highlightedOutcomeId && highlightedOutcomeId !== s.id;
+                  return (
+                    <Line
+                      key={s.id}
+                      type="monotone"
+                      dataKey={s.id}
+                      stroke={s.color}
+                      strokeWidth={dimmed ? 1.25 : 2.25}
+                      strokeOpacity={dimmed ? 0.45 : 1}
+                      dot={false}
+                      isAnimationActive={false}
+                    />
+                  );
+                })}
+              </LineChart>
+            </ResponsiveContainer>
+            {/* Sits over the plot; top 8px matches the chart's top margin so the rails line up. */}
+            {overlay.length > 0 && (
+              <div className="pointer-events-none absolute inset-x-0" style={{ top: 8, bottom: 0, right: 8 }}>
+                {overlay.map((row) => (
+                  <PositionOverlayRow key={row.index} row={row} onClose={onClosePosition ? () => onClosePosition(row.index) : undefined} />
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
