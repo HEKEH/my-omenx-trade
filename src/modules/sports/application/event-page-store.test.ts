@@ -138,4 +138,29 @@ describe("portfolio actions (dev reference §5.9)", () => {
     expect(state.orders).toHaveLength(2);
     expect(state.selectedIdx).toBe(2);
   });
+
+  // Reference effect on [selected?.id, isBinaryEvent] (event.$id.tsx:306-308).
+  it("switching market keeps a NO side while the selected id stays the same", () => {
+    const store = createEventPageStore(market("wc26-usa-par"));
+    store.getState().setSide("no");
+    store.getState().switchMarket(market("che-psg-2025-ucl"));
+    expect(selectTradeSide(store.getState())).toBe("no");
+  });
+
+  it("switching market resets the side when the selected id changes", () => {
+    const store = createEventPageStore(market("mci-ars"));
+    store.getState().setSide("no");
+    store.getState().switchMarket(market("epl-winner-25-26"));
+    expect(store.getState().market.outcomes[0].id).toBe("mci");
+    expect(selectTradeSide(store.getState())).toBe("yes");
+  });
+
+  it("switching from a binary to a 3+ outcome market resets the side even on the same id", () => {
+    const store = createEventPageStore(market("mci-ars"));
+    store.getState().setSide("no");
+    store.getState().switchMarket(market("ars-new"));
+    store.getState().switchMarket(market("mci-ars"));
+    expect(selectTradeSide(store.getState())).toBe("yes");
+    expect(selectTicket(store.getState())).toMatchObject({ formOutcome: "yes", formLabel: "MCI YES", formPrice: 48 });
+  });
 });

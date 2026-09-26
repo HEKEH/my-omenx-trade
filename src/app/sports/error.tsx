@@ -2,8 +2,9 @@
 
 import { SportsShell } from "@/modules/sports/presentation/components/shell/SportsShell";
 
-// Render errors on the event page (reference event.$id.tsx:83-102). The reference's reset plus
-// router.invalidate is what Next's retry() does (dev reference R-14).
+// Render errors on the event page (reference event.$id.tsx:83-102). It sits above the event
+// layout, which renders the page tree (EventHost), so the boundary wraps it. The reference's
+// reset plus router.invalidate is what Next's retry() does (dev reference R-14).
 export default function EventError({ error, retry }: { error: Error & { digest?: string }; retry: () => void }) {
   return (
     <SportsShell>

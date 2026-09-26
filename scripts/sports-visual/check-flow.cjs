@@ -143,6 +143,29 @@ async function observe(browser, base, id, flow, query = "") {
     assert.deepEqual(mine, ref);
   });
 
+  // The reference resets the 3+ outcome side when the event turns from binary into 3+ outcomes,
+  // even when the selected outcome id ("h") is the same on both.
+  await check("a NO side through a binary event and back resets to YES", async () => {
+    const roundTrip = async (base) => {
+      const { page } = await openPage(browser, `${base}mci-ars`);
+      await run(page, "[...regions.picker().querySelectorAll('button')].find((b) => b.textContent.startsWith('No')).click();");
+      await settle(page);
+      const before = await run(page, "return cta();");
+      for (const next of ["ars-new", "mci-ars"]) {
+        await run(page, `[...regions.related().querySelectorAll('a')].find((a) => a.getAttribute('href').endsWith('/${next}')).click();`);
+        await page.waitForFunction((n) => location.pathname.endsWith(`/${n}`), { timeout: 15000 }, next);
+        await wait(800);
+      }
+      const value = { before, after: await run(page, "return cta();") };
+      await page.close();
+      return value;
+    };
+    const ref = await roundTrip(REF);
+    const mine = await roundTrip(NEW);
+    console.log(`  ref ${JSON.stringify(ref)}\n  new ${JSON.stringify(mine)}`);
+    assert.deepEqual(mine, ref);
+  });
+
   // The reference keeps its component tree mounted across events, so components' own state
   // (the table tab, the chart range) survives where the tree has the same shape.
   await check("local state after following a related event", async () => {

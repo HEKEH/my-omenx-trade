@@ -150,9 +150,13 @@ export function createEventPageStore(market: SportsMarket): EventPageStore {
       },
       switchMarket: (nextMarket) =>
         set((state) => {
-          // The selection index survives; the side resets if the selected outcome's id changes.
+          // The selection index survives. Like the reference's effect on [selected?.id,
+          // isBinaryEvent], the side resets if the selected outcome's id changes or the market
+          // turns from binary into 3+ outcomes (a NO left from an earlier 3+ market survives a
+          // binary one, whose side is its selected outcome).
           const nextId = (nextMarket.outcomes[state.selectedIdx] ?? nextMarket.outcomes[0]).id;
-          const resetSide = !isBinaryMarket(nextMarket) && nextId !== selectedOutcome(state).id;
+          const resetSide =
+            !isBinaryMarket(nextMarket) && (isBinaryMarket(state.market) || nextId !== selectedOutcome(state).id);
           return { ...seeded(nextMarket), multiSide: resetSide ? "yes" : state.multiSide };
         }),
     };
