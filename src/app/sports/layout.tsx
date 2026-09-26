@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono, Sora } from "next/font/google";
+import { CodeInspectorEntry } from "@/components/CodeInspectorEntry";
 import { SPORTS_OG_IMAGE } from "@/modules/sports/presentation/seo";
 import { SportsToaster } from "@/modules/sports/presentation/ui/sonner";
 import "./sports.css";
@@ -34,6 +35,7 @@ export default function SportsLayout({ children }: LayoutProps<"/sports">) {
       <body>
         {children}
         <SportsToaster />
+        <CodeInspectorEntry />
       </body>
     </html>
   );

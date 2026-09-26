@@ -8,8 +8,9 @@ const nextConfig: NextConfig = {
     rules: codeInspectorPlugin({
       bundler: "turbopack",
       editor: "code",
-      // App Router pages are server components; inject the overlay into a browser-side entry
-      injectTo: path.resolve(__dirname, "src/instrumentation-client.ts"),
+      // Inject the overlay into a client component every root layout renders. Without it the
+      // plugin injects only into the first file it compiles, so one root layout had no overlay.
+      injectTo: path.resolve(__dirname, "src/components/CodeInspectorEntry.tsx"),
     }),
   },
 };
